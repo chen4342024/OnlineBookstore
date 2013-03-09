@@ -1,4 +1,4 @@
-package com.searchEngine.entity;
+ï»¿package com.searchEngine.entity;
 
 import java.util.UUID;
 
@@ -14,10 +14,10 @@ public class KeyWord {
 	private String keyword_id; //UUID
 	@Column(length=100)
 	private String keyword_content; 
-	private int keyword_status; //1±íÊ¾´Ë¹Ø¼ü×ÖÎªÏµÍ³¹Ø¼ü×Ö£¬0ÎªÆÕÍ¨¹Ø¼ü×Ö	
-	private int keyword_today_click; //½ñÌìµã»÷´ÎÊı
-	private float keyword_before_click; //ÍùÆÚµÄµã»÷ÂÊ
-	private int keyword_has_goods;// ¹Ø¼ü×Ö°üº¬µÄ±¦±´
+	private int keyword_status; //1è¡¨ç¤ºæ­¤å…³é”®å­—ä¸ºç³»ç»Ÿå…³é”®å­—ï¼Œ0ä¸ºæ™®é€šå…³é”®å­—	
+	private int keyword_today_click; //ä»Šå¤©ç‚¹å‡»æ¬¡æ•°
+	private float keyword_before_click; //å¾€æœŸçš„ç‚¹å‡»ç‡
+	private int keyword_has_goods;// å…³é”®å­—åŒ…å«çš„å®è´
 	
 	public KeyWord(){}
 	public KeyWord(String isnew){

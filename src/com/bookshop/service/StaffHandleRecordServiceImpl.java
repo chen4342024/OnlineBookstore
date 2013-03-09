@@ -1,4 +1,4 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +13,7 @@ import com.bookshop.entity.Staff;
 import com.bookshop.entity.StaffHandleRecord;
 import com.bookshop.util.MyServiceParent;
 /**
- * Ô±¹¤´¦Àí»áÔ±¶©µ¥ºÍÍË»õÉêÇë¼ÇÂ¼ĞÅÏ¢Service²ãÊµÏÖÀà
+ * å‘˜å·¥å¤„ç†ä¼šå‘˜è®¢å•å’Œé€€è´§ç”³è¯·è®°å½•ä¿¡æ¯Serviceå±‚å®ç°ç±»
  * @author Winds
  *
  */
@@ -25,7 +25,7 @@ public class StaffHandleRecordServiceImpl extends MyServiceParent implements
 	private String hql;
 	private Session session;
 	/**
-	 * Ôö¼ÓÔ±¹¤´¦Àí¼ÇÂ¼
+	 * å¢åŠ å‘˜å·¥å¤„ç†è®°å½•
 	 */
 	public void addStaffHandleRecord(int handle_type,String staff_id,String orderOrRejectedApply_id,int before_handle_status,int after_handle_status ){
 		this.session = getSession();
@@ -56,7 +56,7 @@ public class StaffHandleRecordServiceImpl extends MyServiceParent implements
 	
 	
 	/*
-	 * //·µ»Ø×ÜÒ³Êı
+	 * //è¿”å›æ€»é¡µæ•°
 	 */
 	public int findPages(int perFolioAmount, int status) {
 		// TODO Auto-generated method stub
@@ -75,7 +75,7 @@ public class StaffHandleRecordServiceImpl extends MyServiceParent implements
 	}
 	
 	/*
-	 * //·µ»Ø×ÜÊı¾İ¸öÊı
+	 * //è¿”å›æ€»æ•°æ®ä¸ªæ•°
 	 */
 	public Long hasNumbers(int status) {
 		// TODO Auto-generated method stub
@@ -100,7 +100,7 @@ public class StaffHandleRecordServiceImpl extends MyServiceParent implements
 	
 	/*
 	 *
-	 * //¸ù¾İÒ³Êı±éÀú
+	 * //æ ¹æ®é¡µæ•°éå†
 	 */
 	public int findPages(int perFolioAmount, String staffId,int status) {
 		// TODO Auto-generated method stub

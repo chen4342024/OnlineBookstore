@@ -1,48 +1,48 @@
-package com.bookshop.dao;
+ï»¿package com.bookshop.dao;
 
 import java.util.List;
 
 import org.hibernate.Session;
 /**
- * Í¼ÊéĞÅÏ¢Dao²ã½Ó¿Ú
+ * å›¾ä¹¦ä¿¡æ¯Daoå±‚æ¥å£
  * @author Winds
  *
  */
 public interface BookDao {
 	/**
-	 * É¾³ıÍ¼ÊéĞÅÏ¢
+	 * åˆ é™¤å›¾ä¹¦ä¿¡æ¯
 	 * @param obj
 	 * @param session
 	 */
 	public void dele(Object obj,Session session);
 	/**
-	 * ĞÂÔöÍ¼ÊéĞÅÏ¢
+	 * æ–°å¢å›¾ä¹¦ä¿¡æ¯
 	 * @param obj
 	 * @param session
 	 */
 	public void save(Object obj,Session session);
 	/**
-	 * ¸üĞÂÍ¼ÊéĞÅÏ¢
+	 * æ›´æ–°å›¾ä¹¦ä¿¡æ¯
 	 * @param obj
 	 * @param session
 	 */
 	public void update(Object obj,Session session);
 	/**
-	 * Í¨¹ıHql²éÑ¯Óï¾ä²éÑ¯µ¥¸öÍ¼ÊéĞÅÏ¢
+	 * é€šè¿‡HqlæŸ¥è¯¢è¯­å¥æŸ¥è¯¢å•ä¸ªå›¾ä¹¦ä¿¡æ¯
 	 * @param hql
 	 * @param session
 	 * @return
 	 */
 	public Object find(String hql,Session session);
 	/**
-	 * Í¨¹ıHql²éÑ¯Óï¾ä²éÑ¯¶à¸öÍ¼ÊéĞÅÏ¢
+	 * é€šè¿‡HqlæŸ¥è¯¢è¯­å¥æŸ¥è¯¢å¤šä¸ªå›¾ä¹¦ä¿¡æ¯
 	 * @param hql
 	 * @param session
 	 * @return
 	 */
 	public List<?> findAll(String hql,Session session);
 	/**
-	 * Í¨¹ıHql²éÑ¯Óï¾ä²éÑ¯¶à¸öÍ¼ÊéĞÅÏ¢£¬ÏŞÖÆ²éÑ¯¸öÊı
+	 * é€šè¿‡HqlæŸ¥è¯¢è¯­å¥æŸ¥è¯¢å¤šä¸ªå›¾ä¹¦ä¿¡æ¯ï¼Œé™åˆ¶æŸ¥è¯¢ä¸ªæ•°
 	 * @param hql
 	 * @param session
 	 * @param maxLength

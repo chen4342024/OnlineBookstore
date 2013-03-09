@@ -1,4 +1,4 @@
-package com.bookshop.entity;
+锘縫ackage com.bookshop.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,49 +12,49 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 /**
- * 评论
+ * 璇勮
  */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="tb_comment")
 public class Comment implements Serializable {
 	/**
-	 * 评论编号
+	 * 璇勮缂栧彿
 	 * UUID
 	 */
 	@Id
 	@Column(length=40)
 	private String comment_id;
 	/**
-	 * 评论会员
+	 * 璇勮浼氬憳
 	 */
 	@ManyToOne(optional=false,targetEntity=Customer.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="customer_email",nullable=false)
 	private Customer customer;
 	/**
-	 * 评论图书
+	 * 璇勮鍥句功
 	 */
 	@ManyToOne(optional=false,targetEntity=Book.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="book_id",nullable=false)
 	private Book book;
 	/**
-	 * 评论日期
+	 * 璇勮鏃ユ湡
 	 */
 	@Column(nullable=false)
 	private Date comment_date;
 	/**
-	 * 评论标题
+	 * 璇勮鏍囬
 	 */
 	@Column(length=60,nullable=false)
 	private String title;
 	/**
-	 * 评论内容
+	 * 璇勮鍐呭
 	 */
 	@Column(length=1000,nullable=false)
 	private String content;
 	/**
-	 * 对图书的评分
-	 * 最小为1，最大为5的正整数
+	 * 瀵瑰浘涔︾殑璇勫垎
+	 * 鏈�灏忎负1锛屾渶澶т负5鐨勬鏁存暟
 	 */
 	@Column(nullable=false)
 	private Integer score;

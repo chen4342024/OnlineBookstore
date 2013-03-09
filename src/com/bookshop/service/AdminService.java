@@ -1,12 +1,12 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 /**
- * ÍøÕ¾¹ÜÀíÔ±ĞÅÏ¢Service²ã½Ó¿Ú
+ * ç½‘ç«™ç®¡ç†å‘˜ä¿¡æ¯Serviceå±‚æ¥å£
  * @author Winds
  *
  */
 public interface AdminService {
 	/**
-	 * Íø¹ÜµÇÂ¼
+	 * ç½‘ç®¡ç™»å½•
 	 */
 	public int login(String account,String pw);
 }

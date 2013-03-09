@@ -1,4 +1,4 @@
-package com.bookshop.dao;
+锘縫ackage com.bookshop.dao;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.hibernate.Session;
 
 import com.bookshop.util.MyDaoParent;
 /**
- * 图书信息Dao层实现类
+ * 鍥句功淇℃伅Dao灞傚疄鐜扮被
  * @author Winds
  *
  */

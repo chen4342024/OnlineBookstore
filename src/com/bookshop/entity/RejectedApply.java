@@ -1,4 +1,4 @@
-package com.bookshop.entity;
+ï»¿package com.bookshop.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,52 +13,52 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 /**
- * »áÔ±ÍË»õÉêÇë
+ * ä¼šå‘˜é€€è´§ç”³è¯·
  */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="tb_rejected_apply")
 public class RejectedApply implements Serializable {
 	/**
-	 * ÍË»õÉêÇë±àºÅ
+	 * é€€è´§ç”³è¯·ç¼–å·
 	 * UUID
 	 */
 	@Id
 	@Column(length=40)
 	private String rejected_apply_id;
 	/**
-	 * ÉêÇëÍË»õµÄ»áÔ±
+	 * ç”³è¯·é€€è´§çš„ä¼šå‘˜
 	 */
 	@ManyToOne(optional=false,targetEntity=Customer.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="customer_email",nullable=false)
 	private Customer customer;
 	/**
-	 * ÉêÇëÈÕÆÚ
+	 * ç”³è¯·æ—¥æœŸ
 	 */
 	@Column(nullable=false)
 	private Date apply_date;
 	/**
-	 * È¡ÏûÉêÇëÈÕÆÚ
+	 * å–æ¶ˆç”³è¯·æ—¥æœŸ
 	 */
 	private Date cancel_date;
 	/**
-	 * ÍË»õÀíÓÉ
+	 * é€€è´§ç†ç”±
 	 */
 	@Column(length=200,nullable=false)
 	private String apply_reason;
 	/**
-	 * ÍË»õµÄ¶©µ¥
+	 * é€€è´§çš„è®¢å•
 	 */
 	@OneToOne(optional=false,targetEntity=Order.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="order_id",nullable=false)
 	private Order order;
 	/**
-	 * ÍË»õÉêÇë×´Ì¬
-	 * 0£ºµÈ´ıÉóºË£¬
-	 * 1£ºÉêÇë³É¹¦£¬
-	 * 2£ºÉêÇëÊ§°Ü£¬
-	 * 3£ºÊÕ»õÖĞ£¬
-	 * 4£ºÍË»õ³É¹¦
+	 * é€€è´§ç”³è¯·çŠ¶æ€
+	 * 0ï¼šç­‰å¾…å®¡æ ¸ï¼Œ
+	 * 1ï¼šç”³è¯·æˆåŠŸï¼Œ
+	 * 2ï¼šç”³è¯·å¤±è´¥ï¼Œ
+	 * 3ï¼šæ”¶è´§ä¸­ï¼Œ
+	 * 4ï¼šé€€è´§æˆåŠŸ
 	 */
 	private Integer status;
 	public RejectedApply(){

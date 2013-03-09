@@ -1,4 +1,4 @@
-	package com.bookshop.service;
+ï»¿	package com.bookshop.service;
 
 
 
@@ -21,7 +21,7 @@ import com.bookshop.entity.PaymentMethod;
 import com.bookshop.entity.ShippingAddress;
 import com.bookshop.util.MyServiceParent;
 /**
- * ¶©µ¥ĞÅÏ¢Service²ãÊµÏÖÀà
+ * è®¢å•ä¿¡æ¯Serviceå±‚å®ç°ç±»
  * @author Winds
  *
  */
@@ -39,7 +39,7 @@ public class OrderServiceImpl extends MyServiceParent implements OrderService {
 	private Session session ;
 	private String hql;
 	/*
-	 * ÉóºË¶©µ¥ 
+	 * å®¡æ ¸è®¢å• 
 	 */
 	public void audit_order(String staff_id,String order_id,int isPass) {
 		this.session = getSession();
@@ -55,7 +55,7 @@ public class OrderServiceImpl extends MyServiceParent implements OrderService {
 		staffHandleRecordService.addStaffHandleRecord(1, staff_id,order_id , before_handle_status, after_handle_status);
 	}
 	/*
-	 * ·¢»õ
+	 * å‘è´§
 	 */
 	public void deliver_goods(String staff_id,String order_id){
 		this.session = getSession();
@@ -101,7 +101,7 @@ public class OrderServiceImpl extends MyServiceParent implements OrderService {
 	}
 
 	/**
-	 * ²éÕÒ¶©µ¥µÄÍ¼Êé
+	 * æŸ¥æ‰¾è®¢å•çš„å›¾ä¹¦
 	 */
 	public List<Book> findBooks(String order_id) {
 		// TODO Auto-generated method stub
@@ -120,7 +120,7 @@ public class OrderServiceImpl extends MyServiceParent implements OrderService {
 		return book_l;
 	}
 	/**
-	 * ²éÕÒ·ÖÒ³ÏÔÊ¾¶©µ¥ËùĞèÒªµÄÍ¼Êé
+	 * æŸ¥æ‰¾åˆ†é¡µæ˜¾ç¤ºè®¢å•æ‰€éœ€è¦çš„å›¾ä¹¦
 	 */
 	public List<List<Book>> findBook_l(List<Order> order_l) {
 		// TODO Auto-generated method stub
@@ -133,7 +133,7 @@ public class OrderServiceImpl extends MyServiceParent implements OrderService {
 		return book_l_l;
 	}
 	/**
-	 * É¾³ı¶©µ¥
+	 * åˆ é™¤è®¢å•
 	 */
 	public boolean delete(String orderId) {
 		// TODO Auto-generated method stub

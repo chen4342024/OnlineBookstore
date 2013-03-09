@@ -34,7 +34,6 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/javassist-3.7.ga.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jboss-cache.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json-lib-2.2.2-jdk15.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jstl-1.2.jar.zip"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jta-1.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/junit.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log4j-1.2.15.jar"/>
@@ -67,5 +66,6 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xwork-core-2.1.6.jar"/>
 	<classpathentry kind="lib" path="E:/apache-tomcat-6.0.18/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="E:/apache-tomcat-6.0.18/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jstl-1.2.jar.zip"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

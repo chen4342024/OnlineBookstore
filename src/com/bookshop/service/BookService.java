@@ -1,11 +1,11 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.List;
 
 import com.bookshop.entity.Book;
 
 /**
- * Í¼ÊéĞÅÏ¢Service²ã½Ó¿Ú
+ * å›¾ä¹¦ä¿¡æ¯Serviceå±‚æ¥å£
  * @author Winds
  *
  */

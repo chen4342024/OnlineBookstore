@@ -1,4 +1,4 @@
-package com.bookshop.util;
+ï»¿package com.bookshop.util;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,7 +9,7 @@ import java.util.List;
 public class StringUtil {
 	private static List<String> list =new ArrayList<String>();
 	/**
-	 * °ÑÒ»¸ö×Ö·û´®Í¨¹ıÒ»¸ö·Ö¸ô·û·Ö¸ô³ÉÒ»¸ö¼¯ºÏ
+	 * æŠŠä¸€ä¸ªå­—ç¬¦ä¸²é€šè¿‡ä¸€ä¸ªåˆ†éš”ç¬¦åˆ†éš”æˆä¸€ä¸ªé›†åˆ
 	 * @param options
 	 * @param separator
 	 * @return
@@ -18,16 +18,16 @@ public class StringUtil {
 		int index=0;
 		String option;
 		list.clear();
-		//ÏûÈ¡µô×Ö·û´®optionsÇ°µÄseparator
+		//æ¶ˆå–æ‰å­—ç¬¦ä¸²optionså‰çš„separator
 		if(String.valueOf(options.charAt(0)).equals(separator)){
 			options=options.substring(1);
 		}
 		
-		//ÏûÈ¡µô×Ö·û´®optionsºóµÄseparator
+		//æ¶ˆå–æ‰å­—ç¬¦ä¸²optionsåçš„separator
 		if(String.valueOf(options.charAt(options.length()-1)).equals(separator)){
 			options=options.substring(0,options.length()-1);
 		}
-		//Èç¹ûÏûÈ¡µô×Ö·û´®optionsÇ°ºóµÄseparator£¬²»´æÔÚÁËseparator
+		//å¦‚æœæ¶ˆå–æ‰å­—ç¬¦ä¸²optionså‰åçš„separatorï¼Œä¸å­˜åœ¨äº†separator
 		if(options.indexOf(separator)==-1){
 			list.add(options);
 		}
@@ -45,7 +45,7 @@ public class StringUtil {
 		return list;
 	}
 	/**
-	 * °Ñ¹ÜÀíÔ±£¬ÀÏÊ¦£¬Ñ§ÉúµÄid´Ópermission_idÖĞ½ØÈ¡³öÀ´
+	 * æŠŠç®¡ç†å‘˜ï¼Œè€å¸ˆï¼Œå­¦ç”Ÿçš„idä»permission_idä¸­æˆªå–å‡ºæ¥
 	 * @param permission_id
 	 * @return
 	 */
@@ -53,14 +53,14 @@ public class StringUtil {
 		return permission_id.substring(permission_id.lastIndexOf(",")+1);
 	}
 	/**
-	 * ½«×Ö·û´®¼¯ºÏÀïµÄÃ¿Ò»¸ö×Ö·û´®ÓÃÁ¬½Ó·û´®ÆğÀ´¡£·µ»ØÒ»¸ö³¤´®
+	 * å°†å­—ç¬¦ä¸²é›†åˆé‡Œçš„æ¯ä¸€ä¸ªå­—ç¬¦ä¸²ç”¨è¿æ¥ç¬¦ä¸²èµ·æ¥ã€‚è¿”å›ä¸€ä¸ªé•¿ä¸²
 	 * 
 	 * 
 	 * @param strs
-	 *            ×Ö·û´®¼¯ºÏ
+	 *            å­—ç¬¦ä¸²é›†åˆ
 	 * 
 	 * @param split
-	 *            Á¬½Ó·û
+	 *            è¿æ¥ç¬¦
 	 * 
 	 * @return
 	 * @throws Exception
@@ -86,7 +86,7 @@ public class StringUtil {
 	}
 	
 	/**
-	 * ÅĞ¶ÏÒ»¸ö×Ö·û´®ÊÇ·ñÎª¿Õ£¬¼´ Îª null »ò "" »ò "NULL" »ò "null"
+	 * åˆ¤æ–­ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦ä¸ºç©ºï¼Œå³ ä¸º null æˆ– "" æˆ– "NULL" æˆ– "null"
 	 * 
 	 * @param string
 	 * 
@@ -98,7 +98,7 @@ public class StringUtil {
 	}
 	
 	/**
-	 * ÅĞ¶Ï¼¯ºÏÊÇ·ñÎª¿Õ
+	 * åˆ¤æ–­é›†åˆæ˜¯å¦ä¸ºç©º
 	 * @param collection
 	 * @return
 	 */

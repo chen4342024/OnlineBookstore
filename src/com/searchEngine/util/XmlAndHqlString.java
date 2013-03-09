@@ -1,4 +1,4 @@
-package com.searchEngine.util;
+ï»¿package com.searchEngine.util;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class XmlAndHqlString {
 	public static int keyWords_max = 0;
 	public static int showperFolioAmount = 0;
 	
-	//ÅäÖÃÎÄ¼şxmlÖĞ»ñÈ¡
+	//é…ç½®æ–‡ä»¶xmlä¸­è·å–
 	public static void initString(){
 		Read.readXml();
 		entityName = Read.xmlValue_map.get("entityName");
@@ -41,11 +41,11 @@ public class XmlAndHqlString {
 	
 	
 	/*
-	 * ÒÔÏÂÎªÉú³ÉHQL·½·¨
+	 * ä»¥ä¸‹ä¸ºç”ŸæˆHQLæ–¹æ³•
 	 * 	
 	 */
 	
-	//²éÑ¯entityName ,±¦±´ÊıÁ¿HQL
+	//æŸ¥è¯¢entityName ,å®è´æ•°é‡HQL
 	public static String getEntityNameCount_hql(String keyword_content,int rowName){
 		String rowNameTemp=XmlAndHqlString.rowName;
 		int rowName_num=rowName;
@@ -69,7 +69,7 @@ public class XmlAndHqlString {
 		}
 		return hql;
 	}
-	//²éÑ¯entityName ,±¦±´¼¯ºÏHQL 
+	//æŸ¥è¯¢entityName ,å®è´é›†åˆHQL 
 	public static String getKeyWord_l_hql(String keyword_content,String otherOrderBy,int rowName){
 		List<String> keyWord_l=StringUtil.getOption(keyword_content, " ");
 		String rowNameTemp=XmlAndHqlString.rowName;

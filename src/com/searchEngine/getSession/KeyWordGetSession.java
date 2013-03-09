@@ -1,4 +1,4 @@
-package com.searchEngine.getSession;
+﻿package com.searchEngine.getSession;
 
 import org.hibernate.Session;
 

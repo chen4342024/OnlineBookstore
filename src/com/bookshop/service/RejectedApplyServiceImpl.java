@@ -1,4 +1,4 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import javax.annotation.Resource;
 
@@ -8,7 +8,7 @@ import com.bookshop.entity.Order;
 import com.bookshop.entity.RejectedApply;
 import com.bookshop.util.MyServiceParent;
 /**
- * »áÔ±ÍË»õÉêÇëĞÅÏ¢Service²ãÊµÏÖÀà
+ * ä¼šå‘˜é€€è´§ç”³è¯·ä¿¡æ¯Serviceå±‚å®ç°ç±»
  * @author Winds
  *
  */
@@ -21,7 +21,7 @@ public class RejectedApplyServiceImpl extends MyServiceParent implements
 	private Session session ;
 	private String hql;
 	/*
-	 * ÉóºËÍË»õÉêÇë
+	 * å®¡æ ¸é€€è´§ç”³è¯·
 	 */
 	
 	public void audit_rejectedApply(String staff_id,String rejected_apply_id, int isPass) {

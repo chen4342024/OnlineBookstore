@@ -1,4 +1,4 @@
-package com.bookshop.action;
+ï»¿package com.bookshop.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,7 +17,7 @@ import com.bookshop.util.PageUtil;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * »áÔ±ÍË»õÉêÇëÐÅÏ¢Action²ã
+ * ï¿½ï¿½Ô±ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Actionï¿½ï¿½
  * @author Winds
  *
  */
@@ -27,26 +27,26 @@ public class RejectedApplyAction extends ActionSupport {
 	private RejectedApplyService rejectedApplyService;
 	private RejectedApply rejectedApply;
 	
-	private Long hasRecord;//Êý¾ÝµÄ×Ü¸öÊý
-	private int page;		 //µ±Ç°Ò³
-	private int hasPages;	 //×ÜÒ³Êý
-	private int perFolioAmount;  //Ã¿Ò³Êý¾ÝµÄÌõÊý
-	private List<Integer> page_l;//»ñÈ¡Ò»¸ö´Ó1µ½hasPagesµÄÊý×é
-	private List<RejectedApply> Record_l; //µ±Ç°Ò³µÄÊý¾Ý
-	private int isPass; //±êÖ¾ÉóºË¶©µ¥µÄ½á¹û¡£1ÎªÍ¨¹ý£¬0Îª²»Í¨¹ý
-	private int status=0;//±êÖ¾ËùÒª²éÑ¯ºÎÖÖ×´Ì¬ÏÂµÄÍË»õÉêÇë
+	private Long hasRecord;//ï¿½ï¿½Ýµï¿½ï¿½Ü¸ï¿½ï¿½ï¿½
+	private int page;		 //ï¿½ï¿½Ç°Ò³
+	private int hasPages;	 //ï¿½ï¿½Ò³ï¿½ï¿½
+	private int perFolioAmount;  //Ã¿Ò³ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½ï¿½
+	private List<Integer> page_l;//ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½hasPagesï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private List<RejectedApply> Record_l; //ï¿½ï¿½Ç°Ò³ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int isPass; //ï¿½ï¿½Ö¾ï¿½ï¿½Ë¶ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½1ÎªÍ¨ï¿½ï¿½0Îªï¿½ï¿½Í¨ï¿½ï¿½
+	private int status=0;//ï¿½ï¿½Ö¾ï¿½ï¿½Òªï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½Âµï¿½ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½
 	private String staff_id ;
 	private Map<String,Object> session;
 	
-	private String parm =null;//É¸Ñ¡ËùÐèµÄ²ÎÊý
-	private String value = null;//É¸Ñ¡ËùÐèµÄÖµ
+	private String parm =null;//É¸Ñ¡ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½
+	private String value = null;//É¸Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 	private String beginTime;
 	private String endTime;
-	private boolean clear;//Çå³þÉ¸Ñ¡µÄ²ÎÊý
+	private boolean clear;//ï¿½ï¿½ï¿½É¸Ñ¡ï¿½Ä²ï¿½ï¿½ï¿½
 
 	@SuppressWarnings("unchecked")
 	/*
-	 * ÏÔÊ¾ÍË»õÉêÇë
+	 * ï¿½ï¿½Ê¾ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public String show_rejectedApply(){
 		if(clear){
@@ -102,7 +102,7 @@ public class RejectedApplyAction extends ActionSupport {
 		}
 	}
 	/*
-	 * ÉóºËÍË»õÉêÇë
+	 * ï¿½ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public void audit_rejectedApply(){
 		String flag = "input";
@@ -128,7 +128,7 @@ public class RejectedApplyAction extends ActionSupport {
 		}
 	}
 	/*
-	 * È·ÈÏÊÕ»õÍê³É½»Ò×
+	 * È·ï¿½ï¿½ï¿½Õ»ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½
 	 */
 	public void complete_rejectedApply(){
 		String flag = "input";

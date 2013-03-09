@@ -1,14 +1,14 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.List;
 
 /**
- * Ô±¹¤´¦Àí»áÔ±¶©µ¥ºÍÍË»õÉêÇë¼ÇÂ¼ĞÅÏ¢Service²ã½Ó¿Ú
+ * å‘˜å·¥å¤„ç†ä¼šå‘˜è®¢å•å’Œé€€è´§ç”³è¯·è®°å½•ä¿¡æ¯Serviceå±‚æ¥å£
  * @author Winds
  *
  */
 public interface StaffHandleRecordService {
-	//Ôö¼ÓÔ±¹¤´¦Àí¼ÇÂ¼
+	//å¢åŠ å‘˜å·¥å¤„ç†è®°å½•
 	public void addStaffHandleRecord(int handle_type,String staff_id,String orderOrRejectedApply_id,int before_handle_status,int after_handle_status );
 	
 //	public Long hasNumbers(int status);
@@ -20,14 +20,14 @@ public interface StaffHandleRecordService {
 //	public Long hasNumbers(String staffId,int status);
 //	public int findPages(int perFolioAmount,String staffId,int status);
 //	public List<?> show_by_page(int page,int perFolioAmount,String staffId,int status);
-//	//¸ù¾İÔ±¹¤idÏÔÊ¾
+//	//æ ¹æ®å‘˜å·¥idæ˜¾ç¤º
 	public List<?> show_by_page(int page, int perFolioAmount, String staffId);
 	public Long hasNumbers(String entityName,String[] paramName,String[]value,boolean isLike);
 	public List<?> show_by_page(int page,int perFolioAmount,String entityName,String[] paramName,String[]value,boolean isLike);
 	
-	//¸ù¾İÊ±¼ä¶ÎËÑ²éÓÃµÄÒ³Êı±éÀú
+	//æ ¹æ®æ—¶é—´æ®µæœæŸ¥ç”¨çš„é¡µæ•°éå†
 	public Long hasNumbers(String entityName,String timeParam,String begin ,String end,String parm,String value);
-	//¸ù¾İÒ³Êı±éÀú
+	//æ ¹æ®é¡µæ•°éå†
 	public List<?> show_by_page(int page,int perFolioAmount,String entityName,String timeParam,String begin ,String end,String parm,String value);
 	
 	

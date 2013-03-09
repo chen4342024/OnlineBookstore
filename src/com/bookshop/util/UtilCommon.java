@@ -1,4 +1,4 @@
-package com.bookshop.util;
+锘縫ackage com.bookshop.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,7 +13,7 @@ public class UtilCommon {
 		String serials = fm.format(date);
 		return serials;
 	}
-	// 检查是否是图片格式
+	// 妫�鏌ユ槸鍚︽槸鍥剧墖鏍煎紡
 	public static boolean checkIsImage(String imgStr) {
 		boolean flag = false;
 		if (imgStr != null) {

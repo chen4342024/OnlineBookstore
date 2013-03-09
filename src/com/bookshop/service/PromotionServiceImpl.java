@@ -1,4 +1,4 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.io.File;
 import java.util.Date;
@@ -14,7 +14,7 @@ import com.bookshop.util.DateUtil;
 import com.bookshop.util.MyServiceParent;
 import com.bookshop.util.StringUtil;
 /**
- * ÓÅ»İ»î¶¯ĞÅÏ¢Service²ãÊµÏÖÀà
+ * ä¼˜æƒ æ´»åŠ¨ä¿¡æ¯Serviceå±‚å®ç°ç±»
  * @author Winds
  *
  */
@@ -25,7 +25,7 @@ public class PromotionServiceImpl extends MyServiceParent implements
 	private String hql;
 	
 	/**
-	 * Ìí¼ÓÓÅ»İĞÅÏ¢
+	 * æ·»åŠ ä¼˜æƒ ä¿¡æ¯
 	 * @return
 	 */
 	public boolean add(Promotion promotion) {
@@ -49,7 +49,7 @@ public class PromotionServiceImpl extends MyServiceParent implements
 	}
 
 	/**
-	 * É¾³ıÓÅ»İĞÅÏ¢
+	 * åˆ é™¤ä¼˜æƒ ä¿¡æ¯
 	 */
 	public boolean delete(String promotion_id) {
 		// TODO Auto-generated method stub
@@ -67,7 +67,7 @@ public class PromotionServiceImpl extends MyServiceParent implements
 	}
 
 	/**
-	 * »ñÈ¡ÓÅ»İĞÅÏ¢
+	 * è·å–ä¼˜æƒ ä¿¡æ¯
 	 */
 	public Promotion find(String promotion_id) {
 		// TODO Auto-generated method stub
@@ -78,7 +78,7 @@ public class PromotionServiceImpl extends MyServiceParent implements
 	}
 
 	/**
-	 * »ñÈ¡ÓÅ»İµÄÍ¼Êé·ÖÀà
+	 * è·å–ä¼˜æƒ çš„å›¾ä¹¦åˆ†ç±»
 	 */
 	public String gainCatagory_l(String catagoryString) {
 		// TODO Auto-generated method stub
@@ -95,7 +95,7 @@ public class PromotionServiceImpl extends MyServiceParent implements
 	}
 
 	/**
-	 * ĞŞ¸ÄÎ´¹ıÆÚµÄÓÅ»İĞÅÏ¢
+	 * ä¿®æ”¹æœªè¿‡æœŸçš„ä¼˜æƒ ä¿¡æ¯
 	 */
 	public boolean update(Promotion promotion) {
 		// TODO Auto-generated method stub
@@ -108,7 +108,7 @@ public class PromotionServiceImpl extends MyServiceParent implements
 		p.setNeed_amount(promotion.getNeed_amount());
 		p.setPromotion_type(promotion.getPromotion_type());
 		if(promotion.getPromotion_image().length()>0){
-			//É¾³ıÔ­ÏÈµÄÍ¼Êé·âÃæ
+			//åˆ é™¤åŸå…ˆçš„å›¾ä¹¦å°é¢
 			String savePath= ServletActionContext.getServletContext().getRealPath("/../BookImages/activity/"+promotion.getPromotion_image());
 			savePath=savePath.replace("\\", "/");
 			File imageFile=new File( savePath);
@@ -132,7 +132,7 @@ public class PromotionServiceImpl extends MyServiceParent implements
 	}
 
 	/**
-	 * ²éÕÒÎ´¹ıÆÚÓÅ»İÊÇ·ñÓĞĞ§ÁË
+	 * æŸ¥æ‰¾æœªè¿‡æœŸä¼˜æƒ æ˜¯å¦æœ‰æ•ˆäº†
 	 */
 	public boolean findNotExpirePromotion_by_time(String promotion_id) {
 		// TODO Auto-generated method stub

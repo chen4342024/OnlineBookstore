@@ -1,4 +1,4 @@
-package com.searchEngine.timer;
+锘縫ackage com.searchEngine.timer;
 
 import java.util.TimerTask;
 
@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.searchEngine.service.KeyWordService;
 /*
- * 任务
+ * 浠诲姟
  */
 public class TaskUpdate extends TimerTask {
 	private KeyWordService keyWordService;
@@ -28,12 +28,12 @@ public class TaskUpdate extends TimerTask {
 		
 		// TODO Auto-generated method stub
 		try {
-			//需要执行的任务
+			//闇�瑕佹墽琛岀殑浠诲姟
 			keyWordService.updataKeyWord_max();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("检测操作过程失败！");
+			System.out.println("妫�娴嬫搷浣滆繃绋嬪け璐ワ紒");
 		}
 		
 	}

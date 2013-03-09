@@ -1,4 +1,4 @@
-package com.searchEngine.util;
+ï»¿package com.searchEngine.util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,7 +10,7 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 /**
- * ½âÎö WEB-INF/conf/xlsLoad2DB.xml ÎÄ¼ş£¬¶ÔÓ¦ÊµÌåÀà Questions
+ * è§£æ WEB-INF/conf/xlsLoad2DB.xml æ–‡ä»¶ï¼Œå¯¹åº”å®ä½“ç±» Questions
  * @author Winds
  *
  */
@@ -30,18 +30,18 @@ public class Read {
      
 	 public static boolean readXml(){  
     	String filePath= getuploadCfgFile();
-        SAXReader saxReader = new SAXReader();          //Ê¹ÓÃSAXReader·½Ê½¶ÁÈ¡XMLÎÄ¼ş    
-        //¼ÓÔØÊı¾İ¿âXMLÅäÖÃÎÄ¼ş£¬µÃµ½Document¶ÔÏó  
-        Document document; // Document¶¨ÒåÁËXMLÎÄµµ
+        SAXReader saxReader = new SAXReader();          //ä½¿ç”¨SAXReaderæ–¹å¼è¯»å–XMLæ–‡ä»¶    
+        //åŠ è½½æ•°æ®åº“XMLé…ç½®æ–‡ä»¶ï¼Œå¾—åˆ°Documentå¯¹è±¡  
+        Document document; // Documentå®šä¹‰äº†XMLæ–‡æ¡£
         try {  
             File file = new File(filePath);    
 			FileInputStream fis=new FileInputStream(file);
 			document =saxReader.read(fis); 
-            Element root = document.getRootElement();                       //»ñµÃ¸ù½Úµã  
-			Iterator<?> iterator = root.elementIterator();  //Ã¶¾Ù¸ù½ÚµãÏÂµÄËùÓĞ×Ó½Úµã
+            Element root = document.getRootElement();                       //è·å¾—æ ¹èŠ‚ç‚¹  
+			Iterator<?> iterator = root.elementIterator();  //æšä¸¾æ ¹èŠ‚ç‚¹ä¸‹çš„æ‰€æœ‰å­èŠ‚ç‚¹
             while(iterator.hasNext()){  
                  Element element = (Element) iterator.next(); 
-                 Iterator<?> property = element.elementIterator();  //Ã¶¾Ùµ±Ç°½ÚµãÏÂµÄËùÓĞ×Ó½Úµã
+                 Iterator<?> property = element.elementIterator();  //æšä¸¾å½“å‰èŠ‚ç‚¹ä¸‹çš„æ‰€æœ‰å­èŠ‚ç‚¹
                  while(property.hasNext()){  
                       Element elementPro = (Element) property.next();             
                       xmlValue_map.put(elementPro.attributeValue("name"), elementPro.attributeValue("value"));  

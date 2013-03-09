@@ -1,31 +1,31 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.List;
 
 import com.bookshop.entity.Book;
 
 /**
- * »áÔ±¹ºÊé¼ÇÂ¼ĞÅÏ¢Service²ã½Ó¿Ú
+ * ä¼šå‘˜è´­ä¹¦è®°å½•ä¿¡æ¯Serviceå±‚æ¥å£
  * @author Winds
  *
  */
 public interface ShoppingRecordService {
 	/**
-	 * »ñÈ¡ĞÂÊéÈÈÂô°ñ
-	 * Ò»ÖÜÄÚÉÏ¼ÜµÄÊé
+	 * è·å–æ–°ä¹¦çƒ­å–æ¦œ
+	 * ä¸€å‘¨å†…ä¸Šæ¶çš„ä¹¦
 	 * @return
 	 */
 	public List<Object> getHotsale_newbook();
 	
 	/**
-	 * »ñÈ¡ÈÈÃÅ×÷ÕßµÄÍ¼Êé
+	 * è·å–çƒ­é—¨ä½œè€…çš„å›¾ä¹¦
 	 * @return
 	 */
 	public List<Object> getHotAuthorBooks();
 	
 	/**
-	 * »ñÈ¡ÈÈÃÅÍ¼Êé
-	 * ÏúÁ¿Ç°¾Å
+	 * è·å–çƒ­é—¨å›¾ä¹¦
+	 * é”€é‡å‰ä¹
 	 */
 	public List<Object> getHotsale();
 }

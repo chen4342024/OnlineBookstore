@@ -1,4 +1,4 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.Date;
 import java.util.List;
@@ -23,7 +23,7 @@ import com.bookshop.util.MyAuthenticator;
 import com.bookshop.util.MyServiceParent;
 import com.opensymphony.xwork2.ActionContext;
 /**
- * »áÔ±ĞÅÏ¢Service²ãÊµÏÖÀà
+ * ä¼šå‘˜ä¿¡æ¯Serviceå±‚å®ç°ç±»
  * @author Winds
  *
  */
@@ -33,7 +33,7 @@ public class CustomerServiceImpl extends MyServiceParent implements
 	private CustomerDao customerDao;
 	private String hql;
 	/**
-	 * ÓÃ»§µÇÂ¼
+	 * ç”¨æˆ·ç™»å½•
 	 */
 	public boolean login(String email,String pw){
 		this.session=getSession();
@@ -49,7 +49,7 @@ public class CustomerServiceImpl extends MyServiceParent implements
 	}
 	/**
 	 * 
-	 * ¸Ä±ä»áÔ±µÄ×´Ì¬
+	 * æ”¹å˜ä¼šå‘˜çš„çŠ¶æ€
 	 */
 	public int updateState(String email) {
 		// TODO Auto-generated method stub
@@ -69,7 +69,7 @@ public class CustomerServiceImpl extends MyServiceParent implements
 	}
 
 	/**
-	 * ²éÕÒ»áÔ±ĞÅÏ¢
+	 * æŸ¥æ‰¾ä¼šå‘˜ä¿¡æ¯
 	 */
 	public Customer find(String email) {
 		// TODO Auto-generated method stub
@@ -127,7 +127,7 @@ public class CustomerServiceImpl extends MyServiceParent implements
 		String toMail = email;
         String userName = "a3838049@163.com";  
         String password = "liuhongji3838049";  
-        String url = "http://localhost:8080/TaoShuXuan/activityCustomer.do?customer.email=" + toMail;//´ı»áÓÃ»§µãÔÚÓÊÏäÖĞµã»÷Õâ¸öÁ´½Ó»Øµ½ÄãµÄÍøÕ¾¡£  
+        String url = "http://localhost:8080/TaoShuXuan/activityCustomer.do?customer.email=" + toMail;//å¾…ä¼šç”¨æˆ·ç‚¹åœ¨é‚®ç®±ä¸­ç‚¹å‡»è¿™ä¸ªé“¾æ¥å›åˆ°ä½ çš„ç½‘ç«™ã€‚  
         httpSession.setMaxInactiveInterval(600);  
           
         Properties props = new Properties();  
@@ -145,9 +145,9 @@ public class CustomerServiceImpl extends MyServiceParent implements
               
             MimeMessage msg = new MimeMessage(session);  
             msg.setFrom(from);  
-            msg.setSubject("ÌÔÊéĞù×¢²á");  
+            msg.setSubject("æ·˜ä¹¦è½©æ³¨å†Œ");  
             msg.setSentDate(new Date());  
-            msg.setContent("ÌÔÊéĞù×¢²á"+"<a href='" + url + "'>µã»÷" + url + "Íê³É×¢²á</a>", "text/html;charset=utf-8");  
+            msg.setContent("æ·˜ä¹¦è½©æ³¨å†Œ"+"<a href='" + url + "'>ç‚¹å‡»" + url + "å®Œæˆæ³¨å†Œ</a>", "text/html;charset=utf-8");  
             msg.setRecipient(RecipientType.TO, to);  
             /* 
             Transport transport = session.getTransport("smtp"); 

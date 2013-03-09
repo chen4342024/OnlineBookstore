@@ -1,4 +1,4 @@
-package com.bookshop.action;
+ï»¿package com.bookshop.action;
 
 import java.io.PrintWriter;
 import java.util.List;
@@ -14,7 +14,7 @@ import com.bookshop.service.PaymentMethodService;
 import com.bookshop.util.PageUtil;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * ¸¶¿î·½Ê½Action²ã
+ * ä»˜æ¬¾æ–¹å¼Actionå±‚
  * @author Winds
  *
  */
@@ -23,25 +23,25 @@ public class PaymentMethodAction extends ActionSupport {
 	@Resource
 	private PaymentMethodService paymentMethodService;
 	private PaymentMethod paymentMethod;
-	private Long hasPaymentMethod; // Êı¾İµÄÌõÊı
-	private int page; // µ±Ç°Ò³
-	private int hasPages; // Ò³Êı
-	private int perFolioAmount; // Ã¿Ò³Êı¾İµÄÌõÊı
+	private Long hasPaymentMethod; // æ•°æ®çš„æ¡æ•°
+	private int page; // å½“å‰é¡µ
+	private int hasPages; // é¡µæ•°
+	private int perFolioAmount; // æ¯é¡µæ•°æ®çš„æ¡æ•°
 	private List<Integer> page_l;
 	private List<PaymentMethod> paymentMethod_l;
 	private boolean isLike;
 	/**
-	 * ·ÖÒ³»ñÈ¡Ô±¹¤ĞÅÏ¢
+	 * åˆ†é¡µè·å–å‘˜å·¥ä¿¡æ¯
 	 * @return
 	 */
 	public String showPaymentMethod_by_page() {
 		try{
-		perFolioAmount = 2; // Ã¿Ò³ÏÔÊ¾ÌõÊı
+		perFolioAmount = 2; // æ¯é¡µæ˜¾ç¤ºæ¡æ•°
 		String[] parms = null;
 		String[] values = null;
-		this.hasPaymentMethod = paymentMethodService.hasNumbers("PaymentMethod",parms,values,isLike); // »ñÈ¡Êı¾İÌõÊı
-		hasPages = PageUtil.findAllPages(perFolioAmount, hasPaymentMethod);; // »ñÈ¡Ò³Êı
-		this.page_l = PageUtil.getPageList(hasPages); // »ñÈ¡Ò»¸ö´Ó1µ½hasPagesµÄÊı×é
+		this.hasPaymentMethod = paymentMethodService.hasNumbers("PaymentMethod",parms,values,isLike); // è·å–æ•°æ®æ¡æ•°
+		hasPages = PageUtil.findAllPages(perFolioAmount, hasPaymentMethod);; // è·å–é¡µæ•°
+		this.page_l = PageUtil.getPageList(hasPages); // è·å–ä¸€ä¸ªä»1åˆ°hasPagesçš„æ•°ç»„
 		if (page <= 0) {
 			page = 1;
 		}
@@ -54,7 +54,7 @@ public class PaymentMethodAction extends ActionSupport {
 				page = hasPages;
 			}
 		}
-		// »ñÈ¡µ±Ç°Ò³µÄÊı¾İ
+		// è·å–å½“å‰é¡µçš„æ•°æ®
 		this.paymentMethod_l = (List<PaymentMethod>) paymentMethodService.show_by_page(page, perFolioAmount, "PaymentMethod", parms,values,isLike);
 		return "success";
 		}catch(Exception e){
@@ -64,7 +64,7 @@ public class PaymentMethodAction extends ActionSupport {
 	}
 	
 	/**
-	 * ²éÕÒÖ§¸¶·½Ê½
+	 * æŸ¥æ‰¾æ”¯ä»˜æ–¹å¼
 	 * @return
 	 */
 	public void findPaymentMethod(){
@@ -77,7 +77,7 @@ public class PaymentMethodAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -87,7 +87,7 @@ public class PaymentMethodAction extends ActionSupport {
 	}
 	
 	/**
-	 * Ìí¼ÓÖ§¸¶·½Ê½
+	 * æ·»åŠ æ”¯ä»˜æ–¹å¼
 	 * @return
 	 */
 	public String addPaymentMethod(){
@@ -104,7 +104,7 @@ public class PaymentMethodAction extends ActionSupport {
 	}
 	
 	/**
-	 * ĞŞ¸ÄÖ§¸¶·½Ê½
+	 * ä¿®æ”¹æ”¯ä»˜æ–¹å¼
 	 * @return
 	 */
 	public void changePaymentMethodName(){
@@ -116,7 +116,7 @@ public class PaymentMethodAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -126,7 +126,7 @@ public class PaymentMethodAction extends ActionSupport {
 	}
 	
 	/**
-	 * ²é¿´Ö§¸¶·½Ê½ÓĞÃ»ÓĞÊ¹ÓÃ
+	 * æŸ¥çœ‹æ”¯ä»˜æ–¹å¼æœ‰æ²¡æœ‰ä½¿ç”¨
 	 * @return
 	 */
 	public void findPaymentMethod_use(){
@@ -139,7 +139,7 @@ public class PaymentMethodAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -149,7 +149,7 @@ public class PaymentMethodAction extends ActionSupport {
 	}
 	
 	/**
-	 * ²éÑ¯ËùÓĞµÄÖ§¸¶·½Ê½
+	 * æŸ¥è¯¢æ‰€æœ‰çš„æ”¯ä»˜æ–¹å¼
 	 * @return
 	 */
 	public void findAllPaymentMethod(){

@@ -1,4 +1,4 @@
-package com.bookshop.entity;
+ï»¿package com.bookshop.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,38 +12,38 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 /**
- * »áÔ±¹ºÊé¼ÇÂ¼
+ * ä¼šå‘˜è´­ä¹¦è®°å½•
  */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="tb_shopping_record")
 public class ShoppingRecord implements Serializable {
 	/**
-	 * ¹ºÊé¼ÇÂ¼±àºÅ
+	 * è´­ä¹¦è®°å½•ç¼–å·
 	 * UUID
 	 */
 	@Id
 	@Column(length=40)
 	private String shopping_record_id;
 	/**
-	 * ¹ºÊé»áÔ±
+	 * è´­ä¹¦ä¼šå‘˜
 	 */
 	@ManyToOne(optional=false,targetEntity=Customer.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="customer_email",nullable=false)
 	private Customer customer;
 	/**
-	 * ¹ºÂòµÄÍ¼Êé
+	 * è´­ä¹°çš„å›¾ä¹¦
 	 */
 	@ManyToOne(optional=false,targetEntity=Book.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="book_id",nullable=false)
 	private Book book;
 	/**
-	 * ³É½»Ê±¼ä
+	 * æˆäº¤æ—¶é—´
 	 */
 	@Column(nullable=false)
 	private Date record_date;
 	/**
-	 * ¹ºÊé¶©µ¥
+	 * è´­ä¹¦è®¢å•
 	 */
 	@ManyToOne(optional=false,targetEntity=Order.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="order_id",nullable=false)

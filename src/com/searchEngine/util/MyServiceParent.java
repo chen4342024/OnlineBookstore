@@ -1,4 +1,4 @@
-package com.searchEngine.util;
+﻿package com.searchEngine.util;
 
 import javax.annotation.Resource;
 

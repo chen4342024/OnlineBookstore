@@ -1,4 +1,4 @@
-package com.bookshop.action;
+ï»¿package com.bookshop.action;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,54 +16,54 @@ import com.opensymphony.xwork2.ActionSupport;
 public class UploadUtilAction extends ActionSupport implements
 		ServletResponseAware {
 
-	private File fileupload; // ºÍJSPÖĞinput±ê¼ÇnameÍ¬Ãû
+	private File fileupload; // ï¿½ï¿½JSPï¿½ï¿½inputï¿½ï¿½ï¿½nameÍ¬ï¿½ï¿½
 	private String imageUrl;
 	private String attachmentUrl;
 	private String fileRealName;
 	private HttpServletResponse response;
-	// Struts2À¹½ØÆ÷»ñµÃµÄÎÄ¼şÃû,ÃüÃû¹æÔò£¬FileµÄÃû×Ö+FileName
-	// Èç´Ë´¦Îª 'fileupload' + 'FileName' = 'fileuploadFileName'
-	private String fileuploadFileName; // ÉÏ´«À´µÄÎÄ¼şµÄÃû×Ö
+	// Struts2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Fileï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+FileName
+	// ï¿½ï¿½Ë´ï¿½Îª 'fileupload' + 'FileName' = 'fileuploadFileName'
+	private String fileuploadFileName; // ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private String guid;
 	private String imageFile;
 
 	public String uploadFile() {
-		String extName = ""; // ±£´æÎÄ¼şÍØÕ¹Ãû
-		String newFileName = ""; // ±£´æĞÂµÄÎÄ¼şÃû
+		String extName = ""; // ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½
+		String newFileName = ""; // ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 		PrintWriter out = null;
 		String savePath = ServletActionContext.getServletContext().getRealPath(
-				""); // »ñÈ¡ÏîÄ¿¸ùÂ·¾¶
+				""); // ï¿½ï¿½È¡ï¿½ï¿½Ä¿ï¿½ï¿½Â·ï¿½ï¿½
 		savePath = savePath + "/../BookImages/"+imageFile+"/";
 		System.out.println(savePath);
 		HttpServletResponse response = ServletActionContext.getResponse();
-		response.setCharacterEncoding("gbk"); // Îñ±Ø£¬·ÀÖ¹·µ»ØÎÄ¼şÃûÊÇÂÒÂë
+		response.setCharacterEncoding("gbk"); // ï¿½ï¿½Ø£ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-		// »ñÈ¡ÍØÕ¹Ãû
+		// ï¿½ï¿½È¡ï¿½ï¿½Õ¹ï¿½ï¿½
 		if (fileuploadFileName.lastIndexOf(".") >= 0) {
 			extName = fileuploadFileName.substring(fileuploadFileName
 					.lastIndexOf("."));
 		}
 		try {
 			out = response.getWriter();
-			newFileName = guid+ extName; // ÎÄ¼şÖØÃüÃûºóµÄÃû×Ö
+			newFileName = guid+ extName; // ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			String filePath = savePath + newFileName;
 			filePath = filePath.replace("\\", "/");
 			System.out.println(newFileName);
-			//¼ì²éÉÏ´«µÄÊÇ·ñÊÇÍ¼Æ¬
+			//ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Í¼Æ¬
 			if (UtilCommon.checkIsImage(extName)) {
 				FileUtils.copyFile(fileupload, new File(filePath));
 				out.print(newFileName);
 
 			} else {
-				out.print("<font color='red'>ÉÏ´«µÄÎÄ¼şÀàĞÍ´íÎó£¬ÇëÑ¡Ôñjpg,jpeg,pngºÍgif¸ñÊ½µÄÍ¼Æ¬!</font>");
+				out.print("<font color='red'>ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½jpg,jpeg,pngï¿½ï¿½gifï¿½ï¿½Ê½ï¿½ï¿½Í¼Æ¬!</font>");
 			}
 		
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			out.flush();
 			out.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-			out.print("ÉÏ´«Ê§°Ü£¬³ö´íÀ²!");
+			out.print("ï¿½Ï´ï¿½Ê§ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!");
 		}
 		return null;
 	}

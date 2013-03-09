@@ -1,4 +1,4 @@
-package com.searchEngine.action;
+ï»¿package com.searchEngine.action;
 
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -24,7 +24,7 @@ public class KeyWordAction extends ActionSupport{
 	private KeyWordService keyWordService;
 	private String keyWord;
 	private String keyword_show;
-	private String otherOrderBy;  //¿ÉÒÔÓÉÇ°Ì¨¿Í»§ÒıÓÃActionÊ±×÷Îªµ±Ç°ÅÅĞòµÄÒÀ¾İ
+	private String otherOrderBy;  //å¯ä»¥ç”±å‰å°å®¢æˆ·å¼•ç”¨Actionæ—¶ä½œä¸ºå½“å‰æ’åºçš„ä¾æ®
 	private List<KeyWord> keyWord_l;
 	private String keyword_id;
 	private List<?> goods_l;
@@ -35,7 +35,7 @@ public class KeyWordAction extends ActionSupport{
 	private Long has;
 	private List<Integer> page_l;
 	
-	//²éÕÒ¹Ø¼ü×ÖÁĞ±í
+	//æŸ¥æ‰¾å…³é”®å­—åˆ—è¡¨
 	public void findKeyWord_By_Rate() {
 		try {
 			keyWord = keyWord.replaceAll("\\s{1,}", " ").trim();			 		    
@@ -44,7 +44,7 @@ public class KeyWordAction extends ActionSupport{
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(jsonObject.toString());
 			out.flush();
 			out.close();
@@ -54,12 +54,12 @@ public class KeyWordAction extends ActionSupport{
 	}
 	
 	
-	//·ÖÒ³ÏÔÊ¾keyword
+	//åˆ†é¡µæ˜¾ç¤ºkeyword
 	public String showKeyWord_by_page(){
 		try {
 			this.has = this.keyWordService.findKeyWordCount();
 			hasPages = PageUtil.findAllPages(XmlAndHqlString.showperFolioAmount, has);
-			//»ñÈ¡¿ÉÒÔÌø×ªµÄÒ³Êı
+			//è·å–å¯ä»¥è·³è½¬çš„é¡µæ•°
 			this.page_l = new ArrayList<Integer>();
 			this.page_l = PageUtil.getPageList(hasPages);
 			if(page <= 0){
@@ -67,7 +67,7 @@ public class KeyWordAction extends ActionSupport{
 			}
 			if(hasPages == 0){
 				page = 0;
-				//ĞèÒª·´Ó³Éä												
+				//éœ€è¦åæ˜ å°„												
 				keyWord_l = new ArrayList<KeyWord>();
 			}else{
 				if(page <= 0){
@@ -84,7 +84,7 @@ public class KeyWordAction extends ActionSupport{
 		}
 	}
 	
-	//É¾³ı
+	//åˆ é™¤
 	public String deleKeyWord(){
 		try{
 			if(this.keyWordService.deleKeyWord(keyword_id)){
@@ -100,7 +100,7 @@ public class KeyWordAction extends ActionSupport{
 		}
 	}
 	
-	//È·¶¨²éÑ¯
+	//ç¡®å®šæŸ¥è¯¢
 	public String gainGoods_by_keyWord(){
 		try {
 			String test = keyWord.replaceAll("\\s{1,}", " ").trim();
@@ -122,7 +122,7 @@ public class KeyWordAction extends ActionSupport{
 		ServletActionContext.getRequest().setAttribute("keyWord", keyWord);
 	}
 	
-	//Ìø×ª·ÖÒ³Ò³Ãæ    otherOrderBy  Ö±½ÓÓÉÇ°Ì¨´«¹ıÀ´£º//ÅÅĞòÀàĞÍ  LZ_time£¨ÖÃ¶¥ÅÅĞò£©,upload_time£¨ÉÏ¼ÜÅÅĞò£©,money_up£¨¼ÛÇ®ÉıĞò£©,money_down£¨¼ÛÇ®½µĞò£©,hot£¨ä¯ÀÀÁ¿£©
+	//è·³è½¬åˆ†é¡µé¡µé¢    otherOrderBy  ç›´æ¥ç”±å‰å°ä¼ è¿‡æ¥ï¼š//æ’åºç±»å‹  LZ_timeï¼ˆç½®é¡¶æ’åºï¼‰,upload_timeï¼ˆä¸Šæ¶æ’åºï¼‰,money_upï¼ˆä»·é’±å‡åºï¼‰,money_downï¼ˆä»·é’±é™åºï¼‰,hotï¼ˆæµè§ˆé‡ï¼‰
 	@SuppressWarnings("unchecked")
 	public String showAll(){
 		try {
@@ -135,7 +135,7 @@ public class KeyWordAction extends ActionSupport{
 			}
 			this.has = this.keyWordService.findCount(test,rowName);
 			hasPages = PageUtil.findAllPages(XmlAndHqlString.perFolioAmount, has);
-			//»ñÈ¡¿ÉÒÔÌø×ªµÄÒ³Êı
+			//è·å–å¯ä»¥è·³è½¬çš„é¡µæ•°
 			this.page_l = new ArrayList<Integer>();
 			this.page_l = PageUtil.getPageList(hasPages);
 			if(page <= 0){
@@ -143,7 +143,7 @@ public class KeyWordAction extends ActionSupport{
 			}
 			if(hasPages == 0){
 				page = 0;
-				//ĞèÒª·´Ó³Éä												
+				//éœ€è¦åæ˜ å°„												
 				this.goods_l = new ArrayList();
 			}else{
 				if(page <= 0){

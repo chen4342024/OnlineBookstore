@@ -1,4 +1,4 @@
-package com.bookshop.action;
+ï»¿package com.bookshop.action;
 
 import java.io.PrintWriter;
 import java.util.List;
@@ -14,7 +14,7 @@ import com.bookshop.service.BookService;
 import com.bookshop.util.PageUtil;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * Í¼ÊéĞÅÏ¢Action²ã
+ * å›¾ä¹¦ä¿¡æ¯Actionå±‚
  * @author Winds
  *
  */
@@ -23,31 +23,31 @@ public class BookAction extends ActionSupport {
 	@Resource
 	private BookService bookService;
 	private Book book;
-	private Long hasBook; // Êı¾İµÄÌõÊı
-	private int page; // µ±Ç°Ò³
-	private int hasPages; // Ò³Êı
-	private int perFolioAmount; // Ã¿Ò³Êı¾İµÄÌõÊı
+	private Long hasBook; // æ•°æ®çš„æ¡æ•°
+	private int page; // å½“å‰é¡µ
+	private int hasPages; // é¡µæ•°
+	private int perFolioAmount; // æ¯é¡µæ•°æ®çš„æ¡æ•°
 	private List<Integer> page_l;
 	private List<Book> book_l;
-	private int firstCatagory_id; //Ò»¼¶Í¼Êé·ÖÀà
-	private int secondCatagory_id;//¶ş¼¶Í¼Êé·ÖÀà
+	private int firstCatagory_id; //ä¸€çº§å›¾ä¹¦åˆ†ç±»
+	private int secondCatagory_id;//äºŒçº§å›¾ä¹¦åˆ†ç±»
 	private String book_id;
 	private int storage_num;
 	private boolean isLike;
 	
 
 	/**
-	 * ·ÖÒ³»ñÈ¡Í¼Êé·ÖÀàĞÅÏ¢
+	 * åˆ†é¡µè·å–å›¾ä¹¦åˆ†ç±»ä¿¡æ¯
 	 * @return String
 	 */
 	public String showBook_by_page() {
 		try{
-		perFolioAmount = 2; // Ã¿Ò³ÏÔÊ¾ÌõÊı
+		perFolioAmount = 2; // æ¯é¡µæ˜¾ç¤ºæ¡æ•°
 		String[] parms = null;
 		String[] values = null;
-		this.hasBook = bookService.hasNumbers("Book", parms, values, isLike); // »ñÈ¡Êı¾İÌõÊı
-		hasPages = PageUtil.findAllPages(perFolioAmount, hasBook); // »ñÈ¡Ò³Êı
-		this.page_l = PageUtil.getPageList(hasPages); // »ñÈ¡Ò»¸ö´Ó1µ½hasPagesµÄÊı×é
+		this.hasBook = bookService.hasNumbers("Book", parms, values, isLike); // è·å–æ•°æ®æ¡æ•°
+		hasPages = PageUtil.findAllPages(perFolioAmount, hasBook); // è·å–é¡µæ•°
+		this.page_l = PageUtil.getPageList(hasPages); // è·å–ä¸€ä¸ªä»1åˆ°hasPagesçš„æ•°ç»„
 		if (page <= 0) {
 			page = 1;
 		}
@@ -60,7 +60,7 @@ public class BookAction extends ActionSupport {
 				page = hasPages;
 			}
 		}
-		// »ñÈ¡µ±Ç°Ò³µÄÊı¾İ
+		// è·å–å½“å‰é¡µçš„æ•°æ®
 		this.book_l = (List<Book>) bookService.show_by_page(page, perFolioAmount,"Book", parms, values, isLike);
 		return "success";
 		}catch(Exception e){
@@ -70,7 +70,7 @@ public class BookAction extends ActionSupport {
 	}
 	
 	/**
-	 * ²éÕÒÍ¼Êé¿â´æ
+	 * æŸ¥æ‰¾å›¾ä¹¦åº“å­˜
 	 * @return void
 	 */
 	public void findBookInventory(){
@@ -84,7 +84,7 @@ public class BookAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -94,7 +94,7 @@ public class BookAction extends ActionSupport {
 	}
 	
 	/**
-	 * ÉÏ´«Í¼Êé
+	 * ä¸Šä¼ å›¾ä¹¦
 	 * @return
 	 */
 	public String addBook(){
@@ -112,7 +112,7 @@ public class BookAction extends ActionSupport {
 	}
 	
 	/**
-	 * ¸øÍ¼Êé´òÕÛ
+	 * ç»™å›¾ä¹¦æ‰“æŠ˜
 	 * @return
 	 */
 	public void changeBookDiscount(){
@@ -124,7 +124,7 @@ public class BookAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -134,7 +134,7 @@ public class BookAction extends ActionSupport {
 	}
 	
 	/**
-	 * ¸øÍ¼ÊéÌí¼Ó¿â´æ
+	 * ç»™å›¾ä¹¦æ·»åŠ åº“å­˜
 	 * @return
 	 */
 	public void changeBookStorage_num(){
@@ -146,7 +146,7 @@ public class BookAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -156,7 +156,7 @@ public class BookAction extends ActionSupport {
 	}
 	
 	/**
-	 * »ñÈ¡Í¼Êé
+	 * è·å–å›¾ä¹¦
 	 * @return
 	 */
 	public String gainBook(){
@@ -175,7 +175,7 @@ public class BookAction extends ActionSupport {
 	}
 	
 	/**
-	 * ĞŞ¸ÄÍ¼Êé
+	 * ä¿®æ”¹å›¾ä¹¦
 	 * @return
 	 */
 	public String updateBook(){

@@ -1,4 +1,4 @@
-package com.bookshop.util;
+ï»¿package com.bookshop.util;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public class MyServiceParent {
 	}
 	/*
 	 * 
-	 *²éÑ¯×Ü¸öÊı
+	 *æŸ¥è¯¢æ€»ä¸ªæ•°
 	 */
 	public Long hasNumbers(String entityName){
 		this.session=this.getSession();	
@@ -76,7 +76,7 @@ public class MyServiceParent {
 	
 	/***
 	 * 
-	 * ²éÑ¯×ÜÒ³Êı
+	 * æŸ¥è¯¢æ€»é¡µæ•°
 	 */
 	public int findPages(int perFolioAmount,String entityName){ 
 		this.session=this.getSession();	
@@ -107,7 +107,7 @@ public class MyServiceParent {
 		}
 		return pagenum;
 	}
-	//¸ù¾İÒ³Êı±éÀú
+	//æ ¹æ®é¡µæ•°éå†
 	public List<?> show_by_page(int page,int perFolioAmount,String entityName){
 		this.session=this.getSession();	
 		String hql;
@@ -141,7 +141,7 @@ public class MyServiceParent {
 		return myDaoParent.show_by_page_all( page, perFolioAmount, session, hql);
 	}
 	/**
-	 * ¸ù¾İÊ±¼ä¶ÎËÑ²éÊ±µÄ·ÖÒ³ÏÔÊ¾
+	 * æ ¹æ®æ—¶é—´æ®µæœæŸ¥æ—¶çš„åˆ†é¡µæ˜¾ç¤º
 	 */
 	public Long hasNumbers(String entityName,String timeParam,String begin ,String end,String parm,String value){
 		this.session = getSession();

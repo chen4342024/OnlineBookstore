@@ -1,4 +1,4 @@
-package com.bookshop.entity;
+ï»¿package com.bookshop.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,52 +13,52 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 /**
- * Í¼Êé·ÖÀà
+ * å›¾ä¹¦åˆ†ç±»
  */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="tb_catagory")
 public class Catagory implements Serializable {
 	/**
-	 * ±àºÅ
+	 * ç¼–å·
 	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer catagory_id;
 	/**
-	 * ·ÖÀàÃû³Æ
+	 * åˆ†ç±»åç§°
 	 */
 	@Column(nullable=false)
 	private String catagory_name;
 	/**
-	 * ·ÖÀà¼¶±ğ
-	 * 1£º¸¸Àà
-	 * 2£º×ÓÀà
+	 * åˆ†ç±»çº§åˆ«
+	 * 1ï¼šçˆ¶ç±»
+	 * 2ï¼šå­ç±»
 	 */
 	@Column(nullable=false)
 	private String catagory_level;
 	/**
-	 * ´´½¨Ê±¼ä
+	 * åˆ›å»ºæ—¶é—´
 	 */
 	@Column(nullable=false)
 	private Date create_date;
 	
 	/**
-	 * ¸¸Àà
+	 * çˆ¶ç±»
 	 */
 	@ManyToOne(optional=true,targetEntity=Catagory.class,fetch=FetchType.EAGER)
 	@JoinColumn(name="catagory_parent",nullable=true)
 	private Catagory catagory_parent;
 	
 	/**
-	 * Í¼Êé·ÖÀàµÄÕÛ¿Û
-	 * 0µ½1Ö®¼äµÄĞ¡Êı
-	 * ³õÊ¼ÖµÎª1
+	 * å›¾ä¹¦åˆ†ç±»çš„æŠ˜æ‰£
+	 * 0åˆ°1ä¹‹é—´çš„å°æ•°
+	 * åˆå§‹å€¼ä¸º1
 	 */
 	@Column(nullable=false)
 	private float discount;
 	/**
-	 * Í¼Êé·ÖÀàÕÛ¿ÛÉèÖÃµÄÊ±¼ä
+	 * å›¾ä¹¦åˆ†ç±»æŠ˜æ‰£è®¾ç½®çš„æ—¶é—´
 	 */
 	@Column(nullable=false)
 	private Date discount_date;

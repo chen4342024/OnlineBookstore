@@ -1,4 +1,4 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.Date;
 import java.util.List;
@@ -9,7 +9,7 @@ import com.bookshop.dao.PaymentMethodDao;
 import com.bookshop.entity.PaymentMethod;
 import com.bookshop.util.MyServiceParent;
 /**
- * ¸¶¿î·½Ê½Service²ãÊµÏÖÀà
+ * ä»˜æ¬¾æ–¹å¼Serviceå±‚å®ç°ç±»
  * @author Winds
  *
  */
@@ -20,7 +20,7 @@ public class PaymentMethodServiceImpl extends MyServiceParent implements
 	private String hql;
 	
 	/**
-	 * ¸ù¾İÖ§¸¶Ãû³Æ²éÑ¯
+	 * æ ¹æ®æ”¯ä»˜åç§°æŸ¥è¯¢
 	 */
 	public PaymentMethod find(String name) {
 		// TODO Auto-generated method stub
@@ -31,7 +31,7 @@ public class PaymentMethodServiceImpl extends MyServiceParent implements
 	}
 
 	/**
-	 * Ìí¼ÓÖ§¸¶·½Ê½
+	 * æ·»åŠ æ”¯ä»˜æ–¹å¼
 	 */
 	public boolean add(PaymentMethod paymentMethod) {
 		// TODO Auto-generated method stub
@@ -42,7 +42,7 @@ public class PaymentMethodServiceImpl extends MyServiceParent implements
 	}
 
 	/**
-	 * ĞŞ¸ÄÖ§¸¶·½Ê½
+	 * ä¿®æ”¹æ”¯ä»˜æ–¹å¼
 	 */
 	public boolean update(PaymentMethod paymentMethod) {
 		// TODO Auto-generated method stub
@@ -57,7 +57,7 @@ public class PaymentMethodServiceImpl extends MyServiceParent implements
 	}
 	
 	/**
-	 * ²é¿´Ö§¸¶·½Ê½ÓĞÃ»ÓĞÊ¹ÓÃ
+	 * æŸ¥çœ‹æ”¯ä»˜æ–¹å¼æœ‰æ²¡æœ‰ä½¿ç”¨
 	 * @return
 	 */
 	public boolean findPaymentMethod_use(int id) {
@@ -71,7 +71,7 @@ public class PaymentMethodServiceImpl extends MyServiceParent implements
 	}
 
 	/**
-	 * É¾³ıÖ§¸¶·½Ê½
+	 * åˆ é™¤æ”¯ä»˜æ–¹å¼
 	 */
 	public boolean delete(int id) {
 		// TODO Auto-generated method stub
@@ -94,7 +94,7 @@ public class PaymentMethodServiceImpl extends MyServiceParent implements
 		}
 	}
 	/**
-	 * ¸ù¾İID»ñÈ¡Ö§¸¶·½Ê½
+	 * æ ¹æ®IDè·å–æ”¯ä»˜æ–¹å¼
 	 */
 	public PaymentMethod findById(int payment_method_id){
 		session = getSession();

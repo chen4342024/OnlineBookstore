@@ -1,4 +1,4 @@
-package com.bookshop.servlet;
+ï»¿package com.bookshop.servlet;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /*
  * 
- *Éú³ÉÑéÖ¤Âë
+ *ç”ŸæˆéªŒè¯ç 
  * 
  */
 @SuppressWarnings("serial")
@@ -73,7 +73,7 @@ public class RandomGraphics2 extends HttpServlet
 	    	BarGraphics.drawString(r4,width/8+(width/4)*3-6,height/2+6);
 	    	
 	    	java.util.Random random = new java.util.Random();
-	    	for(int i = 0;i < 100;i++){//»­Âéµã
+	    	for(int i = 0;i < 100;i++){//ç”»éº»ç‚¹
 		    	int x = random.nextInt(width-1);
 		    	int y = random.nextInt(height-1);
 		    	if(i%2 == 0){

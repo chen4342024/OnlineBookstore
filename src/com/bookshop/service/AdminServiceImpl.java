@@ -1,4 +1,4 @@
-package com.bookshop.service;
+锘縫ackage com.bookshop.service;
 
 import javax.annotation.Resource;
 
@@ -7,7 +7,7 @@ import com.bookshop.entity.Admin;
 import com.bookshop.util.CryptoUtils;
 import com.bookshop.util.MyServiceParent;
 /**
- * 网站管理员信息Service层实现类
+ * 锟斤拷站锟斤拷锟斤拷员锟斤拷息Service锟斤拷实锟斤拷锟斤拷
  * @author Winds
  *
  */
@@ -25,6 +25,6 @@ public class AdminServiceImpl extends MyServiceParent implements AdminService {
 			return a.getAdmin_id();
 		else
 			return -1;
-	}
+	}  
 
 }

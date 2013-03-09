@@ -1,4 +1,4 @@
-package com.bookshop.entity;
+ï»¿package com.bookshop.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,56 +12,56 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 /**
- * Ô±¹¤´¦Àí»áÔ±¶©µ¥ºÍ»áÔ±ÍË»õÉêÇë¼ÇÂ¼
+ * å‘˜å·¥å¤„ç†ä¼šå‘˜è®¢å•å’Œä¼šå‘˜é€€è´§ç”³è¯·è®°å½•
  */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="tb_staff_handle_record")
 public class StaffHandleRecord implements Serializable {
 	/**
-	 * Ô±¹¤´¦Àí¼ÇÂ¼±àºÅ
+	 * å‘˜å·¥å¤„ç†è®°å½•ç¼–å·
 	 * UUID
 	 */
 	@Id
 	@Column(length=40)
 	private String staff_handle_record_id;
 	/**
-	 * ´¦ÀíÈÕÆÚ
+	 * å¤„ç†æ—¥æœŸ
 	 */
 	@Column(nullable=false)
 	private Date handle_date;
 	/**
-	 * ´¦ÀíÀàĞÍ
-	 * 1£º´¦ÀíÓÃ»§¶©µ¥
-	 * 2£º´¦ÀíÓÃ»§ÍË»õÉêÇë
+	 * å¤„ç†ç±»å‹
+	 * 1ï¼šå¤„ç†ç”¨æˆ·è®¢å•
+	 * 2ï¼šå¤„ç†ç”¨æˆ·é€€è´§ç”³è¯·
 	 */
 	@Column(nullable=false)
 	private Integer handle_type;
 	/**
-	 * ´¦ÀíÔ±¹¤
+	 * å¤„ç†å‘˜å·¥
 	 */
 	@ManyToOne(optional=false,targetEntity=Staff.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="staff_id",nullable=false)
 	private Staff staff;
 	/**
-	 * ´¦Àí¶©µ¥
+	 * å¤„ç†è®¢å•
 	 */
 	@ManyToOne(optional=true,targetEntity=Order.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="order_id",nullable=true)
 	private Order order;
 	/**
-	 * ´¦ÀíÓÃ»§ÍË»õÉêÇë
+	 * å¤„ç†ç”¨æˆ·é€€è´§ç”³è¯·
 	 */
 	@ManyToOne(optional=true,targetEntity=RejectedApply.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="rejected_apply_id",nullable=true)
 	private RejectedApply rejectedApply;
 	/**
-	 * ´¦ÀíÇ°µÄ×´Ì¬
+	 * å¤„ç†å‰çš„çŠ¶æ€
 	 */
 	@Column(nullable=false)
 	private Integer before_handle_status;
 	/**
-	 * ´¦ÀíºóµÄ×´Ì¬
+	 * å¤„ç†åçš„çŠ¶æ€
 	 */
 	@Column(nullable=false)
 	private Integer after_handle_status;

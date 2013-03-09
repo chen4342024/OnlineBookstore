@@ -1,4 +1,4 @@
-package com.bookshop.action;
+Ôªøpackage com.bookshop.action;
 
 import java.io.PrintWriter;
 import java.util.Map;
@@ -14,7 +14,7 @@ import com.bookshop.service.ShippingAddressService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- *  ’ªıµÿ÷∑Action≤„
+ * Êî∂Ë¥ßÂú∞ÂùÄActionÂ±Ç
  * @author Winds
  *
  */

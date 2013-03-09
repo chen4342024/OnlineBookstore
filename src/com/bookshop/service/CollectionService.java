@@ -1,49 +1,49 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.List;
 
 import com.bookshop.entity.Collection;
 
 /**
- * ÊÕ²ØĞÅÏ¢Service²ã½Ó¿Ú
+ * æ”¶è—ä¿¡æ¯Serviceå±‚æ¥å£
  * @author Winds
  *
  */
 public interface CollectionService {
 	/**
-	 * ²éÕÒÊÕ²Ø×î¶àµÄÍ¼Êé
+	 * æŸ¥æ‰¾æ”¶è—æœ€å¤šçš„å›¾ä¹¦
 	 */
 	public List<Object> getHotCollection();
 	/**
-	 * É¾³ı»áÔ±Í¼ÊéÊÕ²Ø¼ÇÂ¼
-	 * @param collection_id ÊÕ²Ø¼ÇÂ¼Id
+	 * åˆ é™¤ä¼šå‘˜å›¾ä¹¦æ”¶è—è®°å½•
+	 * @param collection_id æ”¶è—è®°å½•Id
 	 * @return boolean
 	 */
 	public boolean delete(String collection_id);
 	/**
-	 * ÅúÁ¿É¾³ı»áÔ±Í¼ÊéÊÕ²Ø¼ÇÂ¼
-	 * @param collectionIdStr ÊÕ²Ø¼ÇÂ¼Id´®
+	 * æ‰¹é‡åˆ é™¤ä¼šå‘˜å›¾ä¹¦æ”¶è—è®°å½•
+	 * @param collectionIdStr æ”¶è—è®°å½•Idä¸²
 	 * @return
 	 */
 	public boolean deleteBatch(String collectionIdStr);
 	/**
-	 * ·ÖÒ³Êı¾İÖĞµÄ¸÷Í¼ÊéµÄÊÕ²ØÊı
+	 * åˆ†é¡µæ•°æ®ä¸­çš„å„å›¾ä¹¦çš„æ”¶è—æ•°
 	 * @param collection_l
 	 * @return
 	 */
 	public List<Long> findColletionNum(List<Collection> collection_l);
 	
 	/**
-	 * Ìí¼ÓÊÕ²Ø
+	 * æ·»åŠ æ”¶è—
 	 * @return
 	 */
 	public int addToCollection(String book_id,String customer_email);
 	/**
-	 * ·ÖÒ³¹¦ÄÜ
-	 * @param entityName ÊµÌåÀàÃû
-	 * @param paramName  ÊµÌåµÄ²éÑ¯Ìõ¼şÃû
-	 * @param value    ¶ÔÓ¦µÄÌõ¼şÖµ
-	 * @param isLike   ÊÇ·ñÒªÄ£ºı²éÑ¯
+	 * åˆ†é¡µåŠŸèƒ½
+	 * @param entityName å®ä½“ç±»å
+	 * @param paramName  å®ä½“çš„æŸ¥è¯¢æ¡ä»¶å
+	 * @param value    å¯¹åº”çš„æ¡ä»¶å€¼
+	 * @param isLike   æ˜¯å¦è¦æ¨¡ç³ŠæŸ¥è¯¢
 	 * @return
 	 */
 	public Long hasNumbers(String entityName,String[] paramName,String[]value,boolean isLike);

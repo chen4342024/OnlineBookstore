@@ -1,4 +1,4 @@
-package com.bookshop.action;
+ï»¿package com.bookshop.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -29,7 +29,7 @@ import com.bookshop.util.PageUtil;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * »áÔ±Action²ã
+ * ä¼šå‘˜Actionå±‚
  * @author Winds
  *
  */
@@ -40,10 +40,10 @@ public class CustomerAction extends ActionSupport {
 	private Customer customer;
 	private ShoppingRecord ShoppingRecord;
 	private Comment comment;
-	private Long hasCustomer; // Êı¾İµÄÌõÊı
-	private int page; // µ±Ç°Ò³
-	private int hasPages; // Ò³Êı
-	private int perFolioAmount; // Ã¿Ò³Êı¾İµÄÌõÊı
+	private Long hasCustomer; // æ•°æ®çš„æ¡æ•°
+	private int page; // å½“å‰é¡µ
+	private int hasPages; // é¡µæ•°
+	private int perFolioAmount; // æ¯é¡µæ•°æ®çš„æ¡æ•°
 	private List<Integer> page_l;
 	private List<Customer> customer_l;
 	private List<ShoppingRecord> shoppingRecord_l;
@@ -55,7 +55,7 @@ public class CustomerAction extends ActionSupport {
 	private Map<String,Object> session;
 	
 	/**
-	 * ·¢ËÍ¼¤»îÁ´½Óµ½»áÔ±×¢²áÓÊÏä
+	 * å‘é€æ¿€æ´»é“¾æ¥åˆ°ä¼šå‘˜æ³¨å†Œé‚®ç®±
 	 */
 	public String sendCodeToCustomer(){
 		String flag="input";
@@ -70,7 +70,7 @@ public class CustomerAction extends ActionSupport {
 	}
 	
 	/**
-	 * ¼¤»î»áÔ±
+	 * æ¿€æ´»ä¼šå‘˜
 	 */
 	
 	public String activityCustomer(){
@@ -82,7 +82,7 @@ public class CustomerAction extends ActionSupport {
 		return INPUT;
 	}
 	/**
-	 * ÑéÖ¤ÓÊÏäµÄÓĞĞ§ĞÔ
+	 * éªŒè¯é‚®ç®±çš„æœ‰æ•ˆæ€§
 	 */
 	public void email_check(){
 		String flag="true";
@@ -94,7 +94,7 @@ public class CustomerAction extends ActionSupport {
 			if(customerService.check_email(customer.getEmail())){
 				flag="false";
 			}
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -108,7 +108,7 @@ public class CustomerAction extends ActionSupport {
 		}
 	}
 	/**
-	 * ÓÃ»§µÇÂ¼
+	 * ç”¨æˆ·ç™»å½•
 	 */
 	
 	public String login(){
@@ -123,7 +123,7 @@ public class CustomerAction extends ActionSupport {
 	}
 	
 	/**
-	 * »áÔ±×¢²á
+	 * ä¼šå‘˜æ³¨å†Œ
 	 * @return
 	 */
 	public String addCustomer(){
@@ -135,7 +135,7 @@ public class CustomerAction extends ActionSupport {
 		return INPUT;
 	}
 	/**
-	 * °²È«ÍË³ö
+	 * å®‰å…¨é€€å‡º
 	 * @return
 	 */
 	public String logout(){
@@ -146,48 +146,48 @@ public class CustomerAction extends ActionSupport {
 		return SUCCESS;
 	}
 	/**
-	 * ·ÖÒ³»ñÈ¡»áÔ±ĞÅÏ¢
+	 * åˆ†é¡µè·å–ä¼šå‘˜ä¿¡æ¯
 	 * @return
 	 */
 	public String showCustomer_by_page() {
 		try {
-			perFolioAmount = 2; // Ã¿Ò³ÏÔÊ¾ÌõÊı
+			perFolioAmount = 2; // æ¯é¡µæ˜¾ç¤ºæ¡æ•°
 			String[] parms = null;
 			String[] values = null;
 			String entityName=null;
 			if (status == 1) {
 				entityName="Customer";
-		//		this.hasCustomer = customerService.hasNumbers("Customer"); // »ñÈ¡Êı¾İÌõÊı
-		//		hasPages = customerService.findPages(perFolioAmount, "Customer"); // »ñÈ¡Ò³Êı
+		//		this.hasCustomer = customerService.hasNumbers("Customer"); // è·å–æ•°æ®æ¡æ•°
+		//		hasPages = customerService.findPages(perFolioAmount, "Customer"); // è·å–é¡µæ•°
 			} else if (status == 2) {
 				if (type == 1) {
 					entityName="ShoppingRecord";
-		//			this.hasCustomer = customerService.hasNumbers("ShoppingRecord"); // »ñÈ¡Êı¾İÌõÊı
-		//			hasPages = customerService.findPages(perFolioAmount,"ShoppingRecord"); // »ñÈ¡Ò³Êı
+		//			this.hasCustomer = customerService.hasNumbers("ShoppingRecord"); // è·å–æ•°æ®æ¡æ•°
+		//			hasPages = customerService.findPages(perFolioAmount,"ShoppingRecord"); // è·å–é¡µæ•°
 				} else if (type == 2) {
 					entityName="ShoppingRecord";
 					parms=new String[]{"customer.email"};
 					values=new String[]{customer.getEmail()};
 					
-		//			this.hasCustomer = customerService.hasNumbers("ShoppingRecord", customer.getEmail()); // »ñÈ¡Êı¾İÌõÊı
-		//			hasPages = customerService.findPages(perFolioAmount,"ShoppingRecord", customer.getEmail()); // »ñÈ¡Ò³Êı
+		//			this.hasCustomer = customerService.hasNumbers("ShoppingRecord", customer.getEmail()); // è·å–æ•°æ®æ¡æ•°
+		//			hasPages = customerService.findPages(perFolioAmount,"ShoppingRecord", customer.getEmail()); // è·å–é¡µæ•°
 				}
 			} else if (status == 3) {
 				if (type == 1) {
 					entityName="Comment";
-				//	this.hasCustomer = customerService.hasNumbers("Comment"); // »ñÈ¡Êı¾İÌõÊı
-				//	hasPages = customerService.findPages(perFolioAmount,"Comment"); // »ñÈ¡Ò³Êı
+				//	this.hasCustomer = customerService.hasNumbers("Comment"); // è·å–æ•°æ®æ¡æ•°
+				//	hasPages = customerService.findPages(perFolioAmount,"Comment"); // è·å–é¡µæ•°
 				} else if (type == 2) {
 					entityName="Comment";
 					parms=new String[]{"customer.email"};
 					values=new String[]{customer.getEmail()};
-				//	this.hasCustomer = customerService.hasNumbers("Comment",customer.getEmail()); // »ñÈ¡Êı¾İÌõÊı
-				//	hasPages = customerService.findPages(perFolioAmount,"Comment", customer.getEmail()); // »ñÈ¡Ò³Êı
+				//	this.hasCustomer = customerService.hasNumbers("Comment",customer.getEmail()); // è·å–æ•°æ®æ¡æ•°
+				//	hasPages = customerService.findPages(perFolioAmount,"Comment", customer.getEmail()); // è·å–é¡µæ•°
 				}
 			}
-			this.hasCustomer = customerService.hasNumbers(entityName, parms, values, isLike); // »ñÈ¡Êı¾İÌõÊı
-			hasPages = PageUtil.findAllPages(perFolioAmount, hasCustomer); // »ñÈ¡Ò³Êı
-			this.page_l = PageUtil.getPageList(hasPages); // »ñÈ¡Ò»¸ö´Ó1µ½hasPagesµÄÊı×é
+			this.hasCustomer = customerService.hasNumbers(entityName, parms, values, isLike); // è·å–æ•°æ®æ¡æ•°
+			hasPages = PageUtil.findAllPages(perFolioAmount, hasCustomer); // è·å–é¡µæ•°
+			this.page_l = PageUtil.getPageList(hasPages); // è·å–ä¸€ä¸ªä»1åˆ°hasPagesçš„æ•°ç»„
 			if (page <= 0) {
 				page = 1;
 			}
@@ -200,7 +200,7 @@ public class CustomerAction extends ActionSupport {
 					page = hasPages;
 				}
 			}
-			// »ñÈ¡µ±Ç°Ò³µÄÊı¾İ
+			// è·å–å½“å‰é¡µçš„æ•°æ®
 			this.record_l = customerService.show_by_page(page, perFolioAmount, entityName, parms, values, isLike);
 			if (status == 1) {
 				return "success1";
@@ -219,7 +219,7 @@ public class CustomerAction extends ActionSupport {
 	}
 	
 	/**
-	 * ¸Ä±äÄ³»áÔ±µÄ×´Ì¬
+	 * æ”¹å˜æŸä¼šå‘˜çš„çŠ¶æ€
 	 */
 	public void changeCustomerState(){
 		try{
@@ -236,7 +236,7 @@ public class CustomerAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -246,7 +246,7 @@ public class CustomerAction extends ActionSupport {
 	}
 	
 	/**
-	 * »ñÈ¡ÍêÕûµÄ»áÔ±ĞÅÏ¢
+	 * è·å–å®Œæ•´çš„ä¼šå‘˜ä¿¡æ¯
 	 * @return
 	 */
 	public String gainCustomer(){

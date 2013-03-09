@@ -1,4 +1,4 @@
-package com.bookshop.entity;
+ï»¿package com.bookshop.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import com.bookshop.util.CryptoUtils;
 
 /**
- * »áÔ±
+ * ä¼šå‘˜
  */
 
 @SuppressWarnings("serial")
@@ -19,57 +19,57 @@ import com.bookshop.util.CryptoUtils;
 @Table(name="tb_customer")
 public class Customer implements Serializable{
 	/**
-	 * »áÔ±µÄemail 
-	 * µÇÂ¼ÕËºÅ
+	 * ä¼šå‘˜çš„email 
+	 * ç™»å½•è´¦å·
 	 */
 	@Id
 	@Column(length=40)
 	private String email; 
 	/**
-	 * µÇÂ¼ÃÜÂë
+	 * ç™»å½•å¯†ç 
 	 */
 	@Column(length=100,nullable=false)
 	private String pw;
 	/**
-	 * ÕæÊµĞÕÃû
+	 * çœŸå®å§“å
 	 */
 	@Column(length=40)
 	private String name;
 	/**
-	 * ĞÔ±ğ
+	 * æ€§åˆ«
 	 */
 	@Column(length=2)
 	private String sex;
 	/**
-	 * ³öÉúÈÕÆÚ
+	 * å‡ºç”Ÿæ—¥æœŸ
 	 */
 	private Date birthday;
 	/**
-	 * ĞËÈ¤°®ºÃ
+	 * å…´è¶£çˆ±å¥½
 	 */
 	@Column(length=40)
 	private String hobbies;
 	/**
-	 * µØÖ·
+	 * åœ°å€
 	 */
 	@Column(length=200)
 	private String address;
 	/**
-	 * ×¢²áÊ±¼ä
+	 * æ³¨å†Œæ—¶é—´
 	 */
 	@Column(nullable=false)
 	private Date join_date;
 	/**
-	 * ÕË»§Óà¶î
+	 * è´¦æˆ·ä½™é¢
 	 */
 	@Column(nullable=false)
 	private float balance;
 	
 	/**
-	 * »áÔ±ÕËºÅ×´Ì¬
-	 * 1£ºÕı³£×´Ì¬ 
-	 * 0£º½ûÓÃ×´Ì¬
-	 * 2£ºÎ´¼¤»î×´Ì¬
+	 * ä¼šå‘˜è´¦å·çŠ¶æ€
+	 * 1ï¼šæ­£å¸¸çŠ¶æ€ 
+	 * 0ï¼šç¦ç”¨çŠ¶æ€
+	 * 2ï¼šæœªæ¿€æ´»çŠ¶æ€
 	 */
 	@Column(nullable=false)
 	private Integer status; 

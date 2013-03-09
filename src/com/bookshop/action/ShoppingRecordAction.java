@@ -1,4 +1,4 @@
-package com.bookshop.action;
+ï»¿package com.bookshop.action;
 
 import java.io.PrintWriter;
 import java.util.List;
@@ -14,7 +14,7 @@ import com.bookshop.service.CollectionService;
 import com.bookshop.service.ShoppingRecordService;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * »áÔ±¹ºÊé¼ÇÂ¼ÐÅÏ¢Action²ã
+ * ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ï¢Actionï¿½ï¿½
  * @author Winds
  *
  */
@@ -43,7 +43,7 @@ public class ShoppingRecordAction extends ActionSupport {
 			 HttpServletResponse response = ServletActionContext.getResponse();
 			 response.setCharacterEncoding("UTF-8");
 		     out = response.getWriter();
-			 // Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈÝ
+			 // Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			 out.print(flag);
 		     out.flush();
 		 }catch(Exception e){

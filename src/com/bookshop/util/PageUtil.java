@@ -1,20 +1,20 @@
-package com.bookshop.util;
+ï»¿package com.bookshop.util;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PageUtil {
-	//½«Ò³ÊıÖÆ³ÉList<>,ÓÃÓÚÒ³ÊıÌø×ªÏÂÀ­¿ò
+	//ï¿½ï¿½Ò³ï¿½ï¿½ï¿½Æ³ï¿½List<>,ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public static List<Integer> getPageList(Integer hasPage){
 		List<Integer> page_l = new ArrayList<Integer>();
 		if(hasPage != null && hasPage >0){
 			for(int i= 1;i <= hasPage;i++){
 				page_l.add(i);
 			}
-		}
+		} 
 		return page_l;
 	}
-	//¼ÆËã×ÜÒ³Êı
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
 	public static int findAllPages(int perFolioAmount,Long has){
 		int pagenum;
 		int num = has.intValue();

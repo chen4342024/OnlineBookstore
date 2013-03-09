@@ -1,11 +1,11 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.List;
 
 import com.bookshop.entity.Staff;
 
 /**
- * Ô±¹¤ĞÅÏ¢Service²ã½Ó¿Ú
+ * å‘˜å·¥ä¿¡æ¯Serviceå±‚æ¥å£
  * @author Winds
  *
  */
@@ -14,9 +14,9 @@ public interface StaffService {
 	public boolean save(Staff staff);
 	public Integer updateState(String staff_id);
 	public boolean update(Staff staff);
-	public String login(String staff_id,String pw);//Ô±¹¤µÇÂ¼
+	public String login(String staff_id,String pw);//å‘˜å·¥ç™»å½•
 	/**
-	 * ĞŞ¸ÄÔ±¹¤ÃÜÂë
+	 * ä¿®æ”¹å‘˜å·¥å¯†ç 
 	 * @param staff_id
 	 * @param oldPassword
 	 * @param newPassword

@@ -1,4 +1,4 @@
-package com.bookshop.action;
+ï»¿package com.bookshop.action;
 
 import java.io.PrintWriter;
 import java.util.List;
@@ -14,7 +14,7 @@ import com.bookshop.service.PromotionService;
 import com.bookshop.util.PageUtil;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * ÓÅ»Ý»î¶¯ÐÅÏ¢Action²ã
+ * ï¿½Å»Ý»î¶¯ï¿½ï¿½Ï¢Actionï¿½ï¿½
  * @author Winds
  *
  */
@@ -23,25 +23,25 @@ public class PromotionAction extends ActionSupport {
 	@Resource
 	private PromotionService promotionService;
 	private Promotion promotion;
-	private Long hasPromotion; // Êý¾ÝµÄÌõÊý
-	private int page; // µ±Ç°Ò³
-	private int hasPages; // Ò³Êý
-	private int perFolioAmount; // Ã¿Ò³Êý¾ÝµÄÌõÊý
+	private Long hasPromotion; // ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½ï¿½
+	private int page; // ï¿½ï¿½Ç°Ò³
+	private int hasPages; // Ò³ï¿½ï¿½
+	private int perFolioAmount; // Ã¿Ò³ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½ï¿½
 	private List<Integer> page_l;
 	private List<Promotion> promotion_l;
 	private boolean isLike;
-	private int status; //0:Ã»¹ýÆÚ 1£ºÒÑ¹ýÆÚ
-	private String promotion_catagorys;  //ÓÅ»ÝµÄÍ¼Êé·ÖÀà
+	private int status; //0:Ã»ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½
+	private String promotion_catagorys;  //ï¿½Å»Ýµï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½
 	/**
-	 * ·ÖÒ³»ñÈ¡ÓÅ»ÝÐÅÏ¢
+	 * ï¿½ï¿½Ò³ï¿½ï¿½È¡ï¿½Å»ï¿½ï¿½ï¿½Ï¢
 	 * @return
 	 */
 	public String showPromotion_by_page() {
 		try{
-		perFolioAmount = 2; // Ã¿Ò³ÏÔÊ¾ÌõÊý
-		this.hasPromotion = promotionService.hasNumbers(status); // »ñÈ¡Êý¾ÝÌõÊý
-		hasPages = PageUtil.findAllPages(perFolioAmount, hasPromotion);; // »ñÈ¡Ò³Êý
-		this.page_l = PageUtil.getPageList(hasPages); // »ñÈ¡Ò»¸ö´Ó1µ½hasPagesµÄÊý×é
+		perFolioAmount = 2; // Ã¿Ò³ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
+		this.hasPromotion = promotionService.hasNumbers(status); // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		hasPages = PageUtil.findAllPages(perFolioAmount, hasPromotion);; // ï¿½ï¿½È¡Ò³ï¿½ï¿½
+		this.page_l = PageUtil.getPageList(hasPages); // ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½hasPagesï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (page <= 0) {
 			page = 1;
 		}
@@ -54,7 +54,7 @@ public class PromotionAction extends ActionSupport {
 				page = hasPages;
 			}
 		}
-		// »ñÈ¡µ±Ç°Ò³µÄÊý¾Ý
+		// ï¿½ï¿½È¡ï¿½ï¿½Ç°Ò³ï¿½ï¿½ï¿½ï¿½ï¿½
 		this.promotion_l = (List<Promotion>) promotionService.show_by_page(page, perFolioAmount,status);
 		if(status==0){
 			return "success1";
@@ -68,7 +68,7 @@ public class PromotionAction extends ActionSupport {
 	}
 	
 	/**
-	 * Ìí¼ÓÓÅ»ÝÐÅÏ¢
+	 * ï¿½ï¿½ï¿½ï¿½Å»ï¿½ï¿½ï¿½Ï¢
 	 * @return
 	 */
 	public String addPromotion(){
@@ -86,7 +86,7 @@ public class PromotionAction extends ActionSupport {
 	}
 
 	/**
-	 * É¾³ýÓÅ»Ý
+	 * É¾ï¿½ï¿½ï¿½Å»ï¿½
 	 */
 	public void deletePromotion(){
 		try{
@@ -97,7 +97,7 @@ public class PromotionAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈÝ
+			// Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -107,7 +107,7 @@ public class PromotionAction extends ActionSupport {
 	}
 	
 	/**
-	 * »ñÈ¡Ã»¹ýÆÚµÄÓÅ»ÝÐÅÏ¢
+	 * ï¿½ï¿½È¡Ã»ï¿½ï¿½ï¿½Úµï¿½ï¿½Å»ï¿½ï¿½ï¿½Ï¢
 	 */
 	public String gainPromotion(){
 		try{
@@ -125,7 +125,7 @@ public class PromotionAction extends ActionSupport {
 	}
 	
 	/**
-	 * ÐÞ¸ÄÎ´¹ýÆÚµÄÓÅ»ÝÐÅÏ¢
+	 * ï¿½Þ¸ï¿½Î´ï¿½ï¿½ï¿½Úµï¿½ï¿½Å»ï¿½ï¿½ï¿½Ï¢
 	 */
 	public String updatePromotion(){
 		try{			
@@ -140,7 +140,7 @@ public class PromotionAction extends ActionSupport {
 		}
 	}
 	/**
-	 * É¾³ýÎ´¹ýÆÚÓÅ»Ý
+	 * É¾ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½Å»ï¿½
 	 */
 	public void findNotExpirePromotion_by_time(){
 		try{
@@ -152,7 +152,7 @@ public class PromotionAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈÝ
+			// Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			out.print(flag);
 			out.flush();
 			out.close();

@@ -1,4 +1,4 @@
-package com.bookshop.action;
+ï»¿package com.bookshop.action;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import com.bookshop.entity.Comment;
 import com.bookshop.service.CommentService;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * ÆÀÂÛĞÅÏ¢Action²ã
+ * è¯„è®ºä¿¡æ¯Actionå±‚
  * @author Winds
  *
  */
@@ -21,11 +21,11 @@ public class CommentAction extends ActionSupport {
 	private CommentService commentService;
 	private Comment comment;
 	private String book_id;
-	private List<Integer> starList; //starList.get(0):ÆÀÂÛ¼ÇÂ¼×ÜÊı  1:1ĞÇÆÀÂÛÊı 2:2ĞÇÆÀÂÛÊı 3:3ĞÇÆÀÂÛÊı 4:4ĞÇÆÀÂÛÊı 5:5ĞÇÆÀÂÛÊı
+	private List<Integer> starList; //starList.get(0):è¯„è®ºè®°å½•æ€»æ•°  1:1æ˜Ÿè¯„è®ºæ•° 2:2æ˜Ÿè¯„è®ºæ•° 3:3æ˜Ÿè¯„è®ºæ•° 4:4æ˜Ÿè¯„è®ºæ•° 5:5æ˜Ÿè¯„è®ºæ•°
 	private List<Comment> comment_l;
 	
 	/**
-	 * »ñÈ¡Í¼ÊéµÄÆÀÂÛ
+	 * è·å–å›¾ä¹¦çš„è¯„è®º
 	 * @return
 	 */
 	public void findComment(){

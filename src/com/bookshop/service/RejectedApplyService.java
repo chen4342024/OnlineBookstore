@@ -1,25 +1,25 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.List;
 
 import com.bookshop.entity.RejectedApply;
 
 /**
- * »áÔ±ÍË»õÉêÇëĞÅÏ¢Service²ã½Ó¿Ú
+ * ä¼šå‘˜é€€è´§ç”³è¯·ä¿¡æ¯Serviceå±‚æ¥å£
  * @author Winds
  *
  */
 public interface RejectedApplyService {
-	public void audit_rejectedApply(String staff_id,String rejected_apply_id, int isPass);//ÉóºËÍË»õÉêÇë
-	public void complete_rejectedApply(String staff_id,String rejected_apply_id);//È·ÈÏÊÕ»õÍê³É½»Ò×
-	public int findPages(int perFolioAmount,String entityName);  //·µ»Ø×ÜÒ³Êı
+	public void audit_rejectedApply(String staff_id,String rejected_apply_id, int isPass);//å®¡æ ¸é€€è´§ç”³è¯·
+	public void complete_rejectedApply(String staff_id,String rejected_apply_id);//ç¡®è®¤æ”¶è´§å®Œæˆäº¤æ˜“
+	public int findPages(int perFolioAmount,String entityName);  //è¿”å›æ€»é¡µæ•°
 	public RejectedApply find(String rejected_apply_id);
-	public Long hasNumbers(String entityName,String[] paramName,String[]value,boolean isLike); // ·µ»Ø×Ü¸öÊı
-	//¸ù¾İÒ³Êı±éÀú
+	public Long hasNumbers(String entityName,String[] paramName,String[]value,boolean isLike); // è¿”å›æ€»ä¸ªæ•°
+	//æ ¹æ®é¡µæ•°éå†
 	public List<?> show_by_page(int page,int perFolioAmount,String entityName,String[] paramName,String[]value,boolean isLike);
-	//¸ù¾İÊ±¼ä¶ÎËÑ²éÓÃµÄÒ³Êı±éÀú
+	//æ ¹æ®æ—¶é—´æ®µæœæŸ¥ç”¨çš„é¡µæ•°éå†
 	public Long hasNumbers(String entityName,String timeParam,String begin ,String end,String parm,String value);
-	//¸ù¾İÒ³Êı±éÀú
+	//æ ¹æ®é¡µæ•°éå†
 	public List<?> show_by_page(int page,int perFolioAmount,String entityName,String timeParam,String begin ,String end,String parm,String value);
 	
 }

@@ -1,4 +1,4 @@
-package com.searchEngine.timer;
+ï»¿package com.searchEngine.timer;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,21 +11,21 @@ import com.searchEngine.util.XmlAndHqlString;
 public class SuggestionTimer {
 	private static Timer timer01;
 	private static Timer timer02;
-	static{//µÚÒ»´Î¼ÓÔØ
-		//ÅĞ¶ÏÅäÖÃÊÇ·ñÎª¿Õ
+	static{//ç¬¬ä¸€æ¬¡åŠ è½½
+		//åˆ¤æ–­é…ç½®æ˜¯å¦ä¸ºç©º
 		if(XmlAndHqlString.entityName == null){
 			XmlAndHqlString.initString();
 		}
 		SimpleDateFormat sdf = new SimpleDateFormat();
 		SimpleDateFormat sdf02 = new SimpleDateFormat();
-		// ¹æ¶¨µÄÃ¿ÌìÊ±¼ä  startTime    ÔËĞĞ
+		// è§„å®šçš„æ¯å¤©æ—¶é—´  startTime    è¿è¡Œ
 		String startTime_str = "yyyy-MM-dd " + XmlAndHqlString.startTime;
 		System.out.println(startTime_str);
 		String startTime_str02 = "yyyy-MM-dd '00:00:10'";
 		sdf = new SimpleDateFormat(startTime_str);
 		
 		sdf02 =new SimpleDateFormat(startTime_str02); 
-		// Ê×´ÎÔËĞĞÊ±¼ä
+		// é¦–æ¬¡è¿è¡Œæ—¶é—´
 		Date startTime = null;  
 		Date startTime02 = null;  
 		try {
@@ -37,14 +37,14 @@ public class SuggestionTimer {
 		}
 		
 		/*
-		 * ÕâÀïÊÇ°´ £º¹æ¶¨µÄÃ¿ÌìÊ±¼ä  startTime_str ÔËĞĞ
-		 * ÓÅ»¯¹Ø¼ü×Ö´Ê¿â
+		 * è¿™é‡Œæ˜¯æŒ‰ ï¼šè§„å®šçš„æ¯å¤©æ—¶é—´  startTime_str è¿è¡Œ
+		 * ä¼˜åŒ–å…³é”®å­—è¯åº“
 		 */
 		timer01 = new Timer();
-		timer01.schedule(new TaskUpdate(), startTime ,1000*3600*24 * XmlAndHqlString.updataKeyWordDays);   //Æô¶¯TaskUpdateµÄÈÎÎñ
+		timer01.schedule(new TaskUpdate(), startTime ,1000*3600*24 * XmlAndHqlString.updataKeyWordDays);   //å¯åŠ¨TaskUpdateçš„ä»»åŠ¡
 		
 		timer02 = new Timer();
-		timer02.schedule(new TaskUpdateClick(), startTime02 ,1000*3600*24 );   //Æô¶¯TaskUpdateClickµÄÈÎÎñ
+		timer02.schedule(new TaskUpdateClick(), startTime02 ,1000*3600*24 );   //å¯åŠ¨TaskUpdateClickçš„ä»»åŠ¡
 	
 	}
 	
@@ -52,6 +52,6 @@ public class SuggestionTimer {
 		// TODO Auto-generated method stub
 		timer01.cancel();
 		timer02.cancel();
-		System.out.println("¼ÆÊ±Æ÷Í£Ö¹");
+		System.out.println("è®¡æ—¶å™¨åœæ­¢");
 	}	
 }

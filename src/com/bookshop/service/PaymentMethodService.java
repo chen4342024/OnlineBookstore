@@ -1,11 +1,11 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.List;
 
 import com.bookshop.entity.PaymentMethod;
 
 /**
- * ¸¶¿î·½Ê½Service²ã½Ó¿Ú
+ * ä»˜æ¬¾æ–¹å¼Serviceå±‚æ¥å£
  * @author Winds
  *
  */
@@ -16,12 +16,12 @@ public interface PaymentMethodService {
 	public boolean update(PaymentMethod paymentMethod);
 	public boolean delete(int id);
 	/**
-	 * ²éÑ¯ËùÓĞÖ§¸¶·½Ê½
+	 * æŸ¥è¯¢æ‰€æœ‰æ”¯ä»˜æ–¹å¼
 	 * @return
 	 */
 	public List<PaymentMethod> findAll();
 	/**
-	 * ¸ù¾İID»ñÈ¡Ö§¸¶·½Ê½
+	 * æ ¹æ®IDè·å–æ”¯ä»˜æ–¹å¼
 	 * @param payment_method_id
 	 * @return
 	 */

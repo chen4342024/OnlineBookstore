@@ -1,48 +1,48 @@
-package com.bookshop.dao;
+ï»¿package com.bookshop.dao;
 
 import java.util.List;
 
 import org.hibernate.Session;
 /**
- * »áÔ±¹ºÊé¼ÇÂ¼ĞÅÏ¢Dao²ã½Ó¿Ú
+ * ä¼šå‘˜è´­ä¹¦è®°å½•ä¿¡æ¯Daoå±‚æ¥å£
  * @author Winds
  *
  */
 public interface ShoppingRecordDao {
 	/**
-	 * É¾³ı»áÔ±¹ºÊé¼ÇÂ¼ĞÅÏ¢
+	 * åˆ é™¤ä¼šå‘˜è´­ä¹¦è®°å½•ä¿¡æ¯
 	 * @param obj
 	 * @param session
 	 */
 	public void dele(Object obj,Session session);
 	/**
-	 * ĞÂÔö»áÔ±¹ºÊé¼ÇÂ¼ĞÅÏ¢
+	 * æ–°å¢ä¼šå‘˜è´­ä¹¦è®°å½•ä¿¡æ¯
 	 * @param obj
 	 * @param session
 	 */
 	public void save(Object obj,Session session);
 	/**
-	 * ¸üĞÂ»áÔ±¹ºÊé¼ÇÂ¼ĞÅÏ¢
+	 * æ›´æ–°ä¼šå‘˜è´­ä¹¦è®°å½•ä¿¡æ¯
 	 * @param obj
 	 * @param session
 	 */
 	public void update(Object obj,Session session);
 	/**
-	 * Í¨¹ıHql²éÑ¯Óï¾ä²éÑ¯µ¥¸ö»áÔ±¹ºÊé¼ÇÂ¼ĞÅÏ¢
+	 * é€šè¿‡HqlæŸ¥è¯¢è¯­å¥æŸ¥è¯¢å•ä¸ªä¼šå‘˜è´­ä¹¦è®°å½•ä¿¡æ¯
 	 * @param hql
 	 * @param session
 	 * @return
 	 */
 	public Object find(String hql,Session session);
 	/**
-	 * Í¨¹ıHql²éÑ¯Óï¾ä²éÑ¯¶à¸ö»áÔ±¹ºÊé¼ÇÂ¼ĞÅÏ¢
+	 * é€šè¿‡HqlæŸ¥è¯¢è¯­å¥æŸ¥è¯¢å¤šä¸ªä¼šå‘˜è´­ä¹¦è®°å½•ä¿¡æ¯
 	 * @param hql
 	 * @param session
 	 * @return
 	 */
 	public List<?> findAll(String hql,Session session);
 	/**
-	 * Í¨¹ıHQL²éÑ¯Óï¾ä²éÑ¯ÈÈÃÅ×÷ÕßÓëÆäÊéµÄ×ÜÏúÁ¿
+	 * é€šè¿‡HQLæŸ¥è¯¢è¯­å¥æŸ¥è¯¢çƒ­é—¨ä½œè€…ä¸å…¶ä¹¦çš„æ€»é”€é‡
 	 * @param hql
 	 * @param session
 	 * @param maxLength

@@ -1,7 +1,7 @@
-package com.searchEngine.servlet;
+ï»¿package com.searchEngine.servlet;
 /*
- * Æô¶¯¼ÆÊ±Æ÷
- * ÏîÄ¿ĞèÒªÊ¹ÓÃÔÙÔÚweb.xmlÖĞÅäÖÃÉùÃ÷Ê¹ÓÃ
+ * å¯åŠ¨è®¡æ—¶å™¨
+ * é¡¹ç›®éœ€è¦ä½¿ç”¨å†åœ¨web.xmlä¸­é…ç½®å£°æ˜ä½¿ç”¨
  */
 import javax.servlet.http.HttpServlet;
 
@@ -11,14 +11,14 @@ import com.searchEngine.timer.SuggestionTimer;
 public class SuggestionServlet extends HttpServlet {
 	private SuggestionTimer h;
 	public void init(){
-		System.out.println("¡£¡£¡£·şÎñÆ÷Æô¶¯¡£¡£¡£¹ıÂËÆ÷Æô¶¯£¡");
+		System.out.println("ã€‚ã€‚ã€‚æœåŠ¡å™¨å¯åŠ¨ã€‚ã€‚ã€‚è¿‡æ»¤å™¨å¯åŠ¨ï¼");
 		System.setProperty("webapp.root", getServletContext().getRealPath("/"));
-		//Æô¶¯¼ÆÊ±Æ÷
+		//å¯åŠ¨è®¡æ—¶å™¨
 		h = new SuggestionTimer();
 	}
 	
 	public void destroy(){
-		System.out.println("¡£¡£¡£·şÎñÆ÷ÔİÍ£¡£¡£¡£¹ıÂËÆ÷Ïú»Ù£¡");
-		h.cancel();//Ê¹ÓÃÕâ¸ö·½·¨ÍË³öÈÎÎñ
+		System.out.println("ã€‚ã€‚ã€‚æœåŠ¡å™¨æš‚åœã€‚ã€‚ã€‚è¿‡æ»¤å™¨é”€æ¯ï¼");
+		h.cancel();//ä½¿ç”¨è¿™ä¸ªæ–¹æ³•é€€å‡ºä»»åŠ¡
 	}
 }

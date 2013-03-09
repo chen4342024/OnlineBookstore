@@ -1,4 +1,4 @@
-package com.bookshop.action;
+ï»¿package com.bookshop.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,7 +21,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.regex.*;
 /**
- * ¶©µ¥ĞÅÏ¢Action
+ * è®¢å•ä¿¡æ¯Action
  * @author Winds
  *
  */
@@ -35,34 +35,34 @@ public class OrderAction extends ActionSupport {
 	private ShoppingCartService shoppingCartService;
 	private Order order;
 	
-	private Long hasRecord;//Êı¾İµÄ×Ü¸öÊı
-	private int page;		 //µ±Ç°Ò³
-	private int hasPages;	 //×ÜÒ³Êı
-	private int perFolioAmount;  //Ã¿Ò³Êı¾İµÄÌõÊı
-	private List<Integer> page_l;//»ñÈ¡Ò»¸ö´Ó1µ½hasPagesµÄÊı×é
+	private Long hasRecord;//æ•°æ®çš„æ€»ä¸ªæ•°
+	private int page;		 //å½“å‰é¡µ
+	private int hasPages;	 //æ€»é¡µæ•°
+	private int perFolioAmount;  //æ¯é¡µæ•°æ®çš„æ¡æ•°
+	private List<Integer> page_l;//è·å–ä¸€ä¸ªä»1åˆ°hasPagesçš„æ•°ç»„
 
-	private List <Order> Record_l; //µ±Ç°Ò³µÄÊı¾İ
-	private List<Order> allCourse_l; //µ±ËùÓĞµÄÊı¾İ
+	private List <Order> Record_l; //å½“å‰é¡µçš„æ•°æ®
+	private List<Order> allCourse_l; //å½“æ‰€æœ‰çš„æ•°æ®
 
 	private List <Book> book_l ;
 	private List <List <Book>> book_l_l ;
 	private List <BookItem> bookItems;
-	private int isPass; //±êÖ¾ÉóºË¶©µ¥µÄ½á¹û¡£1ÎªÍ¨¹ı£¬0Îª²»Í¨¹ı
-	private int status=0;//±êÖ¾ËùÒª²éÑ¯ºÎÖÖ×´Ì¬ÏÂµÄ¶©µ¥
+	private int isPass; //æ ‡å¿—å®¡æ ¸è®¢å•çš„ç»“æœã€‚1ä¸ºé€šè¿‡ï¼Œ0ä¸ºä¸é€šè¿‡
+	private int status=0;//æ ‡å¿—æ‰€è¦æŸ¥è¯¢ä½•ç§çŠ¶æ€ä¸‹çš„è®¢å•
 	private String staff_id ;
 	private Map<String,Object> session;
 	
-	private String parm =null;//É¸Ñ¡ËùĞèµÄ²ÎÊı
-	private String value = null;//É¸Ñ¡ËùĞèµÄÖµ
+	private String parm =null;//ç­›é€‰æ‰€éœ€çš„å‚æ•°
+	private String value = null;//ç­›é€‰æ‰€éœ€çš„å€¼
 	private String beginTime;
 	private String endTime;
-	private boolean clear;//Çå³şÉ¸Ñ¡µÄ²ÎÊı
-	private String customerEmai; //»áÔ±email
+	private boolean clear;//æ¸…æ¥šç­›é€‰çš„å‚æ•°
+	private String customerEmai; //ä¼šå‘˜email
 	
 	
 	@SuppressWarnings("unchecked")
 	/**
-	 * ÏÔÊ¾´ıÉóºËµÄ¶©µ¥
+	 * æ˜¾ç¤ºå¾…å®¡æ ¸çš„è®¢å•
 	 */
 	public String show_order(){
 		if(clear){
@@ -119,18 +119,18 @@ public class OrderAction extends ActionSupport {
 	}
 	
 	/**
-	 * ²éÑ¯»áÔ±µÄ¶©µ¥¼ÇÂ¼
+	 * æŸ¥è¯¢ä¼šå‘˜çš„è®¢å•è®°å½•
 	 */
 	@SuppressWarnings("unchecked")
 	public String show_order_by_customer(){
 		try{
-			perFolioAmount = 2; // Ã¿Ò³ÏÔÊ¾ÌõÊı
+			perFolioAmount = 2; // æ¯é¡µæ˜¾ç¤ºæ¡æ•°
 			String[] parms = new String[]{"customer.email"};
 			String[] values = new String[]{customerEmai};
 			boolean isLike = false;
-			this.hasRecord = orderService.hasNumbers("Order",parms,values,isLike); // »ñÈ¡Êı¾İÌõÊı
-			hasPages = PageUtil.findAllPages(perFolioAmount, hasRecord);; // »ñÈ¡Ò³Êı
-			this.page_l = PageUtil.getPageList(hasPages); // »ñÈ¡Ò»¸ö´Ó1µ½hasPagesµÄÊı×é
+			this.hasRecord = orderService.hasNumbers("Order",parms,values,isLike); // è·å–æ•°æ®æ¡æ•°
+			hasPages = PageUtil.findAllPages(perFolioAmount, hasRecord);; // è·å–é¡µæ•°
+			this.page_l = PageUtil.getPageList(hasPages); // è·å–ä¸€ä¸ªä»1åˆ°hasPagesçš„æ•°ç»„
 			if (page <= 0) {
 				page = 1;
 			}
@@ -143,7 +143,7 @@ public class OrderAction extends ActionSupport {
 					page = hasPages;
 				}
 			}
-			// »ñÈ¡µ±Ç°Ò³µÄÊı¾İ
+			// è·å–å½“å‰é¡µçš„æ•°æ®
 
 
 			this.Record_l = (List<Order>) orderService.show_by_page(page, perFolioAmount, "Order", parms,values,isLike);
@@ -156,7 +156,7 @@ public class OrderAction extends ActionSupport {
 	}
 	
 	/**
-	 * ¶Ô¶©µ¥½øĞĞÉóºË
+	 * å¯¹è®¢å•è¿›è¡Œå®¡æ ¸
 	 */
 	public void  audit_order(){
 	
@@ -182,7 +182,7 @@ public class OrderAction extends ActionSupport {
 		}
 	}
 	/**
-	 * ½øĞĞ·¢»õ²Ù×÷¡£
+	 * è¿›è¡Œå‘è´§æ“ä½œã€‚
 	 */
 	public void deliver_goods(){
 		String flag = "input";
@@ -208,7 +208,7 @@ public class OrderAction extends ActionSupport {
 	}
 	
 	/**
-	 *ÏÔÊ¾¶©µ¥ÖĞµÄÍ¼Êé
+	 *æ˜¾ç¤ºè®¢å•ä¸­çš„å›¾ä¹¦
 	 * @return
 	 */
 	public String showBookInOrder(){
@@ -226,7 +226,7 @@ public class OrderAction extends ActionSupport {
 	}
 	
 	/**
-	 * É¾³ı¶©µ¥
+	 * åˆ é™¤è®¢å•
 	 * @return
 	 */
 	public void deleteOrder(){
@@ -238,7 +238,7 @@ public class OrderAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();

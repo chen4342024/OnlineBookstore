@@ -1,4 +1,4 @@
-package com.bookshop.entity;
+ï»¿package com.bookshop.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,25 +10,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 /**
- * Ô±¹¤´¦Àí»áÔ±¶©µ¥ºÍ»áÔ±ÍË»õÉêÇë¼ÇÂ¼
+ * å‘˜å·¥å¤„ç†ä¼šå‘˜è®¢å•å’Œä¼šå‘˜é€€è´§ç”³è¯·è®°å½•
  */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="tb_payment_method")
 public class PaymentMethod implements Serializable {
 	/**
-	 * Ö§¸¶·½Ê½±àºÅ
+	 * æ”¯ä»˜æ–¹å¼ç¼–å·
 	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer payment_method_id;
 	/**
-	 * Ö§¸¶·½Ê½Ãû³Æ
+	 * æ”¯ä»˜æ–¹å¼åç§°
 	 */
 	@Column(length=20,nullable=false)
 	private String name;
 	/**
-	 * ´´½¨Ê±¼ä
+	 * åˆ›å»ºæ—¶é—´
 	 */
 	@Column(nullable=false)
 	private Date create_date;

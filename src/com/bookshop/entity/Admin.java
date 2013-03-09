@@ -1,4 +1,4 @@
-package com.bookshop.entity;
+ï»¿package com.bookshop.entity;
 
 import java.io.Serializable;
 
@@ -11,26 +11,26 @@ import javax.persistence.Table;
 
 import com.bookshop.util.CryptoUtils;
 /**
- * ÍøÕ¾¹ÜÀíÔ±
+ * ç½‘ç«™ç®¡ç†å‘˜
  */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="tb_admin")
 public class Admin implements Serializable {
 	/**
-	 * ±àºÅ
+	 * ç¼–å·
 	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer admin_id;
 	
 	/**
-	 * ¹ÜÀíÔ±µÇÂ¼ÕËºÅ
+	 * ç®¡ç†å‘˜ç™»å½•è´¦å·
 	 */
 	@Column(length=40,nullable=false)
 	private String account;
 	/**
-	 * µÇÂ¼ÃÜÂë
+	 * ç™»å½•å¯†ç 
 	 */
 	@Column(length=100,nullable=false)
 	private String pw;

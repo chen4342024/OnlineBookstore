@@ -1,4 +1,4 @@
-package com.bookshop.entity;
+ï»¿package com.bookshop.entity;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -11,67 +11,67 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 /**
- * ÊÕ»õµØÖ·
+ * æ”¶è´§åœ°å€
  */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="tb_shipping_address")
 public class ShippingAddress implements Serializable {
 	/**
-	 * ÊÕ»ñµØÖ·±àºÅ
+	 * æ”¶è·åœ°å€ç¼–å·
 	 * UUID
 	 */
 	@Id
 	@Column(length=40)
 	private String shipping_address_id;
 	/**
-	 * ÊÕ»ñµØÖ·ËùÊô»áÔ±
+	 * æ”¶è·åœ°å€æ‰€å±ä¼šå‘˜
 	 */
 	@ManyToOne(optional=false,targetEntity=Customer.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="customer_email",nullable=false)
 	private Customer customer;
 	/**
-	 * ÊÕ»õÈËĞÕÃû
+	 * æ”¶è´§äººå§“å
 	 */
 	@Column(length=30,nullable=false)
 	private String  consignee;
 	/**
-	 * ÊÕ»õ¹ú¼Ò
+	 * æ”¶è´§å›½å®¶
 	 */
 	@Column(length=20,nullable=false)
 	private String shipping_country;
 	/**
-	 * ÊÕ»õÊ¡·İ
+	 * æ”¶è´§çœä»½
 	 */
 	@Column(length=10,nullable=false)
 	private String shipping_province;
 	/**
-	 * ÊÕ»õ³ÇÊĞ
+	 * æ”¶è´§åŸå¸‚
 	 */
 	@Column(length=10,nullable=false)
 	private String shipping_city;
 	/**
-	 * ÊÕ»õÇøÏØ
+	 * æ”¶è´§åŒºå¿
 	 */
 	@Column(length=16,nullable=false)
 	private String shipping_county;
 	/**
-	 * ÊÕ»õ½ÖµÀµØÖ·
+	 * æ”¶è´§è¡—é“åœ°å€
 	 */
 	@Column(length=200,nullable=false)
 	private String street_address;
 	/**
-	 * ÓÊÕş±àÂë
+	 * é‚®æ”¿ç¼–ç 
 	 */
 	@Column(length=10,nullable=false)
 	private String postcode;
 	/**
-	 * ÁªÏµÊÖ»ú
+	 * è”ç³»æ‰‹æœº
 	 */
 	@Column(length=20)
 	private String mobile_phone;
 	/**
-	 * ¹Ì¶¨µç»°
+	 * å›ºå®šç”µè¯
 	 */
 	@Column(length=20)
 	private String fixed_phone;

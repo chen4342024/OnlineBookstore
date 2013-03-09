@@ -1,4 +1,4 @@
-package com.bookshop.action;
+ï»¿package com.bookshop.action;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import com.bookshop.service.CatagoryService;
 import com.bookshop.util.PageUtil;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * Í¼Êé·ÖÀàĞÅÏ¢Action²ã
+ * å›¾ä¹¦åˆ†ç±»ä¿¡æ¯Actionå±‚
  * @author Winds
  *
  */
@@ -28,27 +28,27 @@ public class CatagoryAction extends ActionSupport {
 	@Resource
 	private CatagoryService catagoryService;
 	private Catagory catagory;
-	private Long hasCatagory; // Êı¾İµÄÌõÊı
-	private int page; // µ±Ç°Ò³
-	private int hasPages; // Ò³Êı
-	private int perFolioAmount; // Ã¿Ò³Êı¾İµÄÌõÊı
+	private Long hasCatagory; // æ•°æ®çš„æ¡æ•°
+	private int page; // å½“å‰é¡µ
+	private int hasPages; // é¡µæ•°
+	private int perFolioAmount; // æ¯é¡µæ•°æ®çš„æ¡æ•°
 	private List<Integer> page_l;
 	private List<Catagory> catagory_l;
-	private int status; //Í¼Êé·ÖÀàµÄ¸¸Àà
-	private int firstCatagory_id; //µÚÒ»¼¶·ÖÀà
+	private int status; //å›¾ä¹¦åˆ†ç±»çš„çˆ¶ç±»
+	private int firstCatagory_id; //ç¬¬ä¸€çº§åˆ†ç±»
 	private boolean isLike;
 	/**
-	 * ·ÖÒ³»ñÈ¡Í¼Êé·ÖÀàĞÅÏ¢
+	 * åˆ†é¡µè·å–å›¾ä¹¦åˆ†ç±»ä¿¡æ¯
 	 * @return String
 	 */
 	public String showCatagory_by_page() {
 		try{
-		perFolioAmount = 2; // Ã¿Ò³ÏÔÊ¾ÌõÊı
+		perFolioAmount = 2; // æ¯é¡µæ˜¾ç¤ºæ¡æ•°
 		String[] parms = null;
 		String[] values = null;
-		this.hasCatagory = catagoryService.hasNumbers("Catagory", parms, values, isLike); // »ñÈ¡Êı¾İÌõÊı
-		hasPages = PageUtil.findAllPages(perFolioAmount, hasCatagory); // »ñÈ¡Ò³Êı
-		this.page_l = PageUtil.getPageList(hasPages); // »ñÈ¡Ò»¸ö´Ó1µ½hasPagesµÄÊı×é
+		this.hasCatagory = catagoryService.hasNumbers("Catagory", parms, values, isLike); // è·å–æ•°æ®æ¡æ•°
+		hasPages = PageUtil.findAllPages(perFolioAmount, hasCatagory); // è·å–é¡µæ•°
+		this.page_l = PageUtil.getPageList(hasPages); // è·å–ä¸€ä¸ªä»1åˆ°hasPagesçš„æ•°ç»„
 		if (page <= 0) {
 			page = 1;
 		}
@@ -61,7 +61,7 @@ public class CatagoryAction extends ActionSupport {
 				page = hasPages;
 			}
 		}
-		// »ñÈ¡µ±Ç°Ò³µÄÊı¾İ
+		// è·å–å½“å‰é¡µçš„æ•°æ®
 		this.catagory_l = (List<Catagory>) catagoryService.show_by_page(page, perFolioAmount, "Catagory", parms, values, isLike);
 		return "success";
 		}catch(Exception e){
@@ -71,7 +71,7 @@ public class CatagoryAction extends ActionSupport {
 	}
 	
 	/**
-	 * ĞŞ¸ÄÍ¼Êé·ÖÀà
+	 * ä¿®æ”¹å›¾ä¹¦åˆ†ç±»
 	 * @return void
 	 */
 	public void changeCatagoryName(){
@@ -83,7 +83,7 @@ public class CatagoryAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -93,7 +93,7 @@ public class CatagoryAction extends ActionSupport {
 	}
 	
 	/**
-	 * ²éÑ¯´Ë·ÖÀàÊÇ·ñ»¹ÓĞ×ÓÀà»òÍ¼Êé
+	 * æŸ¥è¯¢æ­¤åˆ†ç±»æ˜¯å¦è¿˜æœ‰å­ç±»æˆ–å›¾ä¹¦
 	 * @return
 	 */
 	public void findSubCatagory(){
@@ -107,7 +107,7 @@ public class CatagoryAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -117,7 +117,7 @@ public class CatagoryAction extends ActionSupport {
 	}
 
 	/**
-	 * »ñÈ¡Í¼ÊéÒ»¼¶·ÖÀà
+	 * è·å–å›¾ä¹¦ä¸€çº§åˆ†ç±»
 	 * @return
 	 */
 	public void findFirstCatagory(){
@@ -131,7 +131,7 @@ public class CatagoryAction extends ActionSupport {
 	}
 	
 	/**
-	 * »ñÈ¡Í¼ÊéËùÓĞ¶ş¼¶·ÖÀà
+	 * è·å–å›¾ä¹¦æ‰€æœ‰äºŒçº§åˆ†ç±»
 	 * @return
 	 */
 	public void gainSecondCatagory(){
@@ -145,7 +145,7 @@ public class CatagoryAction extends ActionSupport {
 	}
 	
 	/**
-	 * »ñÈ¡Í¼ÊéÄ³Ò»¸öÒ»¼¶·ÖÀàµÄËùÓĞ¶ş¼¶·ÖÀà
+	 * è·å–å›¾ä¹¦æŸä¸€ä¸ªä¸€çº§åˆ†ç±»çš„æ‰€æœ‰äºŒçº§åˆ†ç±»
 	 * @return
 	 */
 	public void findSecondCatagory(){
@@ -160,14 +160,14 @@ public class CatagoryAction extends ActionSupport {
 			  config.setIgnoreDefaultExcludes(false);   
 			  config.setCycleDetectionStrategy(CycleDetectionStrategy.LENIENT); 
 //			  config.registerJsonValueProcessor(Date.class,new DateJsonValueProcessor("yyyy-MM-dd")); //date processor register
-//			  config.setExcludes(new String[]{//Ö»ÒªÉèÖÃÕâ¸öÊı×é£¬Ö¸¶¨¹ıÂËÄÄĞ©×Ö¶Î¡£
+//			  config.setExcludes(new String[]{//åªè¦è®¾ç½®è¿™ä¸ªæ•°ç»„ï¼ŒæŒ‡å®šè¿‡æ»¤å“ªäº›å­—æ®µã€‚
 //			    "bigBoard",			   
 //			  });			 
 			JSONArray  jsonObject = JSONArray.fromObject(catagory_l,config); 	
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(jsonObject.toString());
 			out.flush();
 			out.close();
@@ -177,7 +177,7 @@ public class CatagoryAction extends ActionSupport {
 	}
 	
 	/*
-	 * ¸ù¾İ·ÖÀàÃû³Æ²éÑ¯
+	 * æ ¹æ®åˆ†ç±»åç§°æŸ¥è¯¢
 	 */
 	public void findCatagory(){
 		try{
@@ -189,7 +189,7 @@ public class CatagoryAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -199,7 +199,7 @@ public class CatagoryAction extends ActionSupport {
 	}
 	
 	/**
-	 * Ìí¼Ó·ÖÀà
+	 * æ·»åŠ åˆ†ç±»
 	 * @return
 	 */
 	public String addCatagory(){
@@ -216,7 +216,7 @@ public class CatagoryAction extends ActionSupport {
 	}
 	
 	/**
-	 * ´òÕÛ
+	 * æ‰“æŠ˜
 	 * @return
 	 */
 	public void changeCatagoryDiscount(){
@@ -228,7 +228,7 @@ public class CatagoryAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();

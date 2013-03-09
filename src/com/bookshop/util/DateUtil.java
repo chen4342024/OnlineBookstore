@@ -1,49 +1,49 @@
-package com.bookshop.util;
+ï»¿package com.bookshop.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Ê±¼ä´¦Àí¹¤¾ßÀà
+ * æ—¶é—´å¤„ç†å·¥å…·ç±»
  * @author Winds
  *
  */
 public class DateUtil {
 	/**
-	 * »ñÈ¡¾àÀëÏÖÔÚÈÕ£¬ÖÜ£¬ÔÂµÄÈÕÆÚ
-	 * @param flag ¾àÀëÏÖÔÚÎªÈÕ/ÖÜ/ÔÂ µÄ±êÖ¾
-	 * @param n ¾àÀëÏÖÔÚnÈÕ/ÖÜ/ÔÂ
+	 * è·å–è·ç¦»ç°åœ¨æ—¥ï¼Œå‘¨ï¼Œæœˆçš„æ—¥æœŸ
+	 * @param flag è·ç¦»ç°åœ¨ä¸ºæ—¥/å‘¨/æœˆ çš„æ ‡å¿—
+	 * @param n è·ç¦»ç°åœ¨næ—¥/å‘¨/æœˆ
 	 * @return
 	 */
 	public static Date getDateBefore(String flag,int n){
-		//´´½¨Date¶ÔÏó
+		//åˆ›å»ºDateå¯¹è±¡
 
 		Date endDate = new Date();
 
-		//´´½¨»ùÓÚµ±Ç°Ê±¼äµÄÈÕÀú¶ÔÏó
+		//åˆ›å»ºåŸºäºå½“å‰æ—¶é—´çš„æ—¥å†å¯¹è±¡
 
 		Calendar cl = Calendar.getInstance();
 
 		cl.setTime(endDate);
 
-		//¾àÀë½ñÌì£¬n¸öÔÂÄÚÊı¾İ
+		//è·ç¦»ä»Šå¤©ï¼Œnä¸ªæœˆå†…æ•°æ®
 		 if(flag.equals("month")){
 		  cl.add(Calendar.MONTH, -1*n);
 		}
-		 //¾àÀë½ñÌì£¬nÖÜÄÚµÄÊı¾İ
+		 //è·ç¦»ä»Šå¤©ï¼Œnå‘¨å†…çš„æ•°æ®
 		if(flag.equals("week")){
 		  cl.add(Calendar.DATE, -7*n);
 		 }
 		
-		//¾àÀë½ñÌìnÌìµÄÊı¾İ
+		//è·ç¦»ä»Šå¤©nå¤©çš„æ•°æ®
 		if(flag.equals("day")){
 			cl.add(Calendar.DATE, -1*n);
 		}
 		return cl.getTime();
 	}
 	/**
-	 * ½«Date¶ÔÏó×ª»¯³É¶ÔÓ¦¸ñÊ½µÄ×Ö·û´®
+	 * å°†Dateå¯¹è±¡è½¬åŒ–æˆå¯¹åº”æ ¼å¼çš„å­—ç¬¦ä¸²
 	 */
     public static String dateToString(java.util.Date date) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

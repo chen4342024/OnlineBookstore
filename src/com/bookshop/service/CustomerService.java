@@ -1,4 +1,4 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.List;
 
@@ -7,41 +7,41 @@ import javax.servlet.http.HttpSession;
 import com.bookshop.entity.Customer;
 
 /**
- * »áÔ±ĞÅÏ¢Service²ã½Ó¿Ú
+ * ä¼šå‘˜ä¿¡æ¯Serviceå±‚æ¥å£
  * @author Winds
  *
  */
 public interface CustomerService {
 	/**
-	 * ¼¤»î»áÔ±ÕËºÅ
+	 * æ¿€æ´»ä¼šå‘˜è´¦å·
 	 */
 	public boolean activityCustomer(String email);
 	/**
-	 * ·¢ËÍ¼¤»îµØÖ·µ½ÓÃ»§×¢²áÓÊÏä
+	 * å‘é€æ¿€æ´»åœ°å€åˆ°ç”¨æˆ·æ³¨å†Œé‚®ç®±
 	 */
 	public void sendEmail(String email,HttpSession httpSession);
 	/**
-	 * ÓÃ»§µÇÂ¼
+	 * ç”¨æˆ·ç™»å½•
 	 * @param email
 	 * @param pw
 	 * @return
 	 */
 	public boolean login(String email,String pw);
 	/**
-	 * ĞÂÔö»áÔ±
+	 * æ–°å¢ä¼šå‘˜
 	 * @param customer
 	 * @return
 	 */
 	public boolean save(Customer customer);
 	/**
-	 * ÑéÖ¤ÓÊÏäÓĞĞ§ĞÔ
+	 * éªŒè¯é‚®ç®±æœ‰æ•ˆæ€§
 	 * @param email
 	 * @return
 	 */
 	public boolean check_email(String email);
 	
 	/**
-	 * ¸üĞÂÓÃ»§×´Ì¬
+	 * æ›´æ–°ç”¨æˆ·çŠ¶æ€
 	 * @param email
 	 * @return
 	 */

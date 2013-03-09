@@ -1,4 +1,4 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,7 +16,7 @@ import com.bookshop.entity.Customer;
 import com.bookshop.util.MyServiceParent;
 import com.bookshop.util.StringUtil;
 /**
- * ÊÕ²ØĞÅÏ¢Service²ãÊµÏÖÀà
+ * æ”¶è—ä¿¡æ¯Serviceå±‚å®ç°ç±»
  * @author Winds
  *
  */
@@ -43,7 +43,7 @@ public class CollectionServiceImpl extends MyServiceParent implements
 	}
 
 	/**
-	 * ·ÖÒ³Êı¾İÖĞµÄ¸÷Í¼ÊéµÄÊÕ²ØÊı
+	 * åˆ†é¡µæ•°æ®ä¸­çš„å„å›¾ä¹¦çš„æ”¶è—æ•°
 	 */
 	public List<Long> findColletionNum(List<Collection> collection_l) {
 		// TODO Auto-generated method stub
@@ -60,7 +60,7 @@ public class CollectionServiceImpl extends MyServiceParent implements
 	}
 
 	/**
-	 * É¾³ı»áÔ±Í¼ÊéÊÕ²Ø¼ÇÂ¼
+	 * åˆ é™¤ä¼šå‘˜å›¾ä¹¦æ”¶è—è®°å½•
 	 */
 	public boolean delete(String collection_id) {
 		// TODO Auto-generated method stub
@@ -72,7 +72,7 @@ public class CollectionServiceImpl extends MyServiceParent implements
 	}
 
 	/**
-	 * ÅúÁ¿É¾³ı»áÔ±Í¼ÊéÊÕ²Ø¼ÇÂ¼
+	 * æ‰¹é‡åˆ é™¤ä¼šå‘˜å›¾ä¹¦æ”¶è—è®°å½•
 	 */
 	public boolean deleteBatch(String collectionIdStr) {
 		// TODO Auto-generated method stub

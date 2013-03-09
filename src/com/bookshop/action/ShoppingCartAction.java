@@ -1,4 +1,4 @@
-package com.bookshop.action;
+ï»¿package com.bookshop.action;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -31,7 +31,7 @@ public class ShoppingCartAction extends ActionSupport{
 	List<BookItem> bookItems;
 	private float total_account;
 	private boolean hasBookItem;
-	private int amountCount;//Í¼ÊéÊýÁ¿
+	private int amountCount;//Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void addBookToCart(){
 		book = bookService.find(book.getBook_id());
 		shoppingCart = getShoppingCart();

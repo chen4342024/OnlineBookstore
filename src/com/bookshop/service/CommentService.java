@@ -1,9 +1,9 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.List;
 
 /**
- * ÆÀÂÛĞÅÏ¢Service²ã½Ó¿Ú
+ * è¯„è®ºä¿¡æ¯Serviceå±‚æ¥å£
  * @author Winds
  *
  */

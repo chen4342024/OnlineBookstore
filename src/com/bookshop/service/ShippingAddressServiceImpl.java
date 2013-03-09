@@ -1,4 +1,4 @@
-package com.bookshop.service;
+锘縫ackage com.bookshop.service;
 
 import javax.annotation.Resource;
 
@@ -9,7 +9,7 @@ import com.bookshop.dao.ShippingAddressDao;
 import com.bookshop.entity.ShippingAddress;
 import com.bookshop.util.MyServiceParent;
 /**
- * 收货地址Service层实现类
+ * 鏀惰揣鍦板潃Service灞傚疄鐜扮被
  * @author Winds
  *
  */

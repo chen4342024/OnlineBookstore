@@ -1,4 +1,4 @@
-package com.bookshop.action;
+锘縫ackage com.bookshop.action;
 
 import java.util.Map;
 
@@ -8,11 +8,7 @@ import com.bookshop.entity.Admin;
 import com.bookshop.service.AdminService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-/**
- * 网站管理员Action层
- * @author Winds
- *
- */
+
 
 @SuppressWarnings("serial")
 public class AdminAction extends ActionSupport{
@@ -21,10 +17,7 @@ public class AdminAction extends ActionSupport{
 	private Map<String,Object> session;
 	private Admin admin;
 	
-	/**
-	 * 登录
-	 * @return
-	 */
+	
 	public String login(){
 		int isLogin=adminService.login(admin.getAccount(), admin.getPw());
 		if(isLogin!=-1){
@@ -35,10 +28,7 @@ public class AdminAction extends ActionSupport{
 		}
 		return LOGIN;
 	}
-	/**
-	 * 安全退出
-	 * @return
-	 */
+	
 	public String logout(){
 		session=ActionContext.getContext().getSession();
 		if(session.get("admin_account")!=null){

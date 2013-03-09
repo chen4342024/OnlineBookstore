@@ -1,4 +1,4 @@
-package com.bookshop.util;
+ï»¿package com.bookshop.util;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 /**
- * Õ¾µãµ¼º½±êÇ©µÄÊµÏÖ 
+ * ç«™ç‚¹å¯¼èˆªæ ‡ç­¾çš„å®žçŽ° 
  * @author Administrator
  *
  */

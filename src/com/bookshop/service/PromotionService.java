@@ -1,11 +1,11 @@
-package com.bookshop.service;
+﻿package com.bookshop.service;
 
 import java.util.List;
 
 import com.bookshop.entity.Promotion;
 
 /**
- * �Żݻ��ϢService��ӿ�
+ * 优惠活动信息Service层接口
  * @author Winds
  *
  */

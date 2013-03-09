@@ -1,4 +1,4 @@
-package com.bookshop.action;
+ï»¿package com.bookshop.action;
 
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -18,7 +18,7 @@ import com.bookshop.util.PageUtil;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * Ô±¹¤Action²ã
+ * Ô±ï¿½ï¿½Actionï¿½ï¿½
  * @author Winds
  *
  */
@@ -27,10 +27,10 @@ public class StaffAction extends ActionSupport {
 	@Resource
 	private StaffService staffService;
 	private Staff staff;
-	private Long hasStaff; // Êý¾ÝµÄÌõÊý
-	private int page; // µ±Ç°Ò³
-	private int hasPages; // Ò³Êý
-	private int perFolioAmount; // Ã¿Ò³Êý¾ÝµÄÌõÊý
+	private Long hasStaff; // ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½ï¿½
+	private int page; // ï¿½ï¿½Ç°Ò³
+	private int hasPages; // Ò³ï¿½ï¿½
+	private int perFolioAmount; // Ã¿Ò³ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½ï¿½
 	private List<Integer> page_l;
 	private List<Staff> staff_l;
 	private Map<String,Object> session ;
@@ -39,13 +39,13 @@ public class StaffAction extends ActionSupport {
 	private String newPassword;
 
 	
-	private String staff_id;  //ËÑË÷µÄid
-	private String staff_name;//ËÑË÷µÄname
-	private String staff_status;//ËÑË÷µÄstatus
+	private String staff_id;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id
+	private String staff_name;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½name
+	private String staff_status;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½status
 	private boolean isLike;
 
 	/**
-	 * ²éÕÒÊÇ·ñ´æÔÚstaff_idµÄÔ±¹¤
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½staff_idï¿½ï¿½Ô±ï¿½ï¿½
 	 *
 	 */
 	public void findStaff(){
@@ -58,7 +58,7 @@ public class StaffAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈÝ
+			// Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -67,7 +67,7 @@ public class StaffAction extends ActionSupport {
 		}
 	}
 	/*
-	 * Ìí¼ÓÔ±¹¤
+	 * ï¿½ï¿½ï¿½Ô±ï¿½ï¿½
 	 */
 	public String addStaff(){
 		try{
@@ -88,17 +88,17 @@ public class StaffAction extends ActionSupport {
 	}
 	
 	/**
-	 * ·ÖÒ³»ñÈ¡Ô±¹¤ÐÅÏ¢
+	 * ï¿½ï¿½Ò³ï¿½ï¿½È¡Ô±ï¿½ï¿½ï¿½ï¿½Ï¢
 	 * @return
 	 */
 	public String showStaff_by_page() {
 		try{
-		perFolioAmount = 2; // Ã¿Ò³ÏÔÊ¾ÌõÊý
+		perFolioAmount = 2; // Ã¿Ò³ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 		String[] parms = null;
 		String[] values = null;
-		this.hasStaff = staffService.hasNumbers("Staff",parms,values,isLike); // »ñÈ¡Êý¾ÝÌõÊý
-		hasPages = PageUtil.findAllPages(perFolioAmount, hasStaff);; // »ñÈ¡Ò³Êý
-		this.page_l = PageUtil.getPageList(hasPages); // »ñÈ¡Ò»¸ö´Ó1µ½hasPagesµÄÊý×é
+		this.hasStaff = staffService.hasNumbers("Staff",parms,values,isLike); // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		hasPages = PageUtil.findAllPages(perFolioAmount, hasStaff);; // ï¿½ï¿½È¡Ò³ï¿½ï¿½
+		this.page_l = PageUtil.getPageList(hasPages); // ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½hasPagesï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (page <= 0) {
 			page = 1;
 		}
@@ -111,7 +111,7 @@ public class StaffAction extends ActionSupport {
 				page = hasPages;
 			}
 		}
-		// »ñÈ¡µ±Ç°Ò³µÄÊý¾Ý
+		// ï¿½ï¿½È¡ï¿½ï¿½Ç°Ò³ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
 		this.staff_l = (List<Staff>) staffService.show_by_page(page, perFolioAmount, "Staff", parms,values,isLike);
@@ -124,7 +124,7 @@ public class StaffAction extends ActionSupport {
 	}
 	
 	/**
-	 * ÇÐ»»staffµÄ×´Ì¬
+	 * ï¿½Ð»ï¿½staffï¿½ï¿½×´Ì¬
 	 * @return
 	 */
 	public void changeStaffState(){
@@ -140,7 +140,7 @@ public class StaffAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈÝ
+			// Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -150,7 +150,7 @@ public class StaffAction extends ActionSupport {
 	}
 	
 	/**
-	 * »ñÈ¡ÍêÕûµÄstaffÐÅÏ¢
+	 * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½staffï¿½ï¿½Ï¢
 	 * @return
 	 */
 	public String gainStaff(){
@@ -172,7 +172,7 @@ public class StaffAction extends ActionSupport {
 	
 	
 	/**
-	 * ÐÞ¸ÄÔ±¹¤ÐÅÏ¢
+	 * ï¿½Þ¸ï¿½Ô±ï¿½ï¿½ï¿½ï¿½Ï¢
 	 * @return
 	 */
 	public String ModifyStaff(){
@@ -189,7 +189,7 @@ public class StaffAction extends ActionSupport {
 		}
 	}
 	/**
-	 * Ô±¹¤µÇÂ¼
+	 * Ô±ï¿½ï¿½ï¿½ï¿½Â¼
 	 */
 	public String login(){
 		try{
@@ -204,7 +204,7 @@ public class StaffAction extends ActionSupport {
 		}
 	}
 	 /**
-	  * ÐÞ¸ÄÔ±¹¤ÃÜÂë
+	  * ï¿½Þ¸ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	  * @return
 	  */
 	public void changeStaffPassword(){

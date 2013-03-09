@@ -1,4 +1,4 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
@@ -11,7 +11,7 @@ import com.bookshop.entity.Catagory;
 import com.bookshop.util.MyServiceParent;
 import com.searchEngine.service.KeyWordService;
 /**
- * Í¼Êé·ÖÀàĞÅÏ¢Service²ãÊµÏÖÀà
+ * å›¾ä¹¦åˆ†ç±»ä¿¡æ¯Serviceå±‚å®ç°ç±»
  * @author Winds
  *
  */
@@ -24,7 +24,7 @@ public class CatagoryServiceImpl extends MyServiceParent implements
 	private String hql;
 	
 	/*
-	 * ĞŞ¸ÄÍ¼Êé·ÖÀà
+	 * ä¿®æ”¹å›¾ä¹¦åˆ†ç±»
 	 * @see com.bookshop.service.CatagoryService#update(com.bookshop.entity.Catagory)
 	 */
 	public boolean updateName(Catagory catagory) {
@@ -48,7 +48,7 @@ public class CatagoryServiceImpl extends MyServiceParent implements
 	}
 
 	/*
-	 * ĞŞ¸ÄÍ¼Êé·ÖÀà
+	 * ä¿®æ”¹å›¾ä¹¦åˆ†ç±»
 	 * @see com.bookshop.service.CatagoryService#find(java.lang.String)
 	 */
 	public boolean find(int catagory_id) {
@@ -68,7 +68,7 @@ public class CatagoryServiceImpl extends MyServiceParent implements
 	}
 
 	/**
-	 * É¾³ıÍ¼Êé·ÖÀà
+	 * åˆ é™¤å›¾ä¹¦åˆ†ç±»
 	 */
 	public boolean delete(int catagory_id) {
 		// TODO Auto-generated method stub
@@ -80,7 +80,7 @@ public class CatagoryServiceImpl extends MyServiceParent implements
 	}
 	
 	/*
-	 * ²éÕÒÒ»¼¶¼¶¼¶±ğµÄËùÓĞÍ¼Êé·ÖÀà
+	 * æŸ¥æ‰¾ä¸€çº§çº§çº§åˆ«çš„æ‰€æœ‰å›¾ä¹¦åˆ†ç±»
 	 * @see com.bookshop.service.CatagoryService#findAll(int)
 	 */
 	public List<Catagory> findAllFirstCatagory() {
@@ -90,7 +90,7 @@ public class CatagoryServiceImpl extends MyServiceParent implements
 		return (List<Catagory>)catagoryDao.findAll(hql, session);
 	}
 	/*
-	 * ²éÕÒÄ³Ò»¸öÒ»¼¶·ÖÀàµÄ¶ş¼¶¼¶±ğµÄËùÓĞÍ¼Êé·ÖÀà
+	 * æŸ¥æ‰¾æŸä¸€ä¸ªä¸€çº§åˆ†ç±»çš„äºŒçº§çº§åˆ«çš„æ‰€æœ‰å›¾ä¹¦åˆ†ç±»
 	 * @see com.bookshop.service.CatagoryService#findAll(int)
 	 */
 	public List<Catagory> findAll(int catagory_id) {
@@ -101,7 +101,7 @@ public class CatagoryServiceImpl extends MyServiceParent implements
 	}
 	
 	/*
-	 * ²éÕÒ¶ş¼¶¼¶±ğµÄËùÓĞÍ¼Êé·ÖÀà
+	 * æŸ¥æ‰¾äºŒçº§çº§åˆ«çš„æ‰€æœ‰å›¾ä¹¦åˆ†ç±»
 	 * @see com.bookshop.service.CatagoryService#findAll(int)
 	 */
 	public List<Catagory> findAllSecondCatagory() {
@@ -112,7 +112,7 @@ public class CatagoryServiceImpl extends MyServiceParent implements
 	}
 
 	/**
-	 * ¸ù¾İ·ÖÀàÃû³Æ²éÑ¯
+	 * æ ¹æ®åˆ†ç±»åç§°æŸ¥è¯¢
 	 */
 	public Catagory find(String catagory_name) {
 		// TODO Auto-generated method stub
@@ -122,7 +122,7 @@ public class CatagoryServiceImpl extends MyServiceParent implements
 	}
 
 	/**
-	 * Ìí¼ÓÍ¼Êé·ÖÀà,Í¬Ê±Ôö¼ÓÏµÍ³¹Ø¼ü×Ö
+	 * æ·»åŠ å›¾ä¹¦åˆ†ç±»,åŒæ—¶å¢åŠ ç³»ç»Ÿå…³é”®å­—
 	 */
 	public boolean add(Catagory catagory,int firstCatagory_id) {
 		// TODO Auto-generated method stub
@@ -145,7 +145,7 @@ public class CatagoryServiceImpl extends MyServiceParent implements
 	}
 	
 	/**
-	 * ´òÕÛ
+	 * æ‰“æŠ˜
 	 */
 	public boolean updateDiscount(Catagory catagory) {
 		// TODO Auto-generated method stub

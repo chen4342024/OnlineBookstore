@@ -1,4 +1,4 @@
-package com.bookshop.entity;
+ï»¿package com.bookshop.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,66 +10,66 @@ import javax.persistence.Table;
 
 import com.bookshop.util.CryptoUtils;
 /**
- * Ô±¹¤
+ * å‘˜å·¥
  */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="tb_staff")
 public class Staff implements Serializable {
 	/**
-	 * Ô±¹¤¹¤ºÅ
-	 * µÇÂ¼ÕËºÅ
+	 * å‘˜å·¥å·¥å·
+	 * ç™»å½•è´¦å·
 	 */
 	@Id
 	@Column(length=40)
 	private String staff_id;
 	/**
-	 * µÇÂ¼ÃÜÂë
+	 * ç™»å½•å¯†ç 
 	 */
 	@Column(length=100,nullable=false)
 	private String pw;
 	/**
-	 * ĞÕÃû
+	 * å§“å
 	 */
 	@Column(length=40,nullable=false)
 	private String name;
 	/**
-	 * ĞÔ±ğ
+	 * æ€§åˆ«
 	 */
 	@Column(length=2,nullable=false)
 	private String sex;
 	/**
-	 * ³öÉúÈÕÆÚ
+	 * å‡ºç”Ÿæ—¥æœŸ
 	 */
 	@Column(nullable=false)
 	private Date birthday;
 	/**
-	 * ¼ÓÈëÈÕÆÚ
+	 * åŠ å…¥æ—¥æœŸ
 	 */
 	@Column(nullable=false)
 	private Date join_date;
 	/**
-	 * µØÖ·
+	 * åœ°å€
 	 */
 	@Column(length=200)
 	private String address;
 	/**
-	 * Ô±¹¤ÕËºÅ×´Ì¬
-	 * 1£ºÕı³£×´Ì¬
-	 * 0£º½ûÓÃ×´Ì¬
+	 * å‘˜å·¥è´¦å·çŠ¶æ€
+	 * 1ï¼šæ­£å¸¸çŠ¶æ€
+	 * 0ï¼šç¦ç”¨çŠ¶æ€
 	 */
 	@Column(nullable=false)
 	private Integer status;
 	/**
-	 * Ô±¹¤ÕËºÅ½ûÓÃ/ÀëÖ°ÈÕÆÚ
+	 * å‘˜å·¥è´¦å·ç¦ç”¨/ç¦»èŒæ—¥æœŸ
 	 */
 	private Date remove_date;
 	/**
-	 * Ô±¹¤Éí·İÖ¤ºÅ
+	 * å‘˜å·¥èº«ä»½è¯å·
 	 */
 	private String idcard;
 	/**
-	 * Ô±¹¤ÁªÏµµç»°
+	 * å‘˜å·¥è”ç³»ç”µè¯
 	 */
 	private String phone;
 	

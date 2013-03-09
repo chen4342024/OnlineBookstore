@@ -1,4 +1,4 @@
-package com.searchEngine.service;
+ï»¿package com.searchEngine.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class KeyWordServiceImpl extends MyServiceParent implements KeyWordServic
 	public void gainGoods_by_keyWord(String keyword_content,int rowName) {		
 		// TODO Auto-generated method stub
 		this.session=getSession();
-		//ÅĞ¶ÏÅäÖÃÊÇ·ñÎª¿Õ
+		//åˆ¤æ–­é…ç½®æ˜¯å¦ä¸ºç©º
 		if(XmlAndHqlString.entityName == null){
 			XmlAndHqlString.initString();
 		}
@@ -74,11 +74,11 @@ public class KeyWordServiceImpl extends MyServiceParent implements KeyWordServic
 	}
 	
 	
-	//·ÖÒ³ÏÔÊ¾ĞèÒªµÄÊı¾İ
+	//åˆ†é¡µæ˜¾ç¤ºéœ€è¦çš„æ•°æ®
 	public List<List<?>> showAll(String keyword_content,int page,int perFolioAmount,String otherOrderBy,int rowName){
 		this.session = this.getSession();
 		List<List<?>> l = new ArrayList<List<?>>();
-		//ÅĞ¶ÏÅäÖÃÊÇ·ñÎª¿Õ
+		//åˆ¤æ–­é…ç½®æ˜¯å¦ä¸ºç©º
 		if(XmlAndHqlString.entityName == null){
 			XmlAndHqlString.initString();
 		}
@@ -96,7 +96,7 @@ public class KeyWordServiceImpl extends MyServiceParent implements KeyWordServic
 	public Long findCount(String keywordContent,int rowName) {
 		// TODO Auto-generated method stub
 		this.session = this.getSession();
-		//ÅĞ¶ÏÅäÖÃÊÇ·ñÎª¿Õ
+		//åˆ¤æ–­é…ç½®æ˜¯å¦ä¸ºç©º
 		if(XmlAndHqlString.entityName == null){
 			XmlAndHqlString.initString();
 		}
@@ -107,7 +107,7 @@ public class KeyWordServiceImpl extends MyServiceParent implements KeyWordServic
 	}
 
 
-	//Ìí¼ÓÏµÍ³¹Ø¼ü×Ö
+	//æ·»åŠ ç³»ç»Ÿå…³é”®å­—
 	
 	public boolean addSystemKeyWord(String keyword_content) {
 		// TODO Auto-generated method stub
@@ -119,7 +119,7 @@ public class KeyWordServiceImpl extends MyServiceParent implements KeyWordServic
 		}
 		kw=new KeyWord("keyWord");
 		kw.setKeyword_content(keyword_content);
-		//ÅĞ¶ÏÅäÖÃÊÇ·ñÎª¿Õ
+		//åˆ¤æ–­é…ç½®æ˜¯å¦ä¸ºç©º
 		if(XmlAndHqlString.entityName == null){
 			XmlAndHqlString.initString();
 		}
@@ -134,7 +134,7 @@ public class KeyWordServiceImpl extends MyServiceParent implements KeyWordServic
 	
 	
 	
-	//²éÕÒ¹Ø¼ü×ÖÁĞ±í
+	//æŸ¥æ‰¾å…³é”®å­—åˆ—è¡¨
 	public List<KeyWord> findKeyWord_By_Rate(String keyWord) {
 		// TODO Auto-generated method stub
 		this.session=getSession();
@@ -142,7 +142,7 @@ public class KeyWordServiceImpl extends MyServiceParent implements KeyWordServic
 		return keyWordDao.findKeyWord_By_Rate(XmlAndHqlString.getKeyWord_orderBy_hql(keyWord), session);
 	}
 	
-	//²éÕÒ¹Ø¼ü×Ö
+	//æŸ¥æ‰¾å…³é”®å­—
 	public KeyWord find(String keyWord) {
 		// TODO Auto-generated method stub
 		this.session=getSession();	
@@ -151,12 +151,12 @@ public class KeyWordServiceImpl extends MyServiceParent implements KeyWordServic
 
 
 	/**
-	 * ÕûÀí¹Ø¼ü×Ö´Ê¿â£¬É¾³ı¹ıÁ¿µÄ¹Ø¼ü´Ê
+	 * æ•´ç†å…³é”®å­—è¯åº“ï¼Œåˆ é™¤è¿‡é‡çš„å…³é”®è¯
 	 */
 	public boolean updataKeyWord_max() {
 		// TODO Auto-generated method stub
 		this.session = this.getSession();
-		//ÅĞ¶ÏÅäÖÃÊÇ·ñÎª¿Õ
+		//åˆ¤æ–­é…ç½®æ˜¯å¦ä¸ºç©º
 		if(XmlAndHqlString.entityName == null){
 			XmlAndHqlString.initString();
 		}
@@ -173,7 +173,7 @@ public class KeyWordServiceImpl extends MyServiceParent implements KeyWordServic
 	}
 
 	/**
-	 * Ã¿Ìì¶¨Ê±¸üĞÂËùÓĞ¹Ø¼ü×ÖµÄµã»÷ÂÊ
+	 * æ¯å¤©å®šæ—¶æ›´æ–°æ‰€æœ‰å…³é”®å­—çš„ç‚¹å‡»ç‡
 	 */
 	public boolean updataKeyWord_Click() {
 		// TODO Auto-generated method stub
@@ -203,7 +203,7 @@ public class KeyWordServiceImpl extends MyServiceParent implements KeyWordServic
 	public List<KeyWord> showKeyWord_by_page(int page, int perFolioAmount) {
 		// TODO Auto-generated method stub
 		this.session = this.getSession();
-		//ÅĞ¶ÏÅäÖÃÊÇ·ñÎª¿Õ
+		//åˆ¤æ–­é…ç½®æ˜¯å¦ä¸ºç©º
 		if(XmlAndHqlString.entityName == null){
 			XmlAndHqlString.initString();
 		}

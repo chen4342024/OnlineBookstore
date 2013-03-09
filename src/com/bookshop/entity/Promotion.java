@@ -1,4 +1,4 @@
-package com.bookshop.entity;
+ï»¿package com.bookshop.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -9,66 +9,66 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 /**
- * ÓÅ»İĞÅÏ¢
+ * ä¼˜æƒ ä¿¡æ¯
  */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="tb_promotion")
 public class Promotion implements Serializable {
 	/**
-	 * ÓÅ»İĞÅÏ¢±àºÅ
+	 * ä¼˜æƒ ä¿¡æ¯ç¼–å·
 	 * UUID
 	 */
 	@Id
 	@Column(length=40)
 	private String promotion_id;
 	/**
-	 * ÓÅ»İÀàĞÍ
-	 * 1£ºÂú¶î´òÕÛ
-	 * 2£ºÂú¶î¼õ¼Û
+	 * ä¼˜æƒ ç±»å‹
+	 * 1ï¼šæ»¡é¢æ‰“æŠ˜
+	 * 2ï¼šæ»¡é¢å‡ä»·
 	 */
 	@Column(nullable=false)
 	private Integer promotion_type;
 	/**
-	 * ĞèÒªÂú×ãµÄ½ğ¶î
+	 * éœ€è¦æ»¡è¶³çš„é‡‘é¢
 	 */
 	@Column(nullable=false)
 	private float need_amount;
 	/**
-	 * ÓÅ»İ½ğ¶î
+	 * ä¼˜æƒ é‡‘é¢
 	 */
 	@Column(nullable=true)
 	private float promotion_money;
 	/**
-	 * ÓÅ»İÕÛ¿Û
-	 * 0µ½1
+	 * ä¼˜æƒ æŠ˜æ‰£
+	 * 0åˆ°1
 	 */
 	@Column(nullable=true)
 	private float promotion_discount;
 	/**
-	 * ÓÅ»İ´´½¨ÈÕÆÚ
+	 * ä¼˜æƒ åˆ›å»ºæ—¥æœŸ
 	 */
 	@Column(nullable=false)
 	private Date create_date;
 	/**
-	 * ÓÅ»İ»î¶¯¿ªÊ¼ÈÕÆÚ
+	 * ä¼˜æƒ æ´»åŠ¨å¼€å§‹æ—¥æœŸ
 	 */
 	@Column(nullable=false)
 	private Date effective_date;
 	/**
-	 * ÓÅ»İ»î¶¯½áÊøÈÕÆÚ
+	 * ä¼˜æƒ æ´»åŠ¨ç»“æŸæ—¥æœŸ
 	 */
 	@Column(nullable=false)
 	private Date expiry_date;
 	/**
-	 * ÓÅ»İ»î¶¯Ğû´«Í¼Æ¬
+	 * ä¼˜æƒ æ´»åŠ¨å®£ä¼ å›¾ç‰‡
 	 * promotion_id+".jpg"
 	 */
 	@Column(nullable=true)
 	private String promotion_image;
 	/**
-	 * ²Î¼ÓÓÅ»İ»î¶¯Í¼Êé·ÖÀàidµÄ¼¯ºÏ
-	 * ÒÔ","¸ô¿ª
+	 * å‚åŠ ä¼˜æƒ æ´»åŠ¨å›¾ä¹¦åˆ†ç±»idçš„é›†åˆ
+	 * ä»¥","éš”å¼€
 	 */
 	@Column(nullable=false)
 	private String promotion_catagorys;

@@ -1,10 +1,10 @@
-package com.searchEngine.util;
+ï»¿package com.searchEngine.util;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PageUtil {
-	//½«Ò³ÊıÖÆ³ÉList<>,ÓÃÓÚÒ³ÊıÌø×ªÏÂÀ­¿ò
+	//å°†é¡µæ•°åˆ¶æˆList<>,ç”¨äºé¡µæ•°è·³è½¬ä¸‹æ‹‰æ¡†
 	public static List<Integer> getPageList(Integer hasPage){
 		List<Integer> page_l = new ArrayList<Integer>();
 		if(hasPage != null && hasPage >0){
@@ -14,7 +14,7 @@ public class PageUtil {
 		}
 		return page_l;
 	}
-	//¼ÆËã×ÜÒ³Êı
+	//è®¡ç®—æ€»é¡µæ•°
 	public static int findAllPages(int perFolioAmount,Long has){
 		int pagenum;
 		int num = has.intValue();

@@ -1,4 +1,4 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.Date;
 
@@ -11,7 +11,7 @@ import com.bookshop.entity.Staff;
 import com.bookshop.util.CryptoUtils;
 import com.bookshop.util.MyServiceParent;
 /**
- * Ô±¹¤ĞÅÏ¢Service²ãÊµÏÖÀà
+ * å‘˜å·¥ä¿¡æ¯Serviceå±‚å®ç°ç±»
  * @author Winds
  *
  */
@@ -22,7 +22,7 @@ public class StaffServiceImpl extends MyServiceParent implements StaffService {
 	private String hql;
 	
 	/*
-	 * ²éÕÒidÎªstaff_idµÄÔ±¹¤
+	 * æŸ¥æ‰¾idä¸ºstaff_idçš„å‘˜å·¥
 	 * @see com.bookshop.service.StaffService#find(java.lang.String)
 	 */
 	public Staff find(String staff_id) {
@@ -50,7 +50,7 @@ public class StaffServiceImpl extends MyServiceParent implements StaffService {
 		
 	}
 	/**
-	 * ÊµÏÖÌí¼ÓÔ±¹¤¹¦ÄÜ
+	 * å®ç°æ·»åŠ å‘˜å·¥åŠŸèƒ½
 	 * 
 	 */
 	public boolean save(Staff staff) {
@@ -61,7 +61,7 @@ public class StaffServiceImpl extends MyServiceParent implements StaffService {
 	}
 
 	/**
-	 * ÇĞ»»Ô±¹¤×´Ì¬
+	 * åˆ‡æ¢å‘˜å·¥çŠ¶æ€
 	 */
 	public Integer updateState(String staff_id) {
 		// TODO Auto-generated method stub
@@ -83,7 +83,7 @@ public class StaffServiceImpl extends MyServiceParent implements StaffService {
 	}
 
 	/**
-	 * ĞŞ¸ÄÔ±¹¤ĞÅÏ¢
+	 * ä¿®æ”¹å‘˜å·¥ä¿¡æ¯
 	 */
 	public boolean update(Staff staff) {
 		// TODO Auto-generated method stub
@@ -98,7 +98,7 @@ public class StaffServiceImpl extends MyServiceParent implements StaffService {
 		return true;
 	}
 	/**
-	 * ĞŞ¸ÄÔ±¹¤ÃÜÂë
+	 * ä¿®æ”¹å‘˜å·¥å¯†ç 
 	 */
 	public String changePassword(String staff_id,String oldPassword,String newPassword){
 		session = getSession();

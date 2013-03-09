@@ -1,4 +1,4 @@
-package com.bookshop.entity;
+ï»¿package com.bookshop.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,65 +12,65 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 /**
- * »áÔ±¶©µ¥
+ * ä¼šå‘˜è®¢å•
  */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="tb_order")
 public class Order implements Serializable {
 	/**
-	 * ¶©µ¥±àºÅ
+	 * è®¢å•ç¼–å·
 	 * UUID
 	 */
 	@Id
 	@Column(length=40)
 	private String order_id;
 	/**
-	 * ÏÂµ¥ÈÕÆÚ
+	 * ä¸‹å•æ—¥æœŸ
 	 */
 	@Column(nullable=false)
 	private Date order_date;
 	/**
-	 * È¡Ïû¶©µ¥ÈÕÆÚ
+	 * å–æ¶ˆè®¢å•æ—¥æœŸ
 	 */
 	@Column(nullable=true)
 	private Date cancel_date;
 	/**
-	 * ¶©µ¥°üº¬µÄÍ¼Êé±àºÅ
-	 * ÒÔ","¸ô¿ª
+	 * è®¢å•åŒ…å«çš„å›¾ä¹¦ç¼–å·
+	 * ä»¥","éš”å¼€
 	 */
 	@Column(length=1000,nullable=false)
 	private String book_ids;
 	/**
-	 * ¶©µ¥×Ü½ğ¶î
+	 * è®¢å•æ€»é‡‘é¢
 	 */
 	@Column(nullable=false)
 	private float amount;
 	/**
-	 * ¸¶¿î·½Ê½
+	 * ä»˜æ¬¾æ–¹å¼
 	 */
 	@ManyToOne(optional=false,targetEntity=PaymentMethod.class,fetch=FetchType.EAGER)
 	@JoinColumn(name="payment_method_id",nullable=false)
 	private PaymentMethod paymentMethod;
 	/**
-	 * ËÍ»õµØÖ·
+	 * é€è´§åœ°å€
 	 */
 	@ManyToOne(optional=false,targetEntity=ShippingAddress.class,fetch=FetchType.EAGER)
 	@JoinColumn(name="shipping_address_id",nullable=false)
 	private ShippingAddress shippingAddress;
 	/**
-	 * ¶©µ¥×´Ì¬
-	 * 0£ºµÈ´ıÉóºË
-	 * 1£ºÉóºË³É¹¦£¬µÈ´ı·¢»õ
-	 * 2£ºÉóºËÊ§°Ü
-	 * 3£ºÒÑ·¢»õ
-	 * 4£º½»Ò×³É¹¦
-	 * 5£ºÒÑÈ¡Ïû
+	 * è®¢å•çŠ¶æ€
+	 * 0ï¼šç­‰å¾…å®¡æ ¸
+	 * 1ï¼šå®¡æ ¸æˆåŠŸï¼Œç­‰å¾…å‘è´§
+	 * 2ï¼šå®¡æ ¸å¤±è´¥
+	 * 3ï¼šå·²å‘è´§
+	 * 4ï¼šäº¤æ˜“æˆåŠŸ
+	 * 5ï¼šå·²å–æ¶ˆ
 	 */
 	@Column(nullable=false)
 	private Integer status;
 	/**
-	 * ÏÂµ¥»áÔ±
+	 * ä¸‹å•ä¼šå‘˜
 	 */
 	@ManyToOne(optional=false,targetEntity=Customer.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="customer_email",nullable=false)

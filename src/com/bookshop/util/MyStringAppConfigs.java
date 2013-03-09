@@ -1,13 +1,13 @@
-package com.bookshop.util;
+ï»¿package com.bookshop.util;
 /*
- * ´´½¨Ê±¼ä£º2011-12¡ª29
- * ´´½¨ÈË£ºÍõÇï¹ó
- * ÏêÇé£º×Ö·û´®Ã¶¾Ù
+ * åˆ›å»ºæ—¶é—´ï¼š2011-12â€”29
+ * åˆ›å»ºäººï¼šç‹ç§‹è´µ
+ * è¯¦æƒ…ï¼šå­—ç¬¦ä¸²æšä¸¾
  * 
  */
 public enum MyStringAppConfigs {
-	add_myclass_fail("Ìí¼Ó°à¼¶³ö´í."),
-	show_questions_fail("ÏÔÊ¾¿¼Ìâ³ö´í£¡");
+	add_myclass_fail("æ·»åŠ ç­çº§å‡ºé”™."),
+	show_questions_fail("æ˜¾ç¤ºè€ƒé¢˜å‡ºé”™ï¼");
 	
 	
 	private String value;

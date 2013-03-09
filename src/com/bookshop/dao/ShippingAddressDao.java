@@ -1,41 +1,41 @@
-package com.bookshop.dao;
+ï»¿package com.bookshop.dao;
 
 import java.util.List;
 
 import org.hibernate.Session;
 /**
- * ÊÕ»õµØÖ·ĞÅÏ¢Dao²ã½Ó¿Ú
+ * æ”¶è´§åœ°å€ä¿¡æ¯Daoå±‚æ¥å£
  * @author Winds
  *
  */
 public interface ShippingAddressDao {
 	/**
-	 * É¾³ıÊÕ»õµØÖ·ĞÅÏ¢
+	 * åˆ é™¤æ”¶è´§åœ°å€ä¿¡æ¯
 	 * @param obj
 	 * @param session
 	 */
 	public void dele(Object obj,Session session);
 	/**
-	 * ĞÂÔöÊÕ»õµØÖ·ĞÅÏ¢
+	 * æ–°å¢æ”¶è´§åœ°å€ä¿¡æ¯
 	 * @param obj
 	 * @param session
 	 */
 	public void save(Object obj,Session session);
 	/**
-	 * ¸üĞÂÊÕ»õµØÖ·ĞÅÏ¢
+	 * æ›´æ–°æ”¶è´§åœ°å€ä¿¡æ¯
 	 * @param obj
 	 * @param session
 	 */
 	public void update(Object obj,Session session);
 	/**
-	 * Í¨¹ıHql²éÑ¯Óï¾ä²éÑ¯µ¥¸öÊÕ»õµØÖ·ĞÅÏ¢
+	 * é€šè¿‡HqlæŸ¥è¯¢è¯­å¥æŸ¥è¯¢å•ä¸ªæ”¶è´§åœ°å€ä¿¡æ¯
 	 * @param hql
 	 * @param session
 	 * @return
 	 */
 	public Object find(String hql,Session session);
 	/**
-	 * Í¨¹ıHql²éÑ¯Óï¾ä²éÑ¯¶à¸öÊÕ»õµØÖ·ĞÅÏ¢
+	 * é€šè¿‡HqlæŸ¥è¯¢è¯­å¥æŸ¥è¯¢å¤šä¸ªæ”¶è´§åœ°å€ä¿¡æ¯
 	 * @param hql
 	 * @param session
 	 * @return

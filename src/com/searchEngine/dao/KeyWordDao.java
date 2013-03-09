@@ -1,4 +1,4 @@
-package com.searchEngine.dao;
+锘縫ackage com.searchEngine.dao;
 
 import java.util.List;
 
@@ -15,5 +15,5 @@ public interface KeyWordDao {
 	
 	public List<?> findAll(String hql,Session session);		
 	public Long findCount_all(Session session, String hql);
-	public List<?> show_by_page_all(int page,int per_folio_amount,Session session,String hql);  //根据页数遍历
+	public List<?> show_by_page_all(int page,int per_folio_amount,Session session,String hql);  //鏍规嵁椤垫暟閬嶅巻
 }

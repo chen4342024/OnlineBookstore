@@ -1,4 +1,4 @@
-package com.bookshop.util;
+ï»¿package com.bookshop.util;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,13 +8,13 @@ import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.util.Map;
 /**
- * ¶¯Ì¬Éú³ÉÊ×Ò³¹ã¸æ¹¤¾ßÀà
+ * åŠ¨æ€ç”Ÿæˆé¦–é¡µå¹¿å‘Šå·¥å…·ç±»
  * @author Winds
  *
  */
 public class HompageAdUtil {
-	static String readJsPath="\\js_modo\\homepage_ad_modo.js"; //jsÄ£°åÎÄ¼şÂ·¾¶
-	static String outputJsPath="\\js\\homepage_ad.js";  //¶¯Ì¬Éú³ÉjsÎÄ¼şÊä³öÂ·¾¶
+	static String readJsPath="\\js_modo\\homepage_ad_modo.js"; //jsæ¨¡æ¿æ–‡ä»¶è·¯å¾„
+	static String outputJsPath="\\js\\homepage_ad.js";  //åŠ¨æ€ç”Ÿæˆjsæ–‡ä»¶è¾“å‡ºè·¯å¾„
 	
     public static void createJs(Map<String,String> map,String rootPath){
     	try {
@@ -29,7 +29,7 @@ public class HompageAdUtil {
 				sb.append(temp);
 			}
 			
-			//¸Ä±äjsµÄÄÚÈİ
+			//æ”¹å˜jsçš„å†…å®¹
 			String s=sb.toString().replace("[ad1_href]", map.get("ad1_href"))
 								.replace("[ad1_title]", map.get("ad1_title"))
 								.replace("[ad1_alt]", map.get("ad1_alt"))
@@ -46,7 +46,7 @@ public class HompageAdUtil {
 								.replace("[ad4_title]", map.get("ad4_title"))
 								.replace("[ad4_alt]", map.get("ad4_alt"));
 	
-			//½«¶¯Ì¬Éú³ÉµÄjsÎÄ¼şÊä³öµ½·şÎñÆ÷Ö¸¶¨ÎÄ¼ş¼ĞÖĞ
+			//å°†åŠ¨æ€ç”Ÿæˆçš„jsæ–‡ä»¶è¾“å‡ºåˆ°æœåŠ¡å™¨æŒ‡å®šæ–‡ä»¶å¤¹ä¸­
 		    BufferedWriter out = new BufferedWriter(new FileWriter(new File(outputfilePath)));
 		    out.write(s);
 		    out.close();

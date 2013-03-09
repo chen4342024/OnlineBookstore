@@ -1,8 +1,8 @@
-package com.bookshop.dao;
+锘縫ackage com.bookshop.dao;
 
 import com.bookshop.util.MyDaoParent;
 /**
- *  员工处理会员订单和退货申请记录信息Dao层实现类
+ *  鍛樺伐澶勭悊浼氬憳璁㈠崟鍜岄��璐х敵璇疯褰曚俊鎭疍ao灞傚疄鐜扮被
  * @author Winds
  *
  */

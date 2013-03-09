@@ -1,4 +1,4 @@
-package com.bookshop.service;
+锘縫ackage com.bookshop.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import com.bookshop.dao.ShoppingRecordDao;
 import com.bookshop.util.DateUtil;
 import com.bookshop.util.MyServiceParent;
 /**
- * 会员购书记录信息Service层实现类
+ * 浼氬憳璐功璁板綍淇℃伅Service灞傚疄鐜扮被
  * @author Winds
  *
  */

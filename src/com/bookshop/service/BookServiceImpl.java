@@ -1,4 +1,4 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.io.File;
 import java.util.Date;
@@ -13,7 +13,7 @@ import com.bookshop.entity.Book;
 import com.bookshop.entity.Catagory;
 import com.bookshop.util.MyServiceParent;
 /**
- * Í¼ÊéĞÅÏ¢Service²ãÊµÏÖÀà
+ * å›¾ä¹¦ä¿¡æ¯Serviceå±‚å®ç°ç±»
  * @author Winds
  *
  */
@@ -23,7 +23,7 @@ public class BookServiceImpl extends MyServiceParent implements BookService {
 	private String hql;
 	
 	/**
-	 * ²éÕÒÍ¼Êé¿â´æ
+	 * æŸ¥æ‰¾å›¾ä¹¦åº“å­˜
 	 */
 	public int findInventory(String book_id) {
 		// TODO Auto-generated method stub
@@ -33,7 +33,7 @@ public class BookServiceImpl extends MyServiceParent implements BookService {
 	}
 
 	/**
-	 * ĞŞ¸ÄÍ¼Êé×´Ì¬
+	 * ä¿®æ”¹å›¾ä¹¦çŠ¶æ€
 	 */
 	public boolean updateStatus(String book_id,int status) {
 		// TODO Auto-generated method stub
@@ -49,7 +49,7 @@ public class BookServiceImpl extends MyServiceParent implements BookService {
 	}
 
 	/**
-	 * Ìí¼ÓÍ¼Êé
+	 * æ·»åŠ å›¾ä¹¦
 	 */
 	public boolean add(Book book,int catagory_id) {
 		// TODO Auto-generated method stub
@@ -81,7 +81,7 @@ public class BookServiceImpl extends MyServiceParent implements BookService {
 	}
 
 	/**
-	 * ¸øÍ¼Êé´òÕÛ
+	 * ç»™å›¾ä¹¦æ‰“æŠ˜
 	 */
 	public boolean updateDiscount(Book book) {
 		// TODO Auto-generated method stub
@@ -98,7 +98,7 @@ public class BookServiceImpl extends MyServiceParent implements BookService {
 	}
 
 	/**
-	 * ¸øÍ¼ÊéÌí¼Ó¿â´æ
+	 * ç»™å›¾ä¹¦æ·»åŠ åº“å­˜
 	 */
 	public boolean updateStorage_num(String book_id,int storage_num) {
 		// TODO Auto-generated method stub
@@ -114,7 +114,7 @@ public class BookServiceImpl extends MyServiceParent implements BookService {
 	}
 
 	/**
-	 * »ñÈ¡Í¼Êé
+	 * è·å–å›¾ä¹¦
 	 */
 	public Book find(String book_id) {
 		// TODO Auto-generated method stub
@@ -124,7 +124,7 @@ public class BookServiceImpl extends MyServiceParent implements BookService {
 	}
 
 	/**
-	 * ĞŞ¸ÄÍ¼Êé
+	 * ä¿®æ”¹å›¾ä¹¦
 	 */
 	public boolean update(Book book, int catagory_id) {
 		// TODO Auto-generated method stub
@@ -134,7 +134,7 @@ public class BookServiceImpl extends MyServiceParent implements BookService {
 		if(b!=null){
 			b.setName(book.getName());
 			if(book.getBook_image().length()>0){
-				//É¾³ıÔ­ÏÈµÄÍ¼Êé·âÃæ
+				//åˆ é™¤åŸå…ˆçš„å›¾ä¹¦å°é¢
 				String savePath= ServletActionContext.getServletContext().getRealPath("/../BookImages/cover/"+b.getBook_image());
 				savePath=savePath.replace("\\", "/");
 				File imageFile=new File( savePath);

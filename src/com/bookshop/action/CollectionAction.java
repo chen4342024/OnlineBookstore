@@ -1,4 +1,4 @@
-package com.bookshop.action;
+ï»¿package com.bookshop.action;
 
 import java.io.PrintWriter;
 import java.util.List;
@@ -15,7 +15,7 @@ import com.bookshop.util.PageUtil;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * ÊÕ²ØĞÅÏ¢Action²ã
+ * æ”¶è—ä¿¡æ¯Actionå±‚
  * @author Winds
  *
  */
@@ -24,30 +24,30 @@ public class CollectionAction extends ActionSupport {
 	@Resource
 	private CollectionService collectionService;
 	private Collection colletion;
-	private List<Long> collectionNum_l; //·ÖÒ³Êı¾İÖĞµÄ¸÷Í¼ÊéµÄÊÕ²ØÊı
-	private Long hasRecord;//Êı¾İµÄ×Ü¸öÊı
-	private int page;		 //µ±Ç°Ò³
-	private int hasPages;	 //×ÜÒ³Êı
-	private int perFolioAmount;  //Ã¿Ò³Êı¾İµÄÌõÊı
-	private List<Integer> page_l;//»ñÈ¡Ò»¸ö´Ó1µ½hasPagesµÄÊı×é
-	private List <Collection> Record_l; //µ±Ç°Ò³µÄÊı¾İ
+	private List<Long> collectionNum_l; //åˆ†é¡µæ•°æ®ä¸­çš„å„å›¾ä¹¦çš„æ”¶è—æ•°
+	private Long hasRecord;//æ•°æ®çš„æ€»ä¸ªæ•°
+	private int page;		 //å½“å‰é¡µ
+	private int hasPages;	 //æ€»é¡µæ•°
+	private int perFolioAmount;  //æ¯é¡µæ•°æ®çš„æ¡æ•°
+	private List<Integer> page_l;//è·å–ä¸€ä¸ªä»1åˆ°hasPagesçš„æ•°ç»„
+	private List <Collection> Record_l; //å½“å‰é¡µçš„æ•°æ®
 	private String customerEmai;
-	private String collectionIdStr; //ÅúÁ¿É¾³ıµÄid´®
+	private String collectionIdStr; //æ‰¹é‡åˆ é™¤çš„idä¸²
 	private Book book;
 	
 	/**
-	 * ²é¿´»áÔ±µÄÊÕ²Ø
+	 * æŸ¥çœ‹ä¼šå‘˜çš„æ”¶è—
 	 * @return
 	 */
 	public String show_collection_by_page(){
 		try{
-			perFolioAmount = 2; // Ã¿Ò³ÏÔÊ¾ÌõÊı
+			perFolioAmount = 2; // æ¯é¡µæ˜¾ç¤ºæ¡æ•°
 			String[] parms = new String[]{"customer.email"};
 			String[] values = new String[]{customerEmai};
 			boolean isLike = false;
-			this.hasRecord = collectionService.hasNumbers("Collection",parms,values,isLike); // »ñÈ¡Êı¾İÌõÊı
-			hasPages = PageUtil.findAllPages(perFolioAmount, hasRecord);; // »ñÈ¡Ò³Êı
-			this.page_l = PageUtil.getPageList(hasPages); // »ñÈ¡Ò»¸ö´Ó1µ½hasPagesµÄÊı×é
+			this.hasRecord = collectionService.hasNumbers("Collection",parms,values,isLike); // è·å–æ•°æ®æ¡æ•°
+			hasPages = PageUtil.findAllPages(perFolioAmount, hasRecord);; // è·å–é¡µæ•°
+			this.page_l = PageUtil.getPageList(hasPages); // è·å–ä¸€ä¸ªä»1åˆ°hasPagesçš„æ•°ç»„
 			if (page <= 0) {
 				page = 1;
 			}
@@ -60,7 +60,7 @@ public class CollectionAction extends ActionSupport {
 					page = hasPages;
 				}
 			}
-			// »ñÈ¡µ±Ç°Ò³µÄÊı¾İ
+			// è·å–å½“å‰é¡µçš„æ•°æ®
 
 
 			this.Record_l = (List<Collection>) collectionService.show_by_page(page, perFolioAmount, "Collection", parms,values,isLike);
@@ -72,7 +72,7 @@ public class CollectionAction extends ActionSupport {
 		}
 	}
 	/**
-	 * É¾³ı»áÔ±µÄÊÕ²Ø¼ÇÂ¼
+	 * åˆ é™¤ä¼šå‘˜çš„æ”¶è—è®°å½•
 	 * @return
 	 */
 	public void deleteCollection(){
@@ -84,7 +84,7 @@ public class CollectionAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();			
@@ -94,7 +94,7 @@ public class CollectionAction extends ActionSupport {
 	}
 	
 	/**
-	 * ÅúÁ¿É¾³ı»áÔ±µÄÊÕ²Ø¼ÇÂ¼
+	 * æ‰¹é‡åˆ é™¤ä¼šå‘˜çš„æ”¶è—è®°å½•
 	 * @return
 	 */
 	public void deleteBatchCollection(){
@@ -106,7 +106,7 @@ public class CollectionAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();			
@@ -115,7 +115,7 @@ public class CollectionAction extends ActionSupport {
 		}
 	}
 	/**
-	 * Ìí¼ÓÊÕ²Ø
+	 * æ·»åŠ æ”¶è—
 	 * @return
 	 */
 	public void addToCollection(){
@@ -133,7 +133,7 @@ public class CollectionAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// Ö±½ÓÊäÈëÏìÓ¦µÄÄÚÈİ
+			// ç›´æ¥è¾“å…¥å“åº”çš„å†…å®¹
 			out.print(flag);
 			out.flush();
 			out.close();			

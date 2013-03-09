@@ -1,4 +1,4 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.List;
 
@@ -8,27 +8,27 @@ import com.bookshop.entity.ShoppingCart;
 
 public interface ShoppingCartService {
 	/**
-	 * °ÑÍ¼Êé¼ÓÈë¹ºÎï³µ
+	 * æŠŠå›¾ä¹¦åŠ å…¥è´­ç‰©è½¦
 	 * @param shoppingCart
 	 * @param book
 	 * @return
 	 */
 	public boolean addBookToCart( ShoppingCart shoppingCart,Book book ,int num);
 	/**
-	 * ´Ó¹ºÎï³µÖĞÉ¾³ıÍ¼Êé
+	 * ä»è´­ç‰©è½¦ä¸­åˆ é™¤å›¾ä¹¦
 	 * @param shoppingCart
 	 * @param book
 	 * @return
 	 */
 	public boolean removeBookToCart(ShoppingCart shoppingCart,Book book);
 	/**
-	 * »ñÈ¡¹ºÎï³µÖĞµÄÍ¼ÊéÁĞ±í
+	 * è·å–è´­ç‰©è½¦ä¸­çš„å›¾ä¹¦åˆ—è¡¨
 	 * @param shoppingCart
 	 * @return
 	 */
 	public List<BookItem> getBookFromCart(ShoppingCart shoppingCart);
 	/**
-	 * ¸üĞÂ¹ºÎï³µÖĞÄ³±¾Í¼ÊéµÄÊıÁ¿
+	 * æ›´æ–°è´­ç‰©è½¦ä¸­æŸæœ¬å›¾ä¹¦çš„æ•°é‡
 	 * @param shoppingCart
 	 * @param book
 	 * @param amount
@@ -37,7 +37,7 @@ public interface ShoppingCartService {
 	public boolean updateBookAmountToCart(ShoppingCart shoppingCart,Book book,int amount);
 	
 	/**
-	 * ¼ÆËã¹ºÎï³µÀïÎïÆ·µÄ×Ü¶î
+	 * è®¡ç®—è´­ç‰©è½¦é‡Œç‰©å“çš„æ€»é¢
 	 * @param price
 	 * @param discount
 	 * @param amount

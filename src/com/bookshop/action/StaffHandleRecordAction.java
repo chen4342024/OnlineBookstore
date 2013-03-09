@@ -1,4 +1,4 @@
-package com.bookshop.action;
+ï»¿package com.bookshop.action;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +16,7 @@ import com.bookshop.util.PageUtil;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * Ô±¹¤´¦Àí»áÔ±¶©µ¥ºÍ»áÔ±ÍË»õÉêÇë¼ÇÂ¼Action²ã
+ * å‘˜å·¥å¤„ç†ä¼šå‘˜è®¢å•å’Œä¼šå‘˜é€€è´§ç”³è¯·è®°å½•Actionå±‚
  * @author Winds
  *
  */
@@ -26,47 +26,47 @@ public class StaffHandleRecordAction extends ActionSupport {
 	private StaffHandleRecordService staffHandleRecordService;
 	private StaffHandleRecord staffHandleRecord;
 	
-	private Long hasRecord; // Êı¾İµÄÌõÊı
-	private int page; // µ±Ç°Ò³
-	private int hasPages; // Ò³Êı
-	private int perFolioAmount; // Ã¿Ò³Êı¾İµÄÌõÊı
+	private Long hasRecord; // æ•°æ®çš„æ¡æ•°
+	private int page; // å½“å‰é¡µ
+	private int hasPages; // é¡µæ•°
+	private int perFolioAmount; // æ¯é¡µæ•°æ®çš„æ¡æ•°
 	private List<Integer> page_l;
 	private List Record_l;
 	private Integer handle_type;
 	private String staffId;
-	private Integer type;//0Îª ´¦Àí¶©µ¥£¬1Îª´¦ÀíÍË»õ 2²éÑ¯Ô±¹¤¸öÈËµÄ´¦Àí¼ÇÂ¼
+	private Integer type;//0ä¸º å¤„ç†è®¢å•ï¼Œ1ä¸ºå¤„ç†é€€è´§ 2æŸ¥è¯¢å‘˜å·¥ä¸ªäººçš„å¤„ç†è®°å½•
 	private Map<String,Object> session;
 	private boolean isLike;
 	
-	private String parm =null;//É¸Ñ¡ËùĞèµÄ²ÎÊı
-	private String value = null;//É¸Ñ¡ËùĞèµÄÖµ
+	private String parm =null;//ç­›é€‰æ‰€éœ€çš„å‚æ•°
+	private String value = null;//ç­›é€‰æ‰€éœ€çš„å€¼
 	private String beginTime;
 	private String endTime;
-	private boolean clear;//Çå³şÉ¸Ñ¡µÄ²ÎÊı
+	private boolean clear;//æ¸…æ¥šç­›é€‰çš„å‚æ•°
 	/**
-	 * ·ÖÒ³»ñÈ¡Ô±¹¤´¦Àí¼ÇÂ¼ĞÅÏ¢
+	 * åˆ†é¡µè·å–å‘˜å·¥å¤„ç†è®°å½•ä¿¡æ¯
 	 * @return
 	 */
 	public String showStaffHandleRecord_by_page() {
 		try{
-			perFolioAmount = 2; // Ã¿Ò³ÏÔÊ¾ÌõÊı
+			perFolioAmount = 2; // æ¯é¡µæ˜¾ç¤ºæ¡æ•°
 			String[] parms = null;
 			String[] values = null;
 			if(type==0){
 				parms=new String[]{"handle_type"};
 				values=new String[]{String.valueOf(handle_type)};
-//				this.hasRecord = staffHandleRecordService.hasNumbers(handle_type); // »ñÈ¡Êı¾İÌõÊı
-//				hasPages = staffHandleRecordService.findPages(perFolioAmount,handle_type); // »ñÈ¡Ò³Êı
+//				this.hasRecord = staffHandleRecordService.hasNumbers(handle_type); // è·å–æ•°æ®æ¡æ•°
+//				hasPages = staffHandleRecordService.findPages(perFolioAmount,handle_type); // è·å–é¡µæ•°
 			}else if(type==1){
 				parms=new String[]{"handle_type","staff.staff_id"};
 				values=new String[]{String.valueOf(handle_type),staffId};
-//				this.hasRecord = staffHandleRecordService.hasNumbers(staffId,handle_type); // »ñÈ¡Êı¾İÌõÊı
-//				hasPages = staffHandleRecordService.findPages(perFolioAmount,staffId,handle_type); // »ñÈ¡Ò³Êı
+//				this.hasRecord = staffHandleRecordService.hasNumbers(staffId,handle_type); // è·å–æ•°æ®æ¡æ•°
+//				hasPages = staffHandleRecordService.findPages(perFolioAmount,staffId,handle_type); // è·å–é¡µæ•°
 			}
 		
 			this.hasRecord = staffHandleRecordService.hasNumbers("StaffHandleRecord", parms, values, isLike); 
-			hasPages = PageUtil.findAllPages(perFolioAmount, hasRecord); // »ñÈ¡Ò³Êı
-			this.page_l = PageUtil.getPageList(hasPages); // »ñÈ¡Ò»¸ö´Ó1µ½hasPagesµÄÊı×é
+			hasPages = PageUtil.findAllPages(perFolioAmount, hasRecord); // è·å–é¡µæ•°
+			this.page_l = PageUtil.getPageList(hasPages); // è·å–ä¸€ä¸ªä»1åˆ°hasPagesçš„æ•°ç»„
 			if (page <= 0) {
 				page = 1;
 			}
@@ -79,7 +79,7 @@ public class StaffHandleRecordAction extends ActionSupport {
 					page = hasPages;
 				}
 			}
-			// »ñÈ¡µ±Ç°Ò³µÄÊı¾İ
+			// è·å–å½“å‰é¡µçš„æ•°æ®
 			this.Record_l =  staffHandleRecordService.show_by_page(page, perFolioAmount, "StaffHandleRecord", parms, values, isLike);						
 			if(handle_type==1){
 				return "success1";

@@ -1,27 +1,27 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import com.bookshop.entity.ShippingAddress;
 
 /**
- * ÊÕ»õµØÖ·Service²ã½Ó¿Ú
+ * æ”¶è´§åœ°å€Serviceå±‚æ¥å£
  * @author Winds
  *
  */
 public interface ShippingAddressService {
 	/**
-	 * ¸ù¾İ»áÔ±ÕËºÅ»ñÈ¡ÊÕ»õĞÅÏ¢
+	 * æ ¹æ®ä¼šå‘˜è´¦å·è·å–æ”¶è´§ä¿¡æ¯
 	 * @param customer_email
 	 * @return
 	 */
 	public ShippingAddress getShippingAddressByEmail(String customer_email);
 	/**
-	 * ĞŞ¸ÄÊÕ»õĞÅÏ¢
+	 * ä¿®æ”¹æ”¶è´§ä¿¡æ¯
 	 * @param shipping_address_id
 	 * @return
 	 */
 	public boolean updateShippingAddress(ShippingAddress shippingAddress) ;
 	/**
-	 * ¸ù¾İID²éÕÒËÍ»õµØÖ·
+	 * æ ¹æ®IDæŸ¥æ‰¾é€è´§åœ°å€
 	 * @param shipping_address_id
 	 * @return
 	 */

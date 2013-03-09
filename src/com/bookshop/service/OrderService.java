@@ -1,4 +1,4 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.List;
 
@@ -8,28 +8,28 @@ import com.bookshop.entity.Order;
 
 public interface OrderService {
 
-	public void audit_order(String staff_id,String order_id,int isPass);//ÉóºË¶©µ¥
-	public void deliver_goods(String staff_id,String order_id);//·¢»õ
-	public boolean delete(String orderId);//É¾³ı
-	//·µ»Ø×ÜÒ³Êı
+	public void audit_order(String staff_id,String order_id,int isPass);//å®¡æ ¸è®¢å•
+	public void deliver_goods(String staff_id,String order_id);//å‘è´§
+	public boolean delete(String orderId);//åˆ é™¤
+	//è¿”å›æ€»é¡µæ•°
 	public int findPages(int perFolioAmount,String entityName); 
 	public int findPages(int perFolioAmount,String entityName,int status);
 	
-	//»áÔ±È·ÈÏ¶©µ¥
+	//ä¼šå‘˜ç¡®è®¤è®¢å•
 	public boolean commitOrder(Order order,String customer_email,int payment_method_id,String shipping_address_id,List <BookItem> bookItems);
 	
-	//	¸ù¾İID»ñÈ¡¶©µ¥
+	//	æ ¹æ®IDè·å–è®¢å•
 	public Order find(String order_id);
 	public List<Book> findBooks(String order_id);
 	public List<List<Book>> findBook_l(List<Order> order_l);
-	//·µ»Ø×ÜÊı¾İ¸öÊı
+	//è¿”å›æ€»æ•°æ®ä¸ªæ•°
 	 
 	public Long hasNumbers(String entityName,String[] paramName,String[]value,boolean isLike);
-	//¸ù¾İÒ³Êı±éÀú
+	//æ ¹æ®é¡µæ•°éå†
 	public List<?> show_by_page(int page,int perFolioAmount,String entityName,String[] paramName,String[]value,boolean isLike);
-	//¸ù¾İÊ±¼ä¶ÎËÑ²éÓÃµÄÒ³Êı±éÀú
+	//æ ¹æ®æ—¶é—´æ®µæœæŸ¥ç”¨çš„é¡µæ•°éå†
 	public Long hasNumbers(String entityName,String timeParam,String begin ,String end,String parm,String value);
-	//¸ù¾İÒ³Êı±éÀú
+	//æ ¹æ®é¡µæ•°éå†
 	public List<?> show_by_page(int page,int perFolioAmount,String entityName,String timeParam,String begin ,String end,String parm,String value);
 	
 	

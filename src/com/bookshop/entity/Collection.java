@@ -1,4 +1,4 @@
-package com.bookshop.entity;
+锘縫ackage com.bookshop.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,38 +12,38 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 /**
- * 会员收藏
+ * 浼氬憳鏀惰棌
  */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="tb_collection")
 public class Collection implements Serializable {
 	/**
-	 * 收藏编号
+	 * 鏀惰棌缂栧彿
 	 * UUID
 	 */
 	@Id
 	@Column(length=40)
 	private String collection_id;
 	/**
-	 * 收藏日期
+	 * 鏀惰棌鏃ユ湡
 	 */
 	@Column(nullable=false)
 	private Date collection_date;
 	/**
-	 * 收藏会员
+	 * 鏀惰棌浼氬憳
 	 */
 	@ManyToOne(optional=false,targetEntity=Customer.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="customer_email",nullable=false)
 	private Customer customer;
 	/**
-	 * 收藏图书
+	 * 鏀惰棌鍥句功
 	 */
 	@ManyToOne(optional=false,targetEntity=Book.class,fetch=FetchType.LAZY)
 	@JoinColumn(name="book_id",nullable=false)
 	private Book book;
 	/**
-	 * 图书收藏时的价格
+	 * 鍥句功鏀惰棌鏃剁殑浠锋牸
 	 */
 	private float collection_price;
 	

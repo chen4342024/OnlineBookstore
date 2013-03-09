@@ -1,4 +1,4 @@
-package com.bookshop.entity;
+ï»¿package com.bookshop.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,14 +12,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 /**
- * Í¼Êé
+ * å›¾ä¹¦
  */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="tb_book")
 public class Book implements Serializable {
 	/**
-	 * Í¼Êé±àºÅ
+	 * å›¾ä¹¦ç¼–å·
 	 * UUID
 	 */
 	@Id
@@ -28,100 +28,100 @@ public class Book implements Serializable {
 	@Column(length=60,nullable=false)
 	private String name;
 	/**
-	 * Í¼Êé·âÃæÍ¼Æ¬Ãû³Æ
+	 * å›¾ä¹¦å°é¢å›¾ç‰‡åç§°
 	 * book_id+.jpg
 	 */
 	@Column(length=100,nullable=false)
 	private String book_image;
 	
 	/**
-	 * Í¼Êé¼ò½é
+	 * å›¾ä¹¦ç®€ä»‹
 	 */
 	@Column(length=1000,nullable=false)
 	private String content_summary;
 	/**
-	 * Í¼ÊéISBN±àºÅ
+	 * å›¾ä¹¦ISBNç¼–å·
 	 */
 	@Column(length=30,nullable=false)
 	private String isbn;
 	/**
-	 * Í¼Êé×÷Õß
+	 * å›¾ä¹¦ä½œè€…
 	 */
 	@Column(length=40,nullable=false)
 	private String author;
 	/**
-	 * ÊÇ·ñÊÇ½ø¿ÚÊé
-	 * 1£º½ø¿ÚÊé
-	 * 0£º·Ç½ø¿ÚÊé
+	 * æ˜¯å¦æ˜¯è¿›å£ä¹¦
+	 * 1ï¼šè¿›å£ä¹¦
+	 * 0ï¼šéè¿›å£ä¹¦
 	 */
 	@Column(nullable=false)
 	private Integer is_import;
 	/**
-	 * ÊÇ·ñÊÇÍâÓïÊé
-	 * 1£ºÍâÓïÊé
-	 * 0£ºÖĞÎÄÊé
+	 * æ˜¯å¦æ˜¯å¤–è¯­ä¹¦
+	 * 1ï¼šå¤–è¯­ä¹¦
+	 * 0ï¼šä¸­æ–‡ä¹¦
 	 */
 	@Column(nullable=false)
 	private Integer is_foreign;
 	/**
-	 * ÒëÕß
+	 * è¯‘è€…
 	 */
 	@Column(length=20,nullable=true)
 	private String translator;
 	/**
-	 * ³ö°æÉç
+	 * å‡ºç‰ˆç¤¾
 	 */
 	@Column(length=40,nullable=false)
 	private String publish_company;
 	/**
-	 * ³ö°æÊ±¼ä
+	 * å‡ºç‰ˆæ—¶é—´
 	 */
 	@Column(nullable=false)
 	private Date publish_date;
 	/**
-	 * ¿â´æ
+	 * åº“å­˜
 	 */
 	@Column(nullable=false)
 	private Integer storage_num; 
 	/**
-	 * Èë¿âÊ±¼ä
+	 * å…¥åº“æ—¶é—´
 	 */
 	@Column(nullable=false)
 	private Date storage_date; 
 	/**
-	 * Í¼Êé×´Ì¬
-	 * 0£ºÈë¿âµ«ÊÇÎ´ÉÏ¼Ü
-	 * 1£ºÒÑÉÏ¼Ü
-	 * 2£ºÒÑÏÂ¼Ü
+	 * å›¾ä¹¦çŠ¶æ€
+	 * 0ï¼šå…¥åº“ä½†æ˜¯æœªä¸Šæ¶
+	 * 1ï¼šå·²ä¸Šæ¶
+	 * 2ï¼šå·²ä¸‹æ¶
 	 */
 	@Column(nullable=false)
 	private Integer status;
 	/**
-	 * Í¼Êé·ÖÀà
+	 * å›¾ä¹¦åˆ†ç±»
 	 */
 	
 	@ManyToOne(optional=false,targetEntity=Catagory.class,fetch=FetchType.EAGER)
 	@JoinColumn(name="catagory_id",nullable=false)
 	private Catagory catagory;
 	/**
-	 * Í¼ÊéÏúÊÛÕÛ¿Û
-	 * ´óÓÚ0Ğ¡ÓÚ1µÄĞ¡Êı
-	 * ³õÊ¼ÖµÎª1
+	 * å›¾ä¹¦é”€å”®æŠ˜æ‰£
+	 * å¤§äº0å°äº1çš„å°æ•°
+	 * åˆå§‹å€¼ä¸º1
 	 */
 	@Column(nullable=false)
 	private float discount;
 	/**
-	 * Í¼ÊéÏúÊÛÕÛ¿ÛµÄÉèÖÃÊ±¼ä
+	 * å›¾ä¹¦é”€å”®æŠ˜æ‰£çš„è®¾ç½®æ—¶é—´
 	 */
 	@Column(nullable=false)
 	private Date discount_date;
 	/**
-	 * ÉÏ¼ÜÊ±¼ä
+	 * ä¸Šæ¶æ—¶é—´
 	 */
 	@Column(nullable=false)
 	private Date sell_date;
 	/**
-	 * Í¼ÊéÔ­¼Û
+	 * å›¾ä¹¦åŸä»·
 	 */
 	@Column(nullable=false)
 	private float price;

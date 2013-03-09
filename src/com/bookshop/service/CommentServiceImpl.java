@@ -1,4 +1,4 @@
-package com.bookshop.service;
+ï»¿package com.bookshop.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import com.bookshop.dao.CommentDao;
 import com.bookshop.util.MyServiceParent;
 /**
- * ÆÀÂÛĞÅÏ¢Service²ãÊµÏÖÀà
+ * è¯„è®ºä¿¡æ¯Serviceå±‚å®ç°ç±»
  * @author Winds
  *
  */
@@ -18,7 +18,7 @@ public class CommentServiceImpl extends MyServiceParent implements
 	private CommentDao commentDao;
 	private String hql;
 	/**
-	 * ²éÕÒÍ¼ÊéÆÀÂÛÊıºÍ¸÷ĞÇÆÀÂÛÊı
+	 * æŸ¥æ‰¾å›¾ä¹¦è¯„è®ºæ•°å’Œå„æ˜Ÿè¯„è®ºæ•°
 	 */
 	public List<Integer> findStarList(String book_l) {
 		// TODO Auto-generated method stub
