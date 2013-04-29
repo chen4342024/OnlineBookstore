@@ -9,7 +9,7 @@ import com.bookshop.entity.PaymentMethod;
  * @author Winds
  *
  */
-public interface PaymentMethodService {
+public interface PaymentMethodService extends MyServiceParent{
 	public PaymentMethod find(String name);
 	public boolean findPaymentMethod_use(int id);
 	public boolean add(PaymentMethod paymentMethod);
@@ -27,6 +27,4 @@ public interface PaymentMethodService {
 	 */
 	public PaymentMethod findById(int payment_method_id);
 	
-	public Long hasNumbers(String entityName,String[] paramName,String[]value,boolean isLike);
-	public List<?> show_by_page(int page,int perFolioAmount,String entityName,String[] paramName,String[]value,boolean isLike);
 }

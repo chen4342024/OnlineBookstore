@@ -7,9 +7,7 @@ import java.util.List;
  * @author Winds
  *
  */
-public interface CommentService {
+public interface CommentService extends MyServiceParent{
 	public List<Integer> findStarList(String book_l);
 	
-	public Long hasNumbers(String entityName,String[] paramName,String[]value,boolean isLike);
-	public List<?> show_by_page(int page,int perFolioAmount,String entityName,String[] paramName,String[]value,boolean isLike);
 }

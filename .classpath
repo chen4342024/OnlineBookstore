@@ -67,5 +67,6 @@
 	<classpathentry kind="lib" path="E:/apache-tomcat-6.0.18/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="E:/apache-tomcat-6.0.18/lib/jsp-api.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jstl-1.2.jar.zip"/>
+	<classpathentry kind="lib" path="D:/OnlineBookstore/WebRoot/WEB-INF/lib/spring-mock.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

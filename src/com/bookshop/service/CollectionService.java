@@ -3,13 +3,14 @@
 import java.util.List;
 
 import com.bookshop.entity.Collection;
+import com.bookshop.entity.Customer;
 
 /**
  * 收藏信息Service层接口
  * @author Winds
  *
  */
-public interface CollectionService {
+public interface CollectionService extends MyServiceParent{
 	/**
 	 * 查找收藏最多的图书
 	 */
@@ -37,15 +38,6 @@ public interface CollectionService {
 	 * 添加收藏
 	 * @return
 	 */
-	public int addToCollection(String book_id,String customer_email);
-	/**
-	 * 分页功能
-	 * @param entityName 实体类名
-	 * @param paramName  实体的查询条件名
-	 * @param value    对应的条件值
-	 * @param isLike   是否要模糊查询
-	 * @return
-	 */
-	public Long hasNumbers(String entityName,String[] paramName,String[]value,boolean isLike);
-	public List<?> show_by_page(int page,int perFolioAmount,String entityName,String[] paramName,String[]value,boolean isLike);
+	public int addToCollection(long book_id,Customer currentCustomer);
+	
 }

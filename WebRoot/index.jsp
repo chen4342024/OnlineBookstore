@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -27,54 +28,22 @@
         </div>
         <div id="main">
         	<div id="sidebar">
-            	<div class="sidebar1">
-					<img src="images/sidebar1.png" alt="导航"/>
-					<ul>
-						<li><a href="###">三味书屋</a></li>
-						<li><a href="###">百草屋</a></li>
-						<li><a href="###">佛偈</a></li>
-						<li><a href="###">人生白皮书</a></li>
-						<li><a href="###">经典爱情故事</a></li>
-						<li><a href="###">十万个为什么</a></li>
-					</ul>
-				</div>
-              	<div class="sidebar1">
-					<img src="images/sidebar2.png" alt="导航"/>
-					<ul>
-						<li><a href="###">三味书屋</a></li>
-						<li><a href="###">百草屋</a></li>
-						<li><a href="###">佛偈</a></li>
-						<li><a href="###">人生白皮书</a></li>
-						<li><a href="###">经典爱情故事</a></li>
-						<li><a href="###">十万个为什么</a></li>
-					</ul>
-				</div> 
-              
-                <div id="sidebar3">
-					<img src="images/sidebar3.png" alt="导航"/>
-					<ul>
-						<li><a href="###">三味书屋</a></li>
-						<li><a href="###">百草屋</a></li>
-						<li><a href="###">佛偈</a></li>
-						<li><a href="###">人生白皮书</a></li>
-						<li><a href="###">经典爱情故事</a></li>
-						<li><a href="###">十万个为什么</a></li>
-						<li><a href="###">少年维特之烦恼</a></li>
-					</ul>
-					<ul class="end">
-
-						<li><a href="###">佛偈</a></li>
-						<li><a href="###">人生白皮书</a></li>
-						<li><a href="###">经典爱情故事</a></li>
-						<li><a href="###">十万个为什么</a></li>
-						<li><a href="###">少年维特之烦恼</a></li>
-					</ul>
-				</div>
+        		<s:action name="findAllCatagory" executeResult="false"></s:action>
+        		<s:iterator value="#request.firstCatagoryList" status="st" var="parentCategory">
+        			<s:if test="#st.index < 4">
+        			<div class="bookCategoryList">
+					     <jsp:include page="customer/bookCategoryList.jsp" flush="true">
+						    <jsp:param name="showAll" value="true"/>
+						</jsp:include>
+					</div>
+					</s:if>
+        		</s:iterator>
+			   
+				
                 <div id="sidebar4"><img src="images/sidebar4.jpg" alt="导航"/></div>
                 <div id="sidebar5"><img src="images/sidebar5.jpg" alt="导航"/></div>
                 <div id="sidebar6"><img src="images/sidebar6.jpg" alt="导航"/></div>
                 <div id="sidebar7"><img src="images/sidebar7.jpg" alt="导航"/></div>
-                <div id="sidebar8"><img src="images/sidebar8.jpg" alt="导航"/></div>
             </div>
             <div id="main1">
             	<div id="main11">
@@ -99,9 +68,8 @@
 						</div>
                         <div id="hotsale_newbook">
                         		<img src="images/xinshutuijian.jpg"/>
-								<div id="more_newbook"><a href="###">更多>></a></div>
+								<div id="more_newbook"><a href="###">更多>> </a></div>
 								<ul>
-								
 								</ul>
                    	    </div>
                 </div>
@@ -151,5 +119,6 @@
          <div id="footer_page">
         	<jsp:include page="footer.jsp" />
         </div>
+        <s:debug></s:debug>
     </body>
 </html>

@@ -16,54 +16,48 @@ import com.opensymphony.xwork2.ActionSupport;
 public class UploadUtilAction extends ActionSupport implements
 		ServletResponseAware {
 
-	private File fileupload; // ��JSP��input���nameͬ��
+	private File fileupload; 
 	private String imageUrl;
 	private String attachmentUrl;
 	private String fileRealName;
 	private HttpServletResponse response;
-	// Struts2��������õ��ļ���,�������File������+FileName
-	// ��˴�Ϊ 'fileupload' + 'FileName' = 'fileuploadFileName'
-	private String fileuploadFileName; // �ϴ������ļ�������
+	private String fileuploadFileName; 
 	private String guid;
 	private String imageFile;
 
 	public String uploadFile() {
-		String extName = ""; // �����ļ���չ��
-		String newFileName = ""; // �����µ��ļ���
+		String extName = ""; 
+		String newFileName = ""; 
 		PrintWriter out = null;
 		String savePath = ServletActionContext.getServletContext().getRealPath(
-				""); // ��ȡ��Ŀ��·��
+				""); 
 		savePath = savePath + "/../BookImages/"+imageFile+"/";
 		System.out.println(savePath);
 		HttpServletResponse response = ServletActionContext.getResponse();
-		response.setCharacterEncoding("gbk"); // ��أ���ֹ�����ļ���������
+		response.setCharacterEncoding("gbk");
 
-		// ��ȡ��չ��
 		if (fileuploadFileName.lastIndexOf(".") >= 0) {
 			extName = fileuploadFileName.substring(fileuploadFileName
 					.lastIndexOf("."));
 		}
 		try {
 			out = response.getWriter();
-			newFileName = guid+ extName; // �ļ�������������
+			newFileName = guid+ extName; 
 			String filePath = savePath + newFileName;
 			filePath = filePath.replace("\\", "/");
 			System.out.println(newFileName);
-			//����ϴ����Ƿ���ͼƬ
+	
 			if (UtilCommon.checkIsImage(extName)) {
 				FileUtils.copyFile(fileupload, new File(filePath));
 				out.print(newFileName);
-
 			} else {
-				out.print("<font color='red'>�ϴ����ļ����ʹ�����ѡ��jpg,jpeg,png��gif��ʽ��ͼƬ!</font>");
+				out.print("<font color='red'>image pattern is unsupport</font>");
 			}
-		
-			// ֱ��������Ӧ������
 			out.flush();
 			out.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-			out.print("�ϴ�ʧ�ܣ�������!");
+			out.print("add book image error");
 		}
 		return null;
 	}

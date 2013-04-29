@@ -9,7 +9,7 @@ import com.bookshop.entity.Catagory;
  * @author Winds
  *
  */
-public interface CatagoryService {
+public interface CatagoryService extends MyServiceParent{
 	public boolean add(Catagory catagory,int firstCatagory_id);
 	public boolean updateName(Catagory catagory);
 	public boolean updateDiscount(Catagory catagory);
@@ -20,9 +20,4 @@ public interface CatagoryService {
 	public List<Catagory> findAllFirstCatagory();
 	public List<Catagory> findAllSecondCatagory();
 	
-//	public Long hasNumbers(String entityName);
-//	public int findPages(int perFolioAmount,String entityName);
-//	public List<?> show_by_page(int page,int perFolioAmount,String entityName);
-	public Long hasNumbers(String entityName,String[] paramName,String[]value,boolean isLike);
-	public List<?> show_by_page(int page,int perFolioAmount,String entityName,String[] paramName,String[]value,boolean isLike);
 }

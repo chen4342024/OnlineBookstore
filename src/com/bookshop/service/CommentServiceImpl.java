@@ -6,13 +6,12 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import com.bookshop.dao.CommentDao;
-import com.bookshop.util.MyServiceParent;
 /**
  * 评论信息Service层实现类
  * @author Winds
  *
  */
-public class CommentServiceImpl extends MyServiceParent implements
+public class CommentServiceImpl extends MyServiceParentImpl implements
 		CommentService {
 	@Resource
 	private CommentDao commentDao;

@@ -1,18 +1,20 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<title>无标题文档</title>
+		<link href="<%=request.getContextPath()%>/css/taoshuxuan.css" rel="stylesheet" type="text/css" />
 		<link type="text/css" rel="stylesheet" href="css/order_form.css" />
-		<script type="text/javascript" src="<%=request.getContextPath()%>/customer/shoppingcart/js/jquery.js"></script>
-		<script type="text/javascript" src="<%=request.getContextPath()%>/admin/js/jquery.form.js" ></script>
+		<script type="text/javascript" src="<%=request.getContextPath()%>/customer/shoppingcart/js/jquery-1.5.2.js"></script>
+		<script type="text/javascript" src="<%=request.getContextPath()%>/customer/shoppingcart/js/jquery.form.js" ></script>
+		<script type="text/javascript" src="<%=request.getContextPath()%>/js/common.js" ></script>
+		<script type="text/javascript" src="<%=request.getContextPath()%>/js/validation.js" ></script>
 		<script type="text/javascript" src="<%=request.getContextPath()%>/customer/shoppingcart/js/checkout.js"></script>
-	</head>
-
-	<body>
 		<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/customer/shoppingcart/css/unite_header.css" />
+	</head>
+	<body>
 		<div id="header_page">
            <jsp:include page="../../header.jsp" />
     	</div>
@@ -27,7 +29,7 @@
 				<div class="shoppingcart_footer_experience">
 					请确认以下信息，然后提交订单
 				</div>
-			
+				
 				<div class="clearing_border">
 					<div id="div_consignee">
 						<s:action name="getShippingAddressByEmail"></s:action>
@@ -39,89 +41,100 @@
 						<div id="consignee_tips" class="consignee">
 							<h3>
 								收货人信息
-								<span class="look"> <a id="btn_consignee_close"
-									class="btn_close" href="#" onclick="return msgToggle(this)">[关闭]</a>
+								<span class="look"> <a id="btn_consignee_close" name="btn_consignee_save"
+									class="btn_close" href="#" >[关闭]</a>
 								</span>
 							</h3>
 							<div id="consignee_edit_info" class="info open" style="display: block">
-								<div id="div_consignee_edit_info_display">
-								<form action="" id="form_consignee">
-									<div class="m_list">
-										<span class="text">收&nbsp;货&nbsp;人：</span>
-										<input id="txt_ship_name" class="textbox_4" type="text" name="shippingAddress.consignee"
-											value="<s:property value="#request.shippingAddress.consignee"/>" maxlength="40" />
-									</div>
-									<div id="div_consignee_addr" class="m_list">
-										<span class="text">地&nbsp;&nbsp;&nbsp;&nbsp;区：</span>
-										<select id="sel_country" class="select_w" name="shippingAddress.shipping_country">
-											<option value="9000">
-												中国
-											</option>
-										</select>
-										<span id="spn_province_city" style="display: block;">
-										 <select id="s_province"  class="select_w" name="shippingAddress.shipping_province" ></select>
-											<select id="s_city"  class="select_w" name="shippingAddress.shipping_city"></select>
-											<span id="span_town" style="display: block;">
-											<select id="s_county"  class="select_w" name="shippingAddress.shipping_county"> </select> </span> 
-												<script	type="text/javascript" src="js/area.js"></script> 
-												<script	type="text/javascript">_init_area();</script> </span>
-										<span class="hint"> <a target="_blank" href="#">查看可货到付款地区&gt;&gt;</a>
-										</span>
-									</div>
-									<div class="m_list">
-										<span class="text"> 街道地址： <span
-											id="div_country_province_city" class="">
-												 </span></span>
-										<input id="txt_ship_address" class="textbox_x" type="text" name="shippingAddress.street_address"
-											onblur="" onfocus="" value="<s:property value="#request.shippingAddress.street_address"/>" maxlength="100" />
-										<span id="ship_address_valid_msg" class="news_red2"
-											style="visibility: hidden"></span>
-									</div>
-									<div class="m_list">
-										<span class="text">邮&nbsp;&nbsp;&nbsp;&nbsp;编：</span>
-										<input id="txt_ship_zip" class="textbox_4" type="text" name="shippingAddress.postcode"
-											value="<s:property value="#request.shippingAddress.postcode"/>" maxlength="20" />
-										<span id="ship_zip_valid_msg" class="news_red2"
-											style="visibility: hidden"> </span>
-									</div>
-									<div class="m_list">
-										<span class="text">手&nbsp;&nbsp;&nbsp;&nbsp;机：</span>
-										<input id="txt_ship_mb" class="textbox_4" type="text" name="shippingAddress.mobile_phone"
-											maxlength="20" value="<s:property value="#request.shippingAddress.mobile_phone"/>" />
-										<span class="text"> <span class="hint">或者</span> 固定电话：
-										</span>
-										<input id="txt_ship_tel" class="textbox_4" type="text" name="shippingAddress.fixed_phone"
-											maxlength="20" value="<s:property value="#request.shippingAddress.fixed_phone"/>" />
-										<span id="ship_mb_valid_msg" class="news_red2"
-											style="visibility: hidden"> </span>
-									</div>
+								<s:iterator value="#session.customer.addresses" status="st">
+											<p class="clearing_address_nav">
+											<s:if test="#st.index==0">
+												<input type="radio" checked="checked" class="customer_address"  value="<s:property value="shipping_address_id"/>" name="radio_shipping_address_id" />
+											</s:if>
+											<s:else>
+												<input type="radio" class="customer_address"  value="<s:property value="shipping_address_id"/>" name="radio_shipping_address_id" />
+											</s:else>
+											<span class="existAddress">
+												<s:property value="consignee"/>,&nbsp;
+												<s:property value="shipping_province"/>,&nbsp;
+												<s:property value="shipping_city"/>,&nbsp;
+												<s:property value="shipping_county"/>,&nbsp;
+												<s:property value="street_address"/>,&nbsp;
+												<s:property value="postcode"/>,&nbsp;
+												<s:property value="mobile_phone"/>,&nbsp;
+												<s:property value="fixed_phone"/>&nbsp;
+											</span>
+											</p>
+								</s:iterator>
+								<input type="radio" id="newCustomerAddress" class="customer_address" value="0" name="radio_shipping_address_id" />使用新地址
+								<div id="div_consignee_edit_info_display" style="display:none">
+									<form action="updateShippingAddress.do" id="form_consignee">
+										<div class="m_list">
+											<span class="text">收&nbsp;货&nbsp;人：</span><span class="requireSpan">*</span>
+											<input id="txt_ship_name" class="required1" type="text" name="shippingAddress.consignee"
+												value="<s:property value="#request.shippingAddress.consignee"/>" maxlength="40" />
+											
+										</div>
+										<div id="div_consignee_addr" class="m_list">
+											<span class="text">地&nbsp;&nbsp;&nbsp;&nbsp;区：<span class="requireSpan">*</span></span>
+											<select id="sel_country" class="select_w" name="shippingAddress.shipping_country">
+												<option value="9000">
+													中国
+												</option>
+											</select>
+											<span id="spn_province_city" style="display: block;">
+												<select id="s_province"  class="select_w" name="shippingAddress.shipping_province" ></select>
+												<select id="s_city"  class="select_w" name="shippingAddress.shipping_city"></select>
+												<select id="s_county"  class="select_w" name="shippingAddress.shipping_county"> </select> </span> 
+													<script	type="text/javascript" src="<%=request.getContextPath()%>/js/area.js"></script> 
+													<script	type="text/javascript">_init_area();</script>
+										</div>
+										<div class="m_list">
+											<span class="text"> 街道地址： <span
+												id="div_country_province_city" class="">
+													 </span></span><span class="requireSpan">*</span>
+											<input id="txt_ship_address" class="textbox_x" type="text" name="shippingAddress.street_address"
+												onblur="" onfocus="" value="<s:property value="#request.shippingAddress.street_address"/>" maxlength="100" />
+											<span id="ship_address_valid_msg" class="news_red2"
+												style="visibility: hidden"></span>
+										</div>
+										<div class="m_list">
+											<span class="text">邮&nbsp;&nbsp;&nbsp;&nbsp;编：<span class="requireSpan">*</span></span>
+											<input id="txt_ship_zip" class="textbox_4" type="text" name="shippingAddress.postcode"
+												value="<s:property value="#request.shippingAddress.postcode"/>" maxlength="20" />
+											<span id="ship_zip_valid_msg" class="news_red2"
+												style="visibility: hidden"> </span>
+										</div>
+										<div class="m_list">
+											<span class="text">手&nbsp;&nbsp;&nbsp;&nbsp;机：<span class="requireSpan">*</span></span>
+											<input id="txt_ship_mb" class="textbox_4" type="text" name="shippingAddress.mobile_phone"
+												maxlength="20" value="<s:property value="#request.shippingAddress.mobile_phone"/>" />
+											<span class="text"> <span class="hint">或者</span> 固定电话：
+											</span>
+											<input id="txt_ship_tel" class="textbox_4" type="text" name="shippingAddress.fixed_phone"
+												maxlength="20" value="<s:property value="#request.shippingAddress.fixed_phone"/>" />
+											<span id="ship_mb_valid_msg" class="news_red2"
+												style="visibility: hidden"> </span>
+										</div>
 									</form>
 								</div>
 								<div class="button_ts">
-									<input id="btn_consignee_save" class="save_button" name="<s:property value="#request.shippingAddress.shipping_address_id"/>"
-										type="button" value="确认收货人信息" onclick="return msgToggle(this)" />
+									<input type="hidden" value="#request.shippingAddress.shipping_address_id"/>
+									<input name="btn_consignee_save" class="save_button" 
+									  	   type="button" value="确认收货人信息" />
 									<span id="span_consignee_save_tips" class="objhide"></span>
 									<div class="clear"></div>
 								</div>
 							</div>
-							
-							<div id="refer_m" class="refer_m" style="display:none">
-								<ul>
-									<li >
-										收货人信息 ： 
-										<span id="li_refer_m">
-											<s:property value="#request.shippingAddress.consignee"/>,&nbsp;
-											<s:property value="#request.shippingAddress.shipping_province"/>,&nbsp;
-											<s:property value="#request.shippingAddress.shipping_city"/>,&nbsp;
-											<s:property value="#request.shippingAddress.shipping_county"/>,&nbsp;
-											<s:property value="#request.shippingAddress.street_address"/>,&nbsp;
-											<s:property value="#request.shippingAddress.postcode"/>,&nbsp;
-											<s:property value="#request.shippingAddress.mobile_phone"/>,&nbsp;
-											<s:property value="#request.shippingAddress.fixed_phone"/>&nbsp;
-										</span>
-									</li>
-								</ul>
-							</div>
+								<div id="refer_m" class="refer_m" style="display:none">
+										<ul>
+											<li >
+												收货人信息 ： 
+												<span id="li_refer_m">
+												</span>
+										   </li>
+									 </ul>
+								</div>
 						</div>
 					</div>
 					<div id="div_shipment">
@@ -167,10 +180,10 @@
 										<s:iterator value="#request.paymentMethod_l" status="st">
 											<p class="clearing_payment_nav">
 											<s:if test="#st.index==0">
-												<input type="radio" checked="checked" class="payment_radio"  value="<s:property value="payment_method_id"/>" name="order.paymentMethod.payment_method_id" />
+												<input type="radio" checked="checked" class="payment_radio"  value="<s:property value="payment_method_id"/>" name="payment_method" />
 											</s:if>
 											<s:else>
-												<input type="radio" class="payment_radio"  value="<s:property value="payment_method_id"/>" name="order.paymentMethod.payment_method_id" />
+												<input type="radio" class="payment_radio"  value="<s:property value="payment_method_id"/>" name="payment_method" />
 											</s:else>
 												<b class="v"><s:property value="name"/></b>
 											</p>
@@ -241,7 +254,7 @@
 																<span></span>
 															</li>
 															<li class="row2">
-																北理工
+																#######
 															</li>
 															<li class="row3">
 																<s:property value="book.price"/>
@@ -279,18 +292,27 @@
 											</div>
 										</div>
 									</div>
-									<form id="form_order" action="commitOrder.do">
+									<form id="form_order" method="post" action="commitOrder.do">
 										<div id="parm" style="display:none">
-											<input name="order.shippingAddress.shipping_address_id" value="<s:property value="#request.shippingAddress.shipping_address_id"/>"/>
-											<input name="order.customer.email" value="<s:property value="#session.customer_email"/>"/>
+											<input id="shipping_address_id" name="order.shippingAddress.shipping_address_id"/>
+											<input id="consignee" name="order.shippingAddress.consignee"/>
+											<input id="shipping_province" name="order.shippingAddress.shipping_province"/>
+											<input id="shipping_city" name="order.shippingAddress.shipping_city"/>
+											<input id="shipping_county" name="order.shippingAddress.shipping_county"/>
+											<input id="street_address" name="order.shippingAddress.street_address"/>
+											<input id="postcode" name="order.shippingAddress.postcode"/>
+											<input id="mobile_phone" name="order.shippingAddress.mobile_phone"/>
+											<input id="fixed_phone" name="order.shippingAddress.fixed_phone"/>
 											<input id="parmPaymentMethod" name="order.paymentMethod.payment_method_id" />
-											<input name="order.amount" value="${total_account}" />
+											<input id="amount" name="order.amount" value="${total_account}" />
+											<input id="submissionToken" name="submissionToken" value="${session.submissionToken}"/> 
 											<input id="submitOrderButton" name="submit" type="submit" value="确认"/>
 										</div>
 										<div class="order_tijiao">
 											<a id="submitOrder" name="submit" href="">提交订单</a>
+											<br />
+											<span id="submitOrderErrorMsgHolder" class="errorIconAndMsg" name="promptHolderDiv" style="display:none"></span>
 										</div>
-										
 									</form>
 									<div class="clear"></div>
 								</div>
@@ -306,4 +328,3 @@
 			<s:debug></s:debug>
 	</body>
 </html>
-

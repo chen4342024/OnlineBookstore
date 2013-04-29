@@ -9,13 +9,12 @@ import org.hibernate.Session;
 import com.bookshop.dao.StaffDao;
 import com.bookshop.entity.Staff;
 import com.bookshop.util.CryptoUtils;
-import com.bookshop.util.MyServiceParent;
 /**
  * 员工信息Service层实现类
  * @author Winds
  *
  */
-public class StaffServiceImpl extends MyServiceParent implements StaffService {
+public class StaffServiceImpl extends MyServiceParentImpl implements StaffService {
 	@Resource
 	private StaffDao staffDao;
 	private Session session;
@@ -35,19 +34,13 @@ public class StaffServiceImpl extends MyServiceParent implements StaffService {
 		}
 		return staff;
 	}
-	public String login(String staff_id,String pw){
+	public Staff login(String staff_id,String pw){
 		Staff staff = null;
 		this.session = getSession();
 		String EncryptPw = CryptoUtils.getEncryptPwd(pw);
 		hql = "from Staff as s where s.staff_id ='"+staff_id+"'"+" and s.pw = '"+EncryptPw+"'" + "and s.status = 1";
 		staff=(Staff)staffDao.find(hql, session);
-		if(staff !=null){
-			return "success";
-		}
-		else{
-			return null;
-		}
-		
+		return staff;
 	}
 	/**
 	 * 实现添加员工功能

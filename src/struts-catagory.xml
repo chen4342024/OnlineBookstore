@@ -26,12 +26,22 @@
 		<action name="findFirstCatagory" class="catagoryAction" method="findFirstCatagory">
 		</action>
 		
+		<!-- 查图书所有分类-->
+		<action name="findAllCatagory" class="catagoryAction" method="findAllCatagory">
+			<result name="success">/customer/bookCategoryList.jsp</result>	
+		</action>
+		
+		
 		<!-- 查图书所有二级分类-->
 		<action name="gainSecondCatagory" class="catagoryAction" method="gainSecondCatagory">
 		</action>
 		
 		<!-- 查图书某一一级分类下的二级分类-->
 		<action name="findSecondCatagory" class="catagoryAction" method="findSecondCatagory">
+		</action>
+		
+		<!-- 查图书某一一级分类下的二级分类-->
+		<action name="findCatagoryIncludeChildByName" class="catagoryAction" method="findCatagoryIncludeChildByName">
 		</action>
 		
 		<!-- 根据分类名称查询-->

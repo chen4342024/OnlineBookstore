@@ -17,6 +17,7 @@ import com.bookshop.util.CryptoUtils;
 @Entity
 @Table(name="tb_admin")
 public class Admin implements Serializable {
+  
 	/**
 	 * 编号
 	 */

@@ -9,9 +9,6 @@
 <link href="<%=request.getContextPath()%>/customer/personalCenter/css/personalBasic.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/customer/personalCenter/js/jquery-1.5.2.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/customer/personalCenter/js/main.js" charset="utf-8"></script>
-<%
-	String account = (String) session.getAttribute("customer_email");
- %>
 </head>
 
 <body>
@@ -27,9 +24,9 @@
               	<div id="sidebar3">
 					<img src="../../images/sidebar9.png" alt="导航"/>
 					<ul>
-						<li><a target="iframe" class="mySidebar" id="myOrderHref" href="show_order_by_customer.do?customerEmai=<%=account %>" >我的订单</a></li>  
+						<li><a target="iframe" class="mySidebar" id="myOrderHref" href="show_order_by_customer.do" >我的订单</a></li>  
 						<li><a target="iframe" class="mySidebar" id="myGoodsHref" href="boughtGoods.jsp" name="boughtcommodity" class="">已购商品</a></li>
-     					<li><a target="iframe" class="mySidebar" id="myCollectionHref" href="show_collection_by_page.do?customerEmai=<%=account %>" >我的收藏</a></li>
+     					<li><a target="iframe" class="mySidebar" id="myCollectionHref" href="show_collection_by_page.do" >我的收藏</a></li>
      					<li><a target="iframe" class="mySidebar" id="myCommentHref" href="myComment.jsp" name="myComment" >我的评论</a></li>
      					<li><a target="iframe" class="mySidebar" id="myInfoHref" href="personalInfor.jsp" name="mycoupons" >个人信息管理</a></li>
      					<li><a target="iframe" class="mySidebar" id="myPwHref" href="changePassword.jsp" name="points_index_list" >修改登录密码</a></li>

@@ -36,14 +36,14 @@
                 <script type="text/javascript" src="js/area.js" ></script> 
                 <script type="text/javascript">_init_area();</script> 
                 <script type="text/javascript">
-var Gid  = document.getElementById ;
-var showArea = function(){
-	Gid('show').innerHTML = "<h3>" + Gid('s_province').value + " - " + 
-							Gid('s_city').value + " - " + 
-							Gid('s_county').value + "</h3>"
-}
-Gid('s_county').setAttribute('onchange','showArea()');
-</script></td>
+				var Gid  = document.getElementById ;
+				var showArea = function(){
+					Gid('show').innerHTML = "<h3>" + Gid('s_province').value + " - " + 
+											Gid('s_city').value + " - " + 
+											Gid('s_county').value + "</h3>"
+				}
+				Gid('s_county').setAttribute('onchange','showArea()');
+				</script></td>
             </tr>
             <tr>
               <td class="lable"><span>*</span> 性别：</td>

@@ -2,10 +2,15 @@
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.bookshop.util.CryptoUtils;
@@ -53,7 +58,8 @@ public class Customer implements Serializable{
 	 * 地址
 	 */
 	@Column(length=200)
-	private String address;
+	@OneToMany(cascade = { CascadeType.ALL}, fetch = FetchType.EAGER ,targetEntity = ShippingAddress.class,mappedBy="customer")  
+	private Set<ShippingAddress> addresses = new HashSet<ShippingAddress>();
 	/**
 	 * 注册时间
 	 */
@@ -110,11 +116,15 @@ public class Customer implements Serializable{
 	public void setHobbies(String hobbies) {
 		this.hobbies = hobbies;
 	}
-	public String getAddress() {
-		return address;
+
+	public Set<ShippingAddress> getAddresses() {
+	  if (addresses == null) {
+      addresses = new HashSet<ShippingAddress>();
+    }
+		return addresses;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddresses(Set<ShippingAddress> addresses) {
+		this.addresses = addresses;
 	}
 	public Date getJoin_date() {
 		return join_date;

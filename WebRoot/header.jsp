@@ -3,12 +3,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    
-    
     <title>淘书轩页面首部</title>
-    
 	<link href="<%=request.getContextPath()%>/css/basic.css" rel="stylesheet" type="text/css" />
-
   </head>
   
   <body>
@@ -23,10 +19,10 @@
 				<img src="<%=request.getContextPath()%>/images/nav2.jpg" alt="导航"/>
 					<ul>
 						<li><a href="<%=request.getContextPath() %>/index.jsp">首页</a></li>
-						<li><a href="gainGoods_by_keyWord.do?otherOrderBy=&keyWord=影视图书&rowName=3">影视图书</a></li>
-						<li><a href="gainGoods_by_keyWord.do?otherOrderBy=&keyWord=人生哲学&rowName=3">人生哲学</a></li>
-						<li><a href="gainGoods_by_keyWord.do?otherOrderBy=&keyWord=佛学&rowName=3">佛学</a></li>
-						<li><a href="gainGoods_by_keyWord.do?otherOrderBy=&keyWord=IT书籍&rowName=2">IT书籍</a></li>
+						<li><a href="gainGoods_by_keyWord.do?otherOrderBy=&keyWord=文学&rowName=3">文学</a></li>
+						<li><a href="gainGoods_by_keyWord.do?otherOrderBy=&keyWord=小说&rowName=3">小说</a></li>
+						<li><a href="gainGoods_by_keyWord.do?otherOrderBy=&keyWord=励志与成功&rowName=3">励志与成功</a></li>
+						<li><a href="gainGoods_by_keyWord.do?otherOrderBy=&keyWord=少儿&rowName=3">少儿</a></li>
 					</ul>
 			</div>
 	 </div>

@@ -10,6 +10,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.hibernate.Session;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import com.bookshop.dao.OrderDao;
@@ -17,25 +18,33 @@ import com.bookshop.entity.Book;
 import com.bookshop.entity.BookItem;
 import com.bookshop.entity.Customer;
 import com.bookshop.entity.Order;
+import com.bookshop.entity.OrderStatus;
 import com.bookshop.entity.PaymentMethod;
 import com.bookshop.entity.ShippingAddress;
-import com.bookshop.util.MyServiceParent;
+import com.bookshop.entity.ShoppingCart;
+import com.common.service.DateService;
+import com.common.util.CommonUtil;
+import com.common.util.StringUtil;
 /**
  * 订单信息Service层实现类
  * @author Winds
  *
  */
-public class OrderServiceImpl extends MyServiceParent implements OrderService {
+public class OrderServiceImpl extends MyServiceParentImpl implements OrderService {
 	@Resource
 	private OrderDao orderDao;
 	@Resource
 	private StaffHandleRecordService staffHandleRecordService;
 	@Resource
-	private CustomerService customerService;
+	private ShoppingRecordService shoppingRecordService;
 	@Resource 
 	private PaymentMethodService paymentMethodService;
 	@Resource
 	private ShippingAddressService shippingAddressService;
+	@Resource
+	private ShoppingCartService shoppingCartService;
+	@Resource
+  private BookService bookService;
 	private Session session ;
 	private String hql;
 	/*
@@ -47,9 +56,9 @@ public class OrderServiceImpl extends MyServiceParent implements OrderService {
 		Order order = (Order)orderDao.find(hql, session);
 		int before_handle_status =  order.getStatus();
 		if(isPass == 1)
-			order.setStatus(1);
+			order.setStatus(OrderStatus.AUDIT_SUCCESS);
 		else if(isPass == 0)
-			order.setStatus(2);
+			order.setStatus(OrderStatus.AUDIT_FAIL);
 		orderDao.update(order, session);
 		int after_handle_status = order.getStatus();
 		staffHandleRecordService.addStaffHandleRecord(1, staff_id,order_id , before_handle_status, after_handle_status);
@@ -62,12 +71,19 @@ public class OrderServiceImpl extends MyServiceParent implements OrderService {
 		hql = "from Order as order where order.order_id='"+order_id+"'";
 		Order order = (Order)orderDao.find(hql, session);
 		int before_handle_status =  order.getStatus();
-		order.setStatus(3);
+		order.setStatus(OrderStatus.DELIVERY_SUCCESS);
 		orderDao.update(order, session);
 		int after_handle_status = order.getStatus();
 		staffHandleRecordService.addStaffHandleRecord(1, staff_id,order_id , before_handle_status, after_handle_status);
-
 	}
+	
+	public void changeOrderStatus(String order_id,int status){
+	  this.session = getSession();
+    Order order = this.find(order_id);
+    order.setStatus(status);
+    orderDao.update(order, session);
+	}
+	
 	public Order find(String order_id){
 		this.session = getSession();
 		hql = "from Order as o where o.order_id = '"+order_id+"'";
@@ -75,29 +91,58 @@ public class OrderServiceImpl extends MyServiceParent implements OrderService {
 		return order;
 	}
 
-	public boolean commitOrder(Order order, String customer_email,
-		int payment_method_id, String shipping_address_id,List <BookItem> bookItems) {
+	@Transactional
+	public boolean commitOrder(Order order, Customer currentCustomer,ShoppingCart shoppingCart) {
 		this.session = getSession();
+		List <BookItem> bookItems = shoppingCartService.getBookFromCart(shoppingCart);
 		try{
-			Customer customer = customerService.find(customer_email);
-			PaymentMethod paymentMethod= paymentMethodService.findById(payment_method_id);
-			ShippingAddress shippingAddress = shippingAddressService.find(shipping_address_id);
-			String book_ids="";
-			for(BookItem b :bookItems){
-				book_ids = book_ids +  b.getBook().getBook_id().toString()+"," ;
-			}
-			order.setBook_ids(book_ids);
-			order.setOrder_date(new Date());
-			order.setStatus(0);
-			order.setCustomer(customer);
-			order.setPaymentMethod(paymentMethod);
-			order.setShippingAddress(shippingAddress);
-			orderDao.save(order, session);
+		  Order dbOrder = constructOrder(order, bookItems, currentCustomer);
+			orderDao.save(dbOrder, session);
+			shoppingRecordService.addShoppingRecord(order, currentCustomer,bookItems);
+			for(BookItem bookItem :bookItems){
+			  bookService.decrementStorageNum(bookItem.getBook().getBook_id(),bookItem.getAmount());
+	    }
+			shoppingCartService.clearShoppingCart(shoppingCart);
 			return true;
+			
 		}catch(Exception e){
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	
+	private Order constructOrder(Order order,List <BookItem> bookItems,Customer currentCustomer){
+	  PaymentMethod paymentMethod= paymentMethodService.findById(order.getPaymentMethod().getPayment_method_id());
+    ShippingAddress shippingAddress = null;
+    if (order.getShippingAddress().getShipping_address_id() == 0) {
+      shippingAddress = shippingAddressService.addOrUpdateShippingAddress(order.getShippingAddress(),currentCustomer);
+    }else {
+      shippingAddress = shippingAddressService.find(order.getShippingAddress().getShipping_address_id());
+    }
+    String book_ids="";
+    for(BookItem b :bookItems){
+      book_ids = book_ids +  b.getBook().getBook_id()+"," ;
+    }
+    order.setBook_ids(book_ids);
+    order.setOrder_date(DateService.getInstance().now());
+    order.setStatus(0);
+    order.setCustomer(currentCustomer);
+    order.setPaymentMethodName(paymentMethod.getName());
+    setOrderShippingAddress(shippingAddress,order);
+    return order;
+	}
+	
+	private void setOrderShippingAddress(ShippingAddress shippingAddress,Order order){
+	  order.setConsignee(shippingAddress.getConsignee());
+    order.setShipping_country(shippingAddress.getShipping_country());
+    order.setShipping_province( shippingAddress.getShipping_province());
+    order.setShipping_city( shippingAddress.getShipping_city());
+    order.setShipping_county(shippingAddress.getShipping_county());
+    order.setStreet_address(shippingAddress.getStreet_address());
+    order.setPostcode(shippingAddress.getPostcode());
+    order.setMobile_phone(shippingAddress.getMobile_phone());
+    order.setFixed_phone(shippingAddress.getFixed_phone());
 	}
 
 	/**

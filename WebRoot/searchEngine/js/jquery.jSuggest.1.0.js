@@ -117,7 +117,7 @@
 								$(jC).find('ul').remove();								
 								var message="<ul>";															
 								for(var i=0;i<msg.length;i++){
-									message+="<li><span class='key'>"+msg[i].keyword_content+ "</span><span class='number'>大约" +msg[i].keyword_has_goods+"个宝贝</span></li>";
+									message+="<li><span class='key'>"+msg[i].keyword_content+ "</span><span class='number'>大约" +msg[i].keyword_has_goods+"本图书</span></li>";
 								}							
 								message+="</ul>";					
 								$(jC).append(message);

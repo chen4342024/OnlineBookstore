@@ -112,12 +112,18 @@ public class CustomerAction extends ActionSupport {
 	 */
 	
 	public String login(){
-		if(customerService.login(customer.getEmail(), customer.getPw()))
-		{
-			this.session=ActionContext.getContext().getSession();
-			session.put("customer_email", customer.getEmail());
-			return SUCCESS;
-		}else{
+		try {
+			if(customerService.login(customer.getEmail(), customer.getPw()))
+			{
+				customer = customerService.find(customer.getEmail());
+				this.session=ActionContext.getContext().getSession();
+				session.put("customer", customer);
+				return SUCCESS;
+			}else {
+				return LOGIN;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 			return LOGIN;
 		}
 	}
@@ -140,8 +146,8 @@ public class CustomerAction extends ActionSupport {
 	 */
 	public String logout(){
 		session=ActionContext.getContext().getSession();
-		if(session.get("customer_email")!=null){
-			session.remove("customer_email");
+		if(session.get("customer")!=null){
+			session.remove("customer");
 		}
 		return SUCCESS;
 	}

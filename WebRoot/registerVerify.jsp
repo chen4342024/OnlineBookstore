@@ -9,7 +9,7 @@
 <script type="text/javascript"src="<%=request.getContextPath()%>/js/register_mobile.js"></script>
 <script type="text/javascript"src="<%=request.getContextPath()%>/js/Showcode.js"></script>
 <script type="text/javascript">
-		var indexHref="http://localhost:8080/TaoShuXuan/registerVerify.jsp";
+		var indexHref="http://localhost:8080/OnlineBookstore/registerVerify.jsp";
 		if(top.location.href!=indexHref){
 			top.location.href=indexHref;
 		}

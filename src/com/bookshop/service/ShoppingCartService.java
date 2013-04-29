@@ -2,11 +2,13 @@
 
 import java.util.List;
 
+import org.infinispan.loaders.modifications.Clear;
+
 import com.bookshop.entity.Book;
 import com.bookshop.entity.BookItem;
 import com.bookshop.entity.ShoppingCart;
 
-public interface ShoppingCartService {
+public interface ShoppingCartService extends MyServiceParent{
 	/**
 	 * 把图书加入购物车
 	 * @param shoppingCart
@@ -44,4 +46,6 @@ public interface ShoppingCartService {
 	 * @return
 	 */
 	public float countTotal(List<BookItem> bookItems);
+	
+	public void clearShoppingCart(ShoppingCart shoppingCart);
 }

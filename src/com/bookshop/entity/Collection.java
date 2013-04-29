@@ -33,13 +33,13 @@ public class Collection implements Serializable {
 	/**
 	 * 收藏会员
 	 */
-	@ManyToOne(optional=false,targetEntity=Customer.class,fetch=FetchType.LAZY)
+	@ManyToOne(optional=false,targetEntity=Customer.class,fetch=FetchType.EAGER)
 	@JoinColumn(name="customer_email",nullable=false)
 	private Customer customer;
 	/**
 	 * 收藏图书
 	 */
-	@ManyToOne(optional=false,targetEntity=Book.class,fetch=FetchType.LAZY)
+	@ManyToOne(optional=false,targetEntity=Book.class,fetch=FetchType.EAGER)
 	@JoinColumn(name="book_id",nullable=false)
 	private Book book;
 	/**
@@ -50,8 +50,8 @@ public class Collection implements Serializable {
 	public Collection(){
 		
 	}
-	public Collection(String isnew){
-		this.collection_id=UUID.randomUUID().toString();
+	public static String getCollectionUUID(){
+		return UUID.randomUUID().toString();
 	}
 	public String getCollection_id() {
 		return collection_id.toLowerCase();

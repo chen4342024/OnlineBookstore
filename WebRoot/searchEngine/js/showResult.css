@@ -140,7 +140,9 @@ img {
 #table2{
 	width:800px;
 }
-
+.bookCategoryList{
+	height:auto !important; 
+}
 .keyword_font{
 	color: red;
     font-size: 14px;

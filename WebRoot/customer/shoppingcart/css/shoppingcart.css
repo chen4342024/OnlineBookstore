@@ -187,9 +187,7 @@ h1, h2, h3, h3 {
     width: 350px;
 }
 .shoppingcart_total {
-    background: url("../images/bg_cart.gif") repeat-x scroll 0 -40px transparent;
     border-top: 1px solid #DFC9B2;
-    
     margin-bottom: 30px;
     position: relative;
 }

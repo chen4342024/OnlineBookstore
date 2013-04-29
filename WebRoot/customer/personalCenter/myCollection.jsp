@@ -40,7 +40,7 @@
 </script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/customer/personalCenter/js/jquery-1.5.2.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/customer/personalCenter/js/myCollection.js" charset="utf-8"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/addBookToCart.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/shoppingcart_collection.js"></script>
 </head>
 
 <body>
@@ -72,27 +72,36 @@
 </div>
 <!--list-->
 <div class="favorites">
-<table  cellspacing="0" cellpadding="0" border="0" id="myTab1_Content0" class="invite-table3 invite-table31226">
+<table  cellspacing="0" cellpadding="0" border="0" id="myTab1_Content0" class="invite-table3 invite-table31226 collection_table">
 
 	<s:iterator value="Record_l" status="st">
 		<tr>
-			<td><input type="checkbox" name="Check_up" value="<s:property value="collection_id"/>"></td>
-        	<td><span class="row02"><a target="_blank" href="showbook.do?book.book_id=<s:property value="book.book_id"/>"  name="product_pic"><img src="<%=path %>/../BookImages/cover/<s:property value="book.book_image"/>"/></a></span></td>
-       	 	<td><span class="row03" style="display:inline;"><a target="_blank" name="product_name"><s:property value="book.name"/></a>商家：<a target="_blank"  name="business"><s:property value="book.publish_company"/></a>收藏人气：<s:property value="collectionNum_l.get(#st.index)"/>
-        		                          
-            	</span>
+			<td><input type="checkbox" name="Check_up" value="<s:property value="collection_id"/>"/> <a target="_blank" name="product_name"><s:property value="book.name"/></a></td>
+        	<td><span class="row02">
+	        		<a target="_blank" href="showbook.do?book.book_id=<s:property value="book.book_id"/>"  name="product_pic">
+	        			<img src="<%=path %>/BookImages/cover/<s:property value="book.book_image"/>"/>
+	        		</a>
+        		</span>
+        	</td>
+       	 	<td>
+       	 		<table class="noLineTable">
+       	 			<tr><td>商家：<a target="_blank"  name="business"><s:property value="book.publish_company"/></a></td></tr>
+       	 			<tr><td>收藏人气：<s:property value="collectionNum_l.get(#st.index)"/></td></tr>
+       	 		</table>
           	</td>
         	<td><span class="discount">
          		 <b>￥<span id=""><s:property value="collection_price"/></span></b>
          		 (<span><fmt:formatNumber value="${book.discount*100}" pattern="0"/></span>折)</span></td>
-          	<td><span class="row05">
-           		<a href="#"  class="buy" name="${book.book_id}" ><img border="0"  title="购买" src="images/newbtn_buy.gif"/></a>
-           		<a href="#" name="<s:property value="collection_id"/>" class="delete">删除</a>
-       		 </span></td>
+          	<td>
+          		<table class="noLineTable">
+       	 			<tr><td><a href="#"  class="buy" name="${book.book_id}" ><img border="0"  title="购买" src="images/newbtn_buy.gif"/></a>
+       	 			<a href="#" name="<s:property value="collection_id"/>" class="delete">删除</a></td></tr>
+       	 		</table>
+       		 </td>
 		</tr>		
 	</s:iterator>	
 </table>
-<table>
+<table class="collection_table">
 	<tr class="pageTr">
  		   			<td >当前页：<%=page01%>/<%=hasPages%>页 </td>
             		<td ><span class="STYLE7">数据总量 <%=hasRecord%> </span></td>

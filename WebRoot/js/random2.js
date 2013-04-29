@@ -8,7 +8,7 @@ function randomPic(width,height){
  ran2 = getNum(Math.floor(Math.random()*36)); 
  ran3 = getNum(Math.floor(Math.random()*36));  
  ran4 = getNum(Math.floor(Math.random()*36));
- img.src = "http://localhost:8080/TaoShuXuan/randomGraphics2?width=" +width+"&height="+height+"&r1="+ran1+"&r2="+ran2+"&r3="+ran3+"&r4="+ran4;
+ img.src = "http://localhost:8080/OnlineBookstore/randomGraphics2?width=" +width+"&height="+height+"&r1="+ran1+"&r2="+ran2+"&r3="+ran3+"&r4="+ran4;
 }
 
 function getNum(ran){

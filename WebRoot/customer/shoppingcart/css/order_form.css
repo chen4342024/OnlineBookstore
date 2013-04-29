@@ -372,7 +372,6 @@ element.style {
     text-align: right;
 }
 .price_charge_border {
-    background: url("../images/bg_cart.gif") repeat-x scroll 0 -40px transparent;
     border-top: 1px solid #EADBC9;
     display: block;
     height: 9px;

@@ -14,8 +14,6 @@ import com.bookshop.service.PromotionService;
 import com.bookshop.util.PageUtil;
 import com.opensymphony.xwork2.ActionSupport;
 /**
- * �Żݻ��ϢAction��
- * @author Winds
  *
  */
 @SuppressWarnings("serial")
@@ -54,7 +52,6 @@ public class PromotionAction extends ActionSupport {
 				page = hasPages;
 			}
 		}
-		// ��ȡ��ǰҳ�����
 		this.promotion_l = (List<Promotion>) promotionService.show_by_page(page, perFolioAmount,status);
 		if(status==0){
 			return "success1";
@@ -68,8 +65,6 @@ public class PromotionAction extends ActionSupport {
 	}
 	
 	/**
-	 * ����Ż���Ϣ
-	 * @return
 	 */
 	public String addPromotion(){
 		try{
@@ -86,7 +81,6 @@ public class PromotionAction extends ActionSupport {
 	}
 
 	/**
-	 * ɾ���Ż�
 	 */
 	public void deletePromotion(){
 		try{
@@ -97,7 +91,6 @@ public class PromotionAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// ֱ��������Ӧ������
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -107,7 +100,6 @@ public class PromotionAction extends ActionSupport {
 	}
 	
 	/**
-	 * ��ȡû���ڵ��Ż���Ϣ
 	 */
 	public String gainPromotion(){
 		try{
@@ -125,7 +117,6 @@ public class PromotionAction extends ActionSupport {
 	}
 	
 	/**
-	 * �޸�δ���ڵ��Ż���Ϣ
 	 */
 	public String updatePromotion(){
 		try{			
@@ -140,7 +131,6 @@ public class PromotionAction extends ActionSupport {
 		}
 	}
 	/**
-	 * ɾ��δ�����Ż�
 	 */
 	public void findNotExpirePromotion_by_time(){
 		try{
@@ -152,7 +142,6 @@ public class PromotionAction extends ActionSupport {
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
-			// ֱ��������Ӧ������
 			out.print(flag);
 			out.flush();
 			out.close();

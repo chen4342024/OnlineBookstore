@@ -8,27 +8,23 @@ import javax.annotation.Resource;
 
 import org.hibernate.Session;
 
-import com.bookshop.dao.BookDao;
 import com.bookshop.dao.CollectionDao;
 import com.bookshop.entity.Book;
 import com.bookshop.entity.Collection;
 import com.bookshop.entity.Customer;
-import com.bookshop.util.MyServiceParent;
 import com.bookshop.util.StringUtil;
 /**
  * 收藏信息Service层实现类
  * @author Winds
  *
  */
-public class CollectionServiceImpl extends MyServiceParent implements
+public class CollectionServiceImpl extends MyServiceParentImpl implements
 		CollectionService {
 
 	@Resource
 	private CollectionDao collectionDao;
 	@Resource
 	private BookService bookService;
-	@Resource
-	private CustomerService customerService;
 	private String hql;
 	private Session session;
 	
@@ -75,7 +71,6 @@ public class CollectionServiceImpl extends MyServiceParent implements
 	 * 批量删除会员图书收藏记录
 	 */
 	public boolean deleteBatch(String collectionIdStr) {
-		// TODO Auto-generated method stub
 		this.session=this.getSession();
 		List<String> idList=StringUtil.getOption(collectionIdStr, ",");
 		if(idList!=null){
@@ -89,20 +84,20 @@ public class CollectionServiceImpl extends MyServiceParent implements
 			return false;
 	}
 
-	public int addToCollection(String book_id,String customer_email) {
+	public int addToCollection(long book_id,Customer currentCustomer) {
 		this.session=this.getSession();
 		try{
-			hql = "from Collection as c where c.book.book_id ='"+book_id+"' and c.customer.email = '"+customer_email+"'";
+			hql = "from Collection as c where c.book.book_id ='"+book_id+"' and c.customer.email = '"+currentCustomer.getEmail()+"'";
 			Collection c=(Collection)collectionDao.find(hql, session);
 			if(c!=null){
 				return 0;
 			}else{
 				Book book = bookService.find(book_id);
-				Customer customer = customerService.find(customer_email);
-				Collection collection = new Collection("sb");
+				Collection collection = new Collection();
+				collection.setCollection_id(Collection.getCollectionUUID());
 				collection.setBook(book);
 				collection.setCollection_date(new Date());
-				collection.setCustomer(customer);
+				collection.setCustomer(currentCustomer);
 				collection.setCollection_price(book.getPrice());
 				collectionDao.save(collection, session);
 				return 1;

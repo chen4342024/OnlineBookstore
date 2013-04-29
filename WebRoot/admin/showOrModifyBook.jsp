@@ -46,7 +46,7 @@
             <tr>
             	<td>图书封面:</td>
                 <td >
-                	<img class="bookImage" src="<%=path %>/../BookImages/cover/${book.book_image}"/><br/>
+                	<img class="bookImage" src="<%=path %>/BookImages/cover/${book.book_image}"/><br/>
                 	<input id="fileupload" name="fileupload" type="file" disabled="disabled" /><br/><br/>
                 	<input type="hidden" name="book.book_image" class="book_image"/>
                 </td>

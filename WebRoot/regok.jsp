@@ -9,7 +9,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/Showcode.js"></script>
 <script id="json_script"type="text/javascript"src="<%=request.getContextPath()%>/js/categorydata.js"></script>
 <script type="text/javascript">
-		var indexHref="http://localhost:8080/TaoShuXuan/regok.jsp";
+		var indexHref="http://localhost:8080/OnlineBookstore/regok.jsp";
 		if(top.location.href!=indexHref){
 			top.location.href=indexHref;
 		}
@@ -49,6 +49,5 @@
 			</div>
 		</div>
 </div>
-s
 </body>
 </html>

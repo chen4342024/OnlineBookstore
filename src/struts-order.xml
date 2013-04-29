@@ -31,6 +31,10 @@
 		<!-- 进行发货操作 -->
 		<action name="deliver_goods" class="orderAction" method="deliver_goods">
 		</action>
+		
+		<!-- 会员进行确认收货 -->
+		<action name="confirmReceipt" class="orderAction" method="confirmReceipt">
+		</action>
 		 
 		<!-- 显示已发货的订单 -->
 		<action name="show_delivered_order" class="orderAction" method="show_delivered_order">

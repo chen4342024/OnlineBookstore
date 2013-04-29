@@ -20,14 +20,13 @@ import com.bookshop.dao.CustomerDao;
 import com.bookshop.entity.Customer;
 import com.bookshop.util.CryptoUtils;
 import com.bookshop.util.MyAuthenticator;
-import com.bookshop.util.MyServiceParent;
 import com.opensymphony.xwork2.ActionContext;
 /**
  * 会员信息Service层实现类
  * @author Winds
  *
  */
-public class CustomerServiceImpl extends MyServiceParent implements
+public class CustomerServiceImpl extends MyServiceParentImpl implements
 		CustomerService {
 	@Resource
 	private CustomerDao customerDao;
@@ -72,7 +71,6 @@ public class CustomerServiceImpl extends MyServiceParent implements
 	 * 查找会员信息
 	 */
 	public Customer find(String email) {
-		// TODO Auto-generated method stub
 		this.session=getSession();
 		hql="from Customer as c where c.email='"+email+"'";
 		return (Customer)customerDao.find(hql, session);
@@ -127,7 +125,7 @@ public class CustomerServiceImpl extends MyServiceParent implements
 		String toMail = email;
         String userName = "a3838049@163.com";  
         String password = "liuhongji3838049";  
-        String url = "http://localhost:8080/TaoShuXuan/activityCustomer.do?customer.email=" + toMail;//待会用户点在邮箱中点击这个链接回到你的网站。  
+        String url = "http://localhost:8080/OnlineBookstore/activityCustomer.do?customer.email=" + toMail;//待会用户点在邮箱中点击这个链接回到你的网站。  
         httpSession.setMaxInactiveInterval(600);  
           
         Properties props = new Properties();  
@@ -171,8 +169,7 @@ public class CustomerServiceImpl extends MyServiceParent implements
 			customerDao.update(c, session);
 			return true;
 		}
-		
-			return false;
+		return false;
 	}
 	
 	

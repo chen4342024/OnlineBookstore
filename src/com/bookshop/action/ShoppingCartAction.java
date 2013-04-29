@@ -31,7 +31,7 @@ public class ShoppingCartAction extends ActionSupport{
 	List<BookItem> bookItems;
 	private float total_account;
 	private boolean hasBookItem;
-	private int amountCount;//ͼ������
+	private int amountCount;
 	public void addBookToCart(){
 		book = bookService.find(book.getBook_id());
 		shoppingCart = getShoppingCart();

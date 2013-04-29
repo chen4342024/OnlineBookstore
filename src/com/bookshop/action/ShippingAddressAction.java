@@ -1,16 +1,21 @@
 ﻿package com.bookshop.action;
 
 import java.io.PrintWriter;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.bookshop.entity.Customer;
 import com.bookshop.entity.ShippingAddress;
+import com.bookshop.service.CustomerService;
 import com.bookshop.service.ShippingAddressService;
+import com.bookshop.util.BookStoreConstant;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 /**
@@ -19,44 +24,37 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  */
 @SuppressWarnings("serial")
-public class ShippingAddressAction extends ActionSupport {
+public class ShippingAddressAction extends BaseAction {
 	@Resource 
 	private ShippingAddressService shippingAddressService;
+	@Resource 
+	private CustomerService customerService;
+	private Set<ShippingAddress> shippingAddressSet;
 	private ShippingAddress shippingAddress;
 	private Map<String,Object> session;
 	
 	public void getShippingAddressByEmail(){
-		session = ActionContext.getContext().getSession();
-		String customer_email;
-		if(session.containsKey("customer_email")){
-			customer_email = session.get("customer_email").toString();
-		}else{
-			return;
-		}
-		try{
-		shippingAddress = shippingAddressService.getShippingAddressByEmail(customer_email);
-		 HttpServletRequest request = ServletActionContext.getRequest();
-		 request.setAttribute("shippingAddress", shippingAddress);
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+		shippingAddressSet = new HashSet<ShippingAddress>();
+		shippingAddressSet = shippingAddressService.getShippingAddressByEmail(getCurrentCustomer().getEmail());
 	}
+	
 	public void updateShippingAddress(){
+	  session = ActionContext.getContext().getSession();
 		PrintWriter out = null;
 		try{
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
-			out = response.getWriter();
-			if(shippingAddressService.updateShippingAddress(shippingAddress)){
-				out.print("success");
-			}else{
-				out.print("input");
+			if(session.containsKey(BookStoreConstant.SESSION_CUSTOMER)){
+				Customer customer =(Customer) session.get(BookStoreConstant.SESSION_CUSTOMER);
+				long shippingAddressId = ((ShippingAddress)shippingAddressService.addOrUpdateShippingAddress(shippingAddress,customer)).getShipping_address_id();
+				out = response.getWriter();
+				out.print(shippingAddressId);
 			}
-			out.flush();
-			out.close();
 		}catch(Exception e){
+			out.print("input");
 			e.printStackTrace();
 		}finally{
+			out.flush();
 			out.close();
 		}
 	}
@@ -70,14 +68,13 @@ public class ShippingAddressAction extends ActionSupport {
 		this.shippingAddressService = shippingAddressService;
 	}
 
-	public ShippingAddress getShippingAddress() {
-		return shippingAddress;
+	
+	public Set<ShippingAddress> getShippingAddressSet() {
+		return shippingAddressSet;
 	}
-
-	public void setShippingAddress(ShippingAddress shippingAddress) {
-		this.shippingAddress = shippingAddress;
+	public void setShippingAddressSet(Set<ShippingAddress> shippingAddressSet) {
+		this.shippingAddressSet = shippingAddressSet;
 	}
-
 	public Map<String, Object> getSession() {
 		return session;
 	}
@@ -85,5 +82,18 @@ public class ShippingAddressAction extends ActionSupport {
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
+	public ShippingAddress getShippingAddress() {
+		return shippingAddress;
+	}
+	public void setShippingAddress(ShippingAddress shippingAddress) {
+		this.shippingAddress = shippingAddress;
+	}
+	public CustomerService getCustomerService() {
+		return customerService;
+	}
+	public void setCustomerService(CustomerService customerService) {
+		this.customerService = customerService;
+	}
+	
 	
 }

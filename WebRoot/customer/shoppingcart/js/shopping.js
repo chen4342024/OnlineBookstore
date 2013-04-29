@@ -10,7 +10,6 @@ $(document).ready(function(){
 						alert("error");			
 				},
 				success: function(data){
-							
 					if((data=="success")){									
 						alert(" 放入购物车成功");
 					}else{
@@ -67,7 +66,6 @@ $(document).ready(function(){
 	
 	$('input.number').change(function(){
 		var number = $(this).val();
-		
 		$.ajax({
 			type: "POST",
 				url: "updateAmount.do?book.book_id="+this.name+"&amountCount="+number,

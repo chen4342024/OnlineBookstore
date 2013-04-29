@@ -1,11 +1,13 @@
 ﻿package com.bookshop.entity;
 
 import java.io.Serializable;
-import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,13 +24,17 @@ public class ShippingAddress implements Serializable {
 	 * UUID
 	 */
 	@Id
-	@Column(length=40)
-	private String shipping_address_id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long shipping_address_id;
 	/**
 	 * 收获地址所属会员
 	 */
-	@ManyToOne(optional=false,targetEntity=Customer.class,fetch=FetchType.LAZY)
+
+	// cascade表示级联。CascadeType.REFRESH级联刷新   
+	// optional表示该对象可有可无，它的值为true表示该外键可以为null，它的值为false表示该外键为not null   
 	@JoinColumn(name="customer_email",nullable=false)
+    @ManyToOne(cascade = CascadeType.REFRESH ,targetEntity=Customer.class, fetch = FetchType.LAZY, optional = false)   
+   
 	private Customer customer;
 	/**
 	 * 收货人姓名
@@ -79,15 +85,15 @@ public class ShippingAddress implements Serializable {
 	public ShippingAddress(){
 		
 	}
-	public ShippingAddress(String isnew){
-		this.shipping_address_id=UUID.randomUUID().toString();
+	
+	public long getShipping_address_id() {
+		return shipping_address_id;
 	}
-	public String getShipping_address_id() {
-		return shipping_address_id.toLowerCase();
+
+	public void setShipping_address_id(Long shippingAddressId) {
+		shipping_address_id = shippingAddressId;
 	}
-	public void setShipping_address_id(String shipping_address_id) {
-		this.shipping_address_id = shipping_address_id;
-	}
+
 	public Customer getCustomer() {
 		return customer;
 	}

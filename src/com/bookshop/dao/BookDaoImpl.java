@@ -5,13 +5,12 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import com.bookshop.util.MyDaoParent;
 /**
  * 图书信息Dao层实现类
  * @author Winds
  *
  */
-public class BookDaoImpl extends MyDaoParent implements BookDao {
+public class BookDaoImpl extends MyDaoParentImpl implements BookDao {
 
 	public List<?> findAll(String hql, Session session, int maxLength) {
 		List<?> l=null;

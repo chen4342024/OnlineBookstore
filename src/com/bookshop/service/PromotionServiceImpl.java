@@ -11,14 +11,13 @@ import org.apache.struts2.ServletActionContext;
 import com.bookshop.dao.PromotionDao;
 import com.bookshop.entity.Promotion;
 import com.bookshop.util.DateUtil;
-import com.bookshop.util.MyServiceParent;
 import com.bookshop.util.StringUtil;
 /**
  * 优惠活动信息Service层实现类
  * @author Winds
  *
  */
-public class PromotionServiceImpl extends MyServiceParent implements
+public class PromotionServiceImpl extends MyServiceParentImpl implements
 		PromotionService {
 	@Resource
 	private PromotionDao promotionDao;

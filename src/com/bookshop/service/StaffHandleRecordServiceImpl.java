@@ -11,13 +11,12 @@ import com.bookshop.entity.Order;
 import com.bookshop.entity.RejectedApply;
 import com.bookshop.entity.Staff;
 import com.bookshop.entity.StaffHandleRecord;
-import com.bookshop.util.MyServiceParent;
 /**
  * 员工处理会员订单和退货申请记录信息Service层实现类
  * @author Winds
  *
  */
-public class StaffHandleRecordServiceImpl extends MyServiceParent implements
+public class StaffHandleRecordServiceImpl extends MyServiceParentImpl implements
 		StaffHandleRecordService {
 	@Resource
 	private StaffHandleRecordDao staffHandleRecordDao;

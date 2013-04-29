@@ -14,6 +14,9 @@ $(document).ready(function () {
 			//批量购买
 		}
 	});
+	//添加购物车的操作
+	$('a.buy').click(shoppingCart.addBookToShoppingCart(this));
+	$('a.collect').click(customerCollect.addToCollection(this));
 	
 	$("#totaldelete").click(function(){
 		var arrChk=$("input[name='Check_up']:checked");

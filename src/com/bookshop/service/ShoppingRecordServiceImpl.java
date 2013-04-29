@@ -9,14 +9,18 @@ import org.hibernate.Session;
 
 import com.bookshop.dao.BookDao;
 import com.bookshop.dao.ShoppingRecordDao;
+import com.bookshop.entity.BookItem;
+import com.bookshop.entity.Customer;
+import com.bookshop.entity.Order;
+import com.bookshop.entity.ShoppingRecord;
 import com.bookshop.util.DateUtil;
-import com.bookshop.util.MyServiceParent;
+import com.common.service.DateService;
 /**
  * 会员购书记录信息Service层实现类
  * @author Winds
  *
  */
-public class ShoppingRecordServiceImpl extends MyServiceParent implements
+public class ShoppingRecordServiceImpl extends MyServiceParentImpl implements
 		ShoppingRecordService {
 	@Resource
 	private ShoppingRecordDao shoppingRecordDao;
@@ -27,9 +31,7 @@ public class ShoppingRecordServiceImpl extends MyServiceParent implements
 	
 	@SuppressWarnings("unchecked")
 	public List<Object> getHotsale_newbook() {
-		// TODO Auto-generated method stub
 		String dateString =DateUtil.dateToString(DateUtil.getDateBefore("week", 1));
-		
 		session=getSession();
 		hql="select b.book_id,b.name from ShoppingRecord as sr join sr.book as b where sr.book.book_id=b.book_id " +
 				"and b.sell_date>'" +dateString+
@@ -39,7 +41,6 @@ public class ShoppingRecordServiceImpl extends MyServiceParent implements
 	
 	@SuppressWarnings("unchecked")
 	public List<Object> getHotAuthorBooks() {
-		// TODO Auto-generated method stub
 		String dateString =DateUtil.dateToString(DateUtil.getDateBefore("month", 1));
 		session=this.getSession();
 		hql ="select b.author from ShoppingRecord as sr inner join sr.book as b where sr.book.book_id=b.book_id " +
@@ -55,14 +56,44 @@ public class ShoppingRecordServiceImpl extends MyServiceParent implements
 		return hotAuthor_l;
 	}
 	
-
 	@SuppressWarnings("unchecked")
 	public List<Object> getHotsale() {
-		// TODO Auto-generated method stub
 		session=getSession();
 		hql="select b.book_id,b.name,b.book_image,b.price*b.discount,b.discount*100 from ShoppingRecord as sr inner join sr.book as b " +
 				"where sr.book.book_id=b.book_id group by sr.book.book_id order by count(*) desc";
 		
 		return (List<Object>)bookDao.findAll(hql, session, 9);
 	}
+	
+	private void addShoppingRecord(List<ShoppingRecord> shoppingRecordList){
+	  session=this.getSession();
+	  for(ShoppingRecord shoppingRecord : shoppingRecordList){
+	    shoppingRecordDao.save(shoppingRecord, session);
+	  }
+	}
+
+  public void addShoppingRecord(Order order, Customer currentCustomer, List<BookItem> bookItems) {
+    List<ShoppingRecord> shoppingRecordList = new ArrayList<ShoppingRecord>();
+    for(BookItem bookItem : bookItems){
+      ShoppingRecord shoppingRecord = new ShoppingRecord();
+      shoppingRecord.setShopping_record_id(ShoppingRecord.getShoppingRecordUUID());
+      shoppingRecord.setBook(bookItem.getBook());
+      shoppingRecord.setCustomer(currentCustomer);
+      shoppingRecord.setOrder(order);
+      shoppingRecord.setRecord_date(DateService.getInstance().now());
+      shoppingRecordList.add(shoppingRecord);
+    }
+    addShoppingRecord(shoppingRecordList);
+  }
 }
+
+
+
+
+
+
+
+
+
+
+

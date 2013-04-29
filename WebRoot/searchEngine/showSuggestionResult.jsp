@@ -14,7 +14,7 @@
 	<link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css" />
 	<link href="<%=request.getContextPath()%>/searchEngine/js/showResult.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.2.6.pack.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/js/addBookToCart.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/js/shoppingcart_collection.js"></script>
   	<%
 	Integer page01 = (Integer) request.getAttribute("page");
 	Integer hasPages = (Integer) request.getAttribute("hasPages");
@@ -40,10 +40,19 @@
 		function test(select){
 	  		top.location.href = "showAll.do?page="+select.value ;
 	  	}
-	  	
-		
-		
-
+</script>
+<script>
+		$(document).ready(function () {	
+		//添加购物车的操作
+			$('a.buy').click(function(){
+				shoppingCart.addBookToShoppingCart(this);
+				return false;
+			});
+			$('a.collect').click(function(){
+				customerCollect.addToCollection(this);
+				return false;
+			});
+		});
 </script>
     </head>
     <body>
@@ -52,49 +61,21 @@
         </div>
         <div id="main">
         	<div id="sidebar">
-            	<div class="sidebar1">
-					<img src="<%=request.getContextPath() %>/images/sidebar1.png" alt="导航"/>
-					<ul>
-						<li><a href="###">三味书屋</a></li>
-						<li><a href="###">百草屋</a></li>
-						<li><a href="###">佛偈</a></li>
-						<li><a href="###">人生白皮书</a></li>
-						<li><a href="###">经典爱情故事</a></li>
-						<li><a href="###">十万个为什么</a></li>
-					</ul>
-				</div>
-              	<div class="sidebar1">
-					<img src="<%=request.getContextPath() %>/images/sidebar2.png" alt="导航"/>
-					<ul>
-						<li><a href="###">三味书屋</a></li>
-						<li><a href="###">百草屋</a></li>
-						<li><a href="###">佛偈</a></li>
-						<li><a href="###">人生白皮书</a></li>
-						<li><a href="###">经典爱情故事</a></li>
-						<li><a href="###">十万个为什么</a></li>
-					</ul>
-				</div>
-              
-                <div id="sidebar3">
-					<img src="<%=request.getContextPath() %>/images/sidebar3.png" alt="导航"/>
-					<ul>
-						<li><a href="###">三味书屋</a></li>
-						<li><a href="###">百草屋</a></li>
-						<li><a href="###">佛偈</a></li>
-						<li><a href="###">人生白皮书</a></li>
-						<li><a href="###">经典爱情故事</a></li>
-						<li><a href="###">十万个为什么</a></li>
-						<li><a href="###">少年维特之烦恼</a></li>
-					</ul>
-					<ul class="end">
-
-						<li><a href="###">佛偈</a></li>
-						<li><a href="###">人生白皮书</a></li>
-						<li><a href="###">经典爱情故事</a></li>
-						<li><a href="###">十万个为什么</a></li>
-						<li><a href="###">少年维特之烦恼</a></li>
-					</ul>
-				</div>
+                
+                	<s:if test="rowName==3">
+                		<s:action name="findCatagoryIncludeChildByName">
+                			<s:param name="catagory.catagory_name" value="keyword_show"></s:param>
+                		</s:action>
+                		<s:iterator value="#request.firstCatagoryList" status="st" var="parentCategory">
+                		<div class="bookCategoryList">
+							<jsp:include page="../customer/bookCategoryList.jsp" flush="true">
+								    <jsp:param name="parentCategory" value="${parentCategory}"/>
+								    <jsp:param name="showAll" value="true"/>
+							</jsp:include>
+						</div>
+						</s:iterator>
+                	</s:if>
+				
                 <div id="sidebar4"><img src="<%=request.getContextPath() %>/images/sidebar4.jpg" alt="导航"/></div>
                 <div id="sidebar5"><img src="<%=request.getContextPath() %>/images/sidebar5.jpg" alt="导航"/></div>
                 <div id="sidebar6"><img src="<%=request.getContextPath() %>/images/sidebar6.jpg" alt="导航"/></div>
@@ -145,7 +126,7 @@
                		<s:iterator value="goods_l" status="st">
                			<li class="book_info">
                				<input type="hidden" value="${book_id}"/>
-               				<div id="book_img" class="listitem pic"><a href="showbook.do?book.book_id=${book_id}" target="_blank"><img src="<%=request.getContextPath() %>/../BookImages/cover/${book_image}"/></a></div>
+               				<div id="book_img" class="listitem pic"><a href="showbook.do?book.book_id=${book_id}" target="_blank"><img src="<%=request.getContextPath() %>/BookImages/cover/${book_image}"/></a></div>
                				<div class="listitem book_detail">
                					<ul class="tip_list">
                						<li class="main_title">

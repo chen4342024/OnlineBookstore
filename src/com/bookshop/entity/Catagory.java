@@ -1,7 +1,9 @@
 ﻿package com.bookshop.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 /**
  * 图书分类
  */
@@ -19,6 +22,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="tb_catagory")
 public class Catagory implements Serializable {
+  public static String PARENT_CATAGORY = "1";
+  public static String CHILD_CATAGORY = "2";
 	/**
 	 * 编号
 	 */
@@ -62,8 +67,23 @@ public class Catagory implements Serializable {
 	 */
 	@Column(nullable=false)
 	private Date discount_date;
+	
+	@Transient
+	private List<Catagory> secondCatagoryList;
+	
+	public boolean isParentCatagory(){
+	  return this.catagory_level.equals(PARENT_CATAGORY);
+	}
+	
+	public List<Catagory> getSecondCatagoryList() {
+    return (secondCatagoryList==null)?new ArrayList<Catagory>():secondCatagoryList;
+  }
 
-	public Integer getCatagory_id() {
+  public void setSecondCatagoryList(List<Catagory> secondCatagoryList) {
+    this.secondCatagoryList = secondCatagoryList;
+  }
+
+  public Integer getCatagory_id() {
 		return catagory_id;
 	}
 

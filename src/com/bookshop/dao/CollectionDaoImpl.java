@@ -5,13 +5,12 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import com.bookshop.util.MyDaoParent;
 /**
  * 收藏信息Dao层实现类
  * @author Winds
  *
  */
-public class CollectionDaoImpl extends MyDaoParent implements CollectionDao {
+public class CollectionDaoImpl extends MyDaoParentImpl implements CollectionDao {
 
 	public List<?> findHotCollection(String hql, Session session, int maxLength) {
 		// TODO Auto-generated method stub

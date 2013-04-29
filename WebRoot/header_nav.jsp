@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,96 +11,90 @@
 </head>
 
 <body >
-<%
-	String account = (String) session.getAttribute("customer_email");
- %>
+
+<s:set name="account" value="#session.customer.email"></s:set>
 <div id=page>
 	<div class="chl-poster simple" id=header_nav>
 		<div id=site-nav>
 			<p class="log-info">
-			  <%
-			  	if(account!=null){
-			   %>
-			   hi，
-			   <a href="#"><%=account %></a>
+			 <s:if test="%{#account!=nul}">
+			  hi，
+			   <a href="#">${account}</a>
 			   <a href="customerLogout.do">安全退出</a>
-			   <%
-			   		}else{
-			    %>
+			  </s:if>
+			   <s:else>
 				亲，欢迎光临淘书轩！请
 				<a href="<%=request.getContextPath() %>/customerLogin.jsp">登录</a>
 				<a href="<%=request.getContextPath() %>/customerRegister.jsp">免费注册</a>
-			    <%
-			    	}
-			     %>
+			   </s:else>
 			 </p>  
-			<UL class=quick-menu>
-			  <LI class=home><A href="<%=request.getContextPath() %>/index.jsp">淘书轩首页</A> </LI>
-			  <LI><A target="_blank" href="<%=request.getContextPath() %>/customer/personalCenter/main.jsp?trigger=myOrder">我的订单</A></LI>
+			<ul class=quick-menu>
+			  <li class=home><a href="<%=request.getContextPath() %>/index.jsp">淘书轩首页</a> </li>
+			  <li><a  href="<%=request.getContextPath() %>/customer/personalCenter/main.jsp?trigger=myOrder">我的订单</a></li>
 
-			  <LI class="mytaobao menu-item">
+			  <li class="mytaobao menu-item">
 				  <div class=menu>
-					  <A target="_blank" class=menu-hd href="<%=request.getContextPath() %>/customer/personalCenter/main.jsp?trigger=myOrder" target=_top rel=nofollow>个人中心<B></B></A> 
+					  <a class=menu-hd href="<%=request.getContextPath() %>/customer/personalCenter/main.jsp?trigger=myOrder" target=_top rel=nofollow>个人中心<b></b></a> 
 					  <div class=menu-bd>
 						  <div class=menu-bd-panel>
 							  <div>
-								  <p align="center"><A href="<%=request.getContextPath() %>/customer/personalCenter/main.jsp?trigger=myOrder" rel=nofollow>我的订单</A></p>
-								  <p align="center"><A href="<%=request.getContextPath() %>/customer/personalCenter/main.jsp?trigger=myGoods" rel=nofollow>我的商品</A></p> 
-								  <p align="center"><A href="<%=request.getContextPath() %>/customer/personalCenter/main.jsp?trigger=myCollection" rel=nofollow>我的收藏</A></p>
-								  <p align="center"><A href="<%=request.getContextPath() %>/customer/personalCenter/main.jsp?trigger=myComment" rel=nofollow>我的评论</A></p>
+								  <p align="center"><a href="<%=request.getContextPath() %>/customer/personalCenter/main.jsp?trigger=myOrder" rel=nofollow>我的订单</a></p>
+								  <p align="center"><a href="<%=request.getContextPath() %>/customer/personalCenter/main.jsp?trigger=myGoods" rel=nofollow>我的商品</a></p> 
+								  <p align="center"><a href="<%=request.getContextPath() %>/customer/personalCenter/main.jsp?trigger=myCollection" rel=nofollow>我的收藏</a></p>
+								  <p align="center"><a href="<%=request.getContextPath() %>/customer/personalCenter/main.jsp?trigger=myComment" rel=nofollow>我的评论</a></p>
 							  </div>
 						  </div>
-						  <S class=r></S><S class=rt></S><S class=lt></S><S class=b></S><S class="b b2"></S><S class=rb></S><S class=lb></S>
+						  <s class=r></s><s class=rt></s><s class=lt></s><s class=b></s><s class="b b2"></s><s class=rb></s><s class=lb></s>
 					  </div>
 				  </div>
-			  </LI>
-			  <LI class=cart><A href="getBookFromCart.do" rel=nofollow><S></S>购物车 </A></LI>
-			  <LI class=favorite><A  href="<%=request.getContextPath() %>/customer/personalCenter/main.jsp?trigger=myCollection" rel=nofollow>收藏夹</A></LI>
+			  </li>
+			  <li class=cart><a href="getBookFromCart.do" rel=nofollow><S></s>购物车 </a></li>
+			  <li class=favorite><a  href="<%=request.getContextPath() %>/customer/personalCenter/main.jsp?trigger=myCollection" rel=nofollow>收藏夹</a></li>
 			 
-			  <LI class="services menu-item last">
+			  <li class="services menu-item last">
 				  <div class=menu>
-					  <A class=menu-hd href="#" target=_top>网站导航<B></B></A> 
+					  <a class=menu-hd href="#" target=_top>网站导航<b></b></a> 
 					  <div class=menu-bd style="WIDTH: 210px; HEIGHT: 262px; _width: 202px">
 						  <div class=menu-bd-panel>
-							  <DL>
-								<DT><A href="#">购物</A>
-								<DD>
-										<A href="#">商城</A> 
-										<A href="#">电器城</A> 
-										<A href="#">嗨淘</A>
-										<A href="#">全球购</A>
-										<A href="#">跳蚤街</A> 
-										<A href="#">礼物</A>
-										<A href="#">促销</A>
-										<A href="#">机票</A>
-										<A href="#">彩票</A>
-										<A href="#">创意</A> 
-								</DD>
-							</DL>
-							  <DL>
-								<DT><A href="#">门户</A> 
-								<DD><A href="#">服饰</A> <A href="#">女人</A> <A href="#">美容</A> <A href="#">居家</A> <A href="#">男人</A> <A href="#">数码</A> <A href="#">亲子</A> <A href="#">时尚</A> <A href="#">试用</A> <A href="#">心得</A> <A href="#">帮派</A> <A href="#">画报</A> <A href="#">淘女郎</A> <A href="#">社区</A> <A href="#">宝贝传奇</A>
-								</DD>
-							</DL>
-							  <DL>
-								<DT><A href="#">淘江湖</A> &nbsp;<A href="#">手机淘宝</A> </DT></DL>
-							  <DL>
-								<DT><A href="#">帮助中心</A> 
-								<DD><A href="#">交易安全</A> <A href="#">维权中心</A> </DD></DL>
-							  <DL class=last>
-								<DD><STRONG style="FONT-WEIGHT: bold"><A href="#">更多内容</A></STRONG></DD>
-							  </DL>
+							  <dl>
+								<dt><a href="#">购物</a>
+								<dd>
+										<a href="#">商城</a> 
+										<a href="#">电器城</a> 
+										<a href="#">嗨淘</a>
+										<a href="#">全球购</a>
+										<a href="#">跳蚤街</a> 
+										<a href="#">礼物</a>
+										<a href="#">促销</a>
+										<a href="#">机票</a>
+										<a href="#">彩票</a>
+										<a href="#">创意</a> 
+								</dd>
+							</dl>
+							  <dl>
+								<dt><a href="#">门户</a> 
+								<dd><a href="#">服饰</a> <a href="#">女人</a> <a href="#">美容</a> <a href="#">居家</a> <a href="#">男人</a> <a href="#">数码</a> <a href="#">亲子</a> <a href="#">时尚</a> <a href="#">试用</a> <a href="#">心得</a> <a href="#">帮派</a> <a href="#">画报</a> <a href="#">淘女郎</a> <a href="#">社区</a> <a href="#">宝贝传奇</a>
+								</dd>
+							</dl>
+							  <dl>
+								<dt><a href="#">淘江湖</a> &nbsp;<a href="#">手机淘宝</a> </dt></dl>
+							  <dl>
+								<dt><a href="#">帮助中心</a> 
+								<dd><a href="#">交易安全</a> <a href="#">维权中心</a> </dd></dl>
+							  <dl class=last>
+								<dd><strong style="FONT-WEIGHT: bold"><a href="#">更多内容</a></strong></dd>
+							  </dl>
 						  </div>
-						  <S class=r></S><S class=rt></S><S class=lt></S><S class=b style="WIDTH: 169px"></S><S class="b b2" style="WIDTH: 169px"></S><S class=rb></S><S class=lb></S>
+						  <s class=r></s><s class=rt></s><s class=lt></s><s class=b style="WIDTH: 169px"></s><s class="b b2" style="WIDTH: 169px"></s><s class=rb></s><s class=lb></s>
 					  </div>
 				  </div>
-			  </LI>
-		    </UL>
+			  </li>
+		    </ul>
 		</div>
 	</div>
 </div>
-<SCRIPT type=text/javascript>
+<script type=text/javascript>
 	TB.Header.init();
-</SCRIPT>
+</script>
 </body>
 </html>

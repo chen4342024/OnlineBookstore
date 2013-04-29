@@ -1,4 +1,5 @@
 $(function(){
+	var path = /OnlineBookstore/;
 	$.ajax({
 		type: "GET",
 		url: "getIndexPageLists.do",
@@ -31,7 +32,7 @@ $(function(){
 				var obj=eval(hotsale_l[i]);
 				var hotsale_html="<dl class='main1221'>"
 								+"<div class='hotsale_title'><a target='_blank' title='showbook.do?book.book_id="+obj[1]+"' href='showbook.do?book.book_id="+obj[0]+"'>"+obj[1]+"</a></div>"
-								+"<div class='hotsale_img'><a href='showbook.do?book.book_id="+obj[0]+"'><img src='../BookImages/cover/"+obj[2]+"' title='"+obj[1]+"'/></a></div>"
+								+"<div class='hotsale_img'><a href='showbook.do?book.book_id="+obj[0]+"'><img src='"+path+"/BookImages/cover/"+obj[2]+"' title='"+obj[1]+"'/></a></div>"
 								+"<div class='hotsale_price'>"
 								+"<span class='price_d'>¥<em>"+showPrice(obj[3])+"</em></span ><span class='discount'>"+parseInt(obj[4].toString())+"折</span>"
 								+"</div></dl>";			
@@ -47,7 +48,7 @@ $(function(){
 			for(var i=0;i<hotAuthor_length;i++){
 				var obj=eval(hotAuthor_l[i]);
 				var hotAuthor_html="<dl class='hotauthor'>"
-								+"<div class='book_img'><a href='showbook.do?book.book_id="+obj[0]+"' ><img src='../BookImages/cover/"+obj[2]+"' title='"+obj[1]+"'/></a></div>"
+								+"<div class='book_img'><a href='showbook.do?book.book_id="+obj[0]+"' ><img src='"+path+"/BookImages/cover/"+obj[2]+"' title='"+obj[1]+"'/></a></div>"
 								+" <span class='book_name'><a href='showbook.do?book.book_id="+obj[0]+"' title='"+obj[1]+"' target='_blank'>"+obj[1]+"</a></span>"
 								+"<span class='author_name'><a href='search.do?type=author&author="+obj[5]+"' target='_blank'>"+obj[5]+"</a></span>"
 								+"<div class='price'>"
@@ -61,7 +62,7 @@ $(function(){
 			for(var i=0;i<hotCollection_l.length;i++){
 				var obj=eval(hotCollection_l[i]);
 				var hotCollection_html="<dl class='hotcollection_bookinfo'>"
-									+"<div class='book_img'><a href='showbook.do?book.book_id="+obj[0]+"'><img src='../BookImages/cover/"+obj[2]+"' title='"+obj[1]+"'/></a></div>"
+									+"<div class='book_img'><a href='showbook.do?book.book_id="+obj[0]+"'><img src='"+path+"/BookImages/cover/"+obj[2]+"' title='"+obj[1]+"'/></a></div>"
 									+"<span class='book_name'><a href='showbook.do?book.book_id="+obj[0]+"' target='_blank'>"+obj[1]+"</a></span>"
 									+"<div class='price'>"
 									+"<span class='price_d'>¥<em>"+showPrice(obj[3])+"</em></span ><span class='discount'>"+parseInt(obj[4].toString())+"折</span>"

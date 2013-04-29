@@ -70,17 +70,13 @@
                 	<tr>
                   		<td><div align="center"><span class="STYLE3"><a href="#"><s:property value="order_id"/></a></span></div></td>
                   		<td>
-                     	                   
                      	 <s:iterator value="book_l_l.get(#st.index)" status="st1" id="inner">
-                     	 	<span class="STYLE3"><a target="_blank" href="showbook.do?book.book_id=<s:property value="#inner.book_id"/>"  class="track"> <img  src="<%=path %>/../BookImages/cover/<s:property value="#inner.book_image"/>"/></a></span>
+                     	 	<span class="STYLE3"><a target="_blank" href="showbook.do?book.book_id=<s:property value="#inner.book_id"/>"  class="track"> <img  src="<%=path %>/BookImages/cover/<s:property value="#inner.book_image"/>"/></a></span>
                      	 </s:iterator>                                     
-                      
                    		</td>
-                  <td><div align="center"><span class="STYLE3"><s:property value="customer.name"/></span></div></td>
+                  <td><div align="center"><span class="STYLE3"><s:property value="consignee"/></span></div></td>
                   <td> <s:property value="amount"/></td>
-                  <td>
-                      <div align="center"><span class="STYLE3"><s:property value="paymentMethod.name"/></span></div>
-                  </td>
+                  <td><div align="center"><span class="STYLE3"><s:property value="paymentMethodName"/></span></div></td>
                   <td >
                       <div align="center"><span class="STYLE3"><s:property value="order_date.toLocaleString()"/></span></div>
                   </td>
@@ -99,6 +95,7 @@
                   	
                   	<c:choose>	
                   		<c:when test="${status == '0'}"><div align="center" class="STYLE5"><a href="#" class="delete" id="<s:property value="order_id"/>" name="<s:property value="status"/>">取消订单</a></c:when>
+                  		<c:when test="${status == '3'}"><div align="center" class="STYLE5"><a href="#" class="confirmReceipt" id="<s:property value="order_id"/>" name="<s:property value="status"/>">确认收货</a></c:when>
                   		<c:when test="${status == '4'}"><br/><div align="center" class="STYLE5"><a href="#" class="comment" id="<s:property value="order_id"/>" name="<s:property value="status"/>">写评论</a></div></c:when>                 		
                   		<c:otherwise>---</c:otherwise>
                   	</c:choose> 

@@ -1,11 +1,10 @@
 ﻿package com.bookshop.action;
 
 import java.util.Map;
-
 import javax.annotation.Resource;
-
 import com.bookshop.entity.Admin;
 import com.bookshop.service.AdminService;
+import com.bookshop.util.BookStoreConstant;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -17,12 +16,11 @@ public class AdminAction extends ActionSupport{
 	private Map<String,Object> session;
 	private Admin admin;
 	
-	
 	public String login(){
 		int isLogin=adminService.login(admin.getAccount(), admin.getPw());
 		if(isLogin!=-1){
 			session=ActionContext.getContext().getSession();
-			session.put("admin_id",isLogin);
+			session.put(BookStoreConstant.SESSION_ADMIN,isLogin);
 			session.put("admin_account", admin.getAccount());
 			return SUCCESS;
 		}
@@ -34,8 +32,8 @@ public class AdminAction extends ActionSupport{
 		if(session.get("admin_account")!=null){
 			session.remove("admin_account");
 		}
-		if(session.get("admin_id")!=null){
-			session.remove("admin_id");
+		if(session.get(BookStoreConstant.SESSION_ADMIN)!=null){
+			session.remove(BookStoreConstant.SESSION_ADMIN);
 		}
 		return SUCCESS;
 	}

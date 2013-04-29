@@ -1,18 +1,19 @@
 ﻿package com.bookshop.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.bookshop.entity.Book;
 import com.bookshop.entity.BookItem;
 import com.bookshop.entity.ShoppingCart;
-import com.bookshop.util.MyServiceParent;
+import com.common.util.StringUtil;
 
-public class ShoppingCartServiceImpl extends MyServiceParent implements ShoppingCartService{
+public class ShoppingCartServiceImpl extends MyServiceParentImpl implements ShoppingCartService{
 	private Map <String,BookItem> bookItems;
 	public boolean addBookToCart( ShoppingCart shoppingCart,Book book,int num) {
-		String book_id =book.getBook_id();
+		String book_id =String.valueOf(book.getBook_id());
 		bookItems = shoppingCart.getBookItems();
 		if(bookItems.containsKey(book_id)){
 			BookItem bookItem=(BookItem)bookItems.get(book_id);
@@ -33,7 +34,7 @@ public class ShoppingCartServiceImpl extends MyServiceParent implements Shopping
 	}
 
 	public boolean removeBookToCart(ShoppingCart shoppingCart, Book book) {
-		String book_id =book.getBook_id();
+		String book_id =String.valueOf(book.getBook_id());
 		bookItems = shoppingCart.getBookItems();
 		if(bookItems.containsKey(book_id)){
 			bookItems.remove(book_id);
@@ -43,7 +44,7 @@ public class ShoppingCartServiceImpl extends MyServiceParent implements Shopping
 		}
 	}
 	public boolean updateBookAmountToCart(ShoppingCart shoppingCart,Book book,int amount) {
-		String book_id =book.getBook_id();
+		String book_id =String.valueOf(book.getBook_id());
 		bookItems = shoppingCart.getBookItems();
 		if(bookItems.containsKey(book_id)){
 			BookItem bookItem=(BookItem)bookItems.get(book_id);
@@ -62,6 +63,8 @@ public class ShoppingCartServiceImpl extends MyServiceParent implements Shopping
 		return totalAccount;
 	}
 
-	
-	
+  public void clearShoppingCart(ShoppingCart shoppingCart) {
+    shoppingCart.setBookItems(new HashMap<String, BookItem>());
+  }
+
 }

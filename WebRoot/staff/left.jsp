@@ -38,7 +38,7 @@
       <div class="content">
         <ul class="MM">
 		  <li><a href="show_rejectedApply.do?status=0 &clear=true" target="main">审核退货申请</a></li>
-          <li><a href="show_rejectedApply.do?status=1 &clear=true" target="main">确认收货完成交易</a></li>
+          <li><a href="show_rejectedApply.do?status=1 &clear=true" target="main">确认收货完成退货申请</a></li>
        	  <li><a href="show_rejectedApply.do?status=2 &clear=true" target="main">查看不批准的退货申请</a></li>
        	  <li><a href="show_rejectedApply.do?status=3 &clear=true" target="main">查看已完成退货申请</a></li>
         </ul>

@@ -1,6 +1,7 @@
 ﻿package com.bookshop.service;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,14 +9,14 @@ import javax.annotation.Resource;
 
 import com.bookshop.dao.CatagoryDao;
 import com.bookshop.entity.Catagory;
-import com.bookshop.util.MyServiceParent;
+import com.common.util.CollectionUtil;
 import com.searchEngine.service.KeyWordService;
 /**
  * 图书分类信息Service层实现类
  * @author Winds
  *
  */
-public class CatagoryServiceImpl extends MyServiceParent implements
+public class CatagoryServiceImpl extends MyServiceParentImpl implements
 		CatagoryService {
 	@Resource
 	private  CatagoryDao  catagoryDao;
@@ -84,20 +85,22 @@ public class CatagoryServiceImpl extends MyServiceParent implements
 	 * @see com.bookshop.service.CatagoryService#findAll(int)
 	 */
 	public List<Catagory> findAllFirstCatagory() {
-		// TODO Auto-generated method stub
+		List<Catagory> catagoryList = new ArrayList<Catagory>();
 		this.session=getSession();
 		hql="from Catagory as c where c.catagory_parent.catagory_id="+null+"";	
-		return (List<Catagory>)catagoryDao.findAll(hql, session);
+		catagoryList = (List<Catagory>) catagoryDao.findAll(hql, session);
+		return catagoryList;
 	}
 	/*
 	 * 查找某一个一级分类的二级级别的所有图书分类
 	 * @see com.bookshop.service.CatagoryService#findAll(int)
 	 */
 	public List<Catagory> findAll(int catagory_id) {
+		
 		// TODO Auto-generated method stub
 		this.session=getSession();		
 		hql="from Catagory as c where c.catagory_parent.catagory_id='"+catagory_id+"'";						
-		return (List<Catagory>)catagoryDao.findAll(hql, session);
+		return (List<Catagory>) catagoryDao.findAll(hql, session);
 	}
 	
 	/*
@@ -108,7 +111,7 @@ public class CatagoryServiceImpl extends MyServiceParent implements
 		// TODO Auto-generated method stub
 		this.session=getSession();		
 		hql="from Catagory as c where c.catagory_level=2";						
-		return (List<Catagory>)catagoryDao.findAll(hql, session);
+		return (List<Catagory>) catagoryDao.findAll(hql, session);
 	}
 
 	/**

@@ -228,7 +228,7 @@ public class CryptoUtils {
 	}
     public static void main(String[] args) throws Exception{
     	//System.out.println(CryptoUtils.encryptAES("admin", "zxrxyxyxyxyxyxye"));
-    	System.out.println(CryptoUtils.decryptAES("a98ecf1e58c1b23378eeb1e882defd5f", "zxrxyxyxyxyxyxye"));
+    	System.out.println(CryptoUtils.decryptAES("8940e5fabe9dd703a9cab2181dfe1e5c", "zxrxyxyxyxyxyxye"));
     }
 
 }

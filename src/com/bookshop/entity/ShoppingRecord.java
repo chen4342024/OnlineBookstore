@@ -51,8 +51,8 @@ public class ShoppingRecord implements Serializable {
 	public ShoppingRecord(){
 		
 	}
-	public ShoppingRecord(String isnew){
-		this.shopping_record_id=UUID.randomUUID().toString();
+	public static String getShoppingRecordUUID(){
+		return UUID.randomUUID().toString();
 	}
 	public String getShopping_record_id() {
 		return shopping_record_id.toLowerCase();

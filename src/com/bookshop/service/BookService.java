@@ -1,7 +1,5 @@
 ﻿package com.bookshop.service;
 
-import java.util.List;
-
 import com.bookshop.entity.Book;
 
 /**
@@ -9,18 +7,19 @@ import com.bookshop.entity.Book;
  * @author Winds
  *
  */
-public interface BookService {
-	public int findInventory(String book_id);
-	public Book find(String book_id);
-	public boolean updateStatus(String book_id,int status);
+public interface BookService extends MyServiceParent{
+	public int findInventory(long book_id);
+	public Book find(long book_id);
+	public boolean updateStatus(long book_id,int status);
 	public boolean updateDiscount(Book book);
-	public boolean updateStorage_num(String book_id,int storage_num);
+	public boolean increaseStorageNum(long bookId,int storageNum);
+	/**
+	 * 减少库存
+	 * @param book_id 图书ID
+	 * @param decrement 减少的数量 eg：1
+	 */
+	public void decrementStorageNum(long book_id,int decrement);
 	public boolean update(Book book,int catagory_id);
 	public boolean add(Book book,int catagory_id);
-//	public Long hasNumbers(String entityName);
-//	public int findPages(int perFolioAmount,String entityName);
-//	public List<?> show_by_page(int page,int perFolioAmount,String entityName);
-	public Long hasNumbers(String entityName,String[] paramName,String[]value,boolean isLike);
-	public List<?> show_by_page(int page,int perFolioAmount,String entityName,String[] paramName,String[]value,boolean isLike);
 	
 }

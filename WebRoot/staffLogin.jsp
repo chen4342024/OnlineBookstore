@@ -6,6 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/login.css" type="text/css" />
+<script type="text/javascript">
+		var indexHref="http://localhost:8080/OnlineBookstore/staffLogin.jsp";
+		if(top.location.href!=indexHref){
+			top.location.href=indexHref;
+		}
+</script>
 </head>
 	
 <body>

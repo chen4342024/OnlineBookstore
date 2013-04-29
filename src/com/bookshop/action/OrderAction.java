@@ -6,16 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
+import javax.mail.Session;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 import com.bookshop.entity.Book;
 import com.bookshop.entity.BookItem;
+import com.bookshop.entity.Customer;
 import com.bookshop.entity.Order;
+import com.bookshop.entity.OrderStatus;
 import com.bookshop.entity.ShoppingCart;
 import com.bookshop.entity.Staff;
 import com.bookshop.service.BookService;
 import com.bookshop.service.OrderService;
 import com.bookshop.service.ShoppingCartService;
+import com.bookshop.util.BookStoreConstant;
 import com.bookshop.util.PageUtil;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -26,7 +30,7 @@ import java.util.regex.*;
  *
  */
 @SuppressWarnings("serial")
-public class OrderAction extends ActionSupport {
+public class OrderAction extends BaseAction {
 	@Resource
 	private OrderService orderService;
 	@Resource 
@@ -57,7 +61,6 @@ public class OrderAction extends ActionSupport {
 	private String beginTime;
 	private String endTime;
 	private boolean clear;//清楚筛选的参数
-	private String customerEmai; //会员email
 	
 	
 	@SuppressWarnings("unchecked")
@@ -114,7 +117,7 @@ public class OrderAction extends ActionSupport {
 			return String.valueOf(status);
 		}catch(Exception e){
 			e.printStackTrace();
-			return "input";
+			return INPUT;
 		}
 	}
 	
@@ -124,9 +127,9 @@ public class OrderAction extends ActionSupport {
 	@SuppressWarnings("unchecked")
 	public String show_order_by_customer(){
 		try{
-			perFolioAmount = 2; // 每页显示条数
+			perFolioAmount = 10; // 每页显示条数
 			String[] parms = new String[]{"customer.email"};
-			String[] values = new String[]{customerEmai};
+			String[] values = new String[]{getCurrentCustomer().getEmail()};
 			boolean isLike = false;
 			this.hasRecord = orderService.hasNumbers("Order",parms,values,isLike); // 获取数据条数
 			hasPages = PageUtil.findAllPages(perFolioAmount, hasRecord);; // 获取页数
@@ -148,10 +151,10 @@ public class OrderAction extends ActionSupport {
 
 			this.Record_l = (List<Order>) orderService.show_by_page(page, perFolioAmount, "Order", parms,values,isLike);
 			this.book_l_l=orderService.findBook_l(Record_l);
-			return "success";
+			return SUCCESS;
 		}catch(Exception e){
 			e.printStackTrace();
-			return "input";
+			return INPUT;
 		}
 	}
 	
@@ -160,17 +163,17 @@ public class OrderAction extends ActionSupport {
 	 */
 	public void  audit_order(){
 	
-		String flag = "input";
+		String flag = INPUT;
 		System.out.println(isPass);
 		PrintWriter out = null;
-		session = ActionContext.getContext().getSession();
-		staff_id = session.get("staff_id").toString();
+		
+		staff_id = getCurrentStaff().getStaff_id();
 		orderService.audit_order(staff_id,order.getOrder_id(),isPass);
 		try{
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			out = response.getWriter();
-			flag = "success";
+			flag = SUCCESS;
 			out.print(flag);
 			out.flush();
 			out.close();
@@ -185,26 +188,49 @@ public class OrderAction extends ActionSupport {
 	 * 进行发货操作。
 	 */
 	public void deliver_goods(){
-		String flag = "input";
+		String flag = INPUT;
 		PrintWriter out = null;
-		session = ActionContext.getContext().getSession();
-		staff_id = session.get("staff_id").toString();
+		
+		staff_id = getCurrentStaff().getStaff_id();
 		orderService.deliver_goods(staff_id,order.getOrder_id());
 		try{
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			out = response.getWriter();
-			flag = "success";
+			flag = SUCCESS;
 			out.print(flag);
 			out.flush();
 			out.close();
 		}catch(IOException e){
-			
 			e.printStackTrace();
 		}finally{
 			if(out != null)
 				out.close();
 		}
+	}
+	
+	/**
+	 * 会员确认收货
+	 * @return
+	 */
+	public void confirmReceipt(){
+	  String flag = INPUT;
+    PrintWriter out = null;
+    orderService.changeOrderStatus(order.getOrder_id(),OrderStatus.DEAL_COMPLETE);
+    try{
+      HttpServletResponse response = ServletActionContext.getResponse();
+      response.setCharacterEncoding("UTF-8");
+      out = response.getWriter();
+      flag = SUCCESS;
+      out.print(flag);
+      out.flush();
+      out.close();
+    }catch(IOException e){
+      e.printStackTrace();
+    }finally{
+      if(out != null)
+        out.close();
+    }
 	}
 	
 	/**
@@ -217,11 +243,11 @@ public class OrderAction extends ActionSupport {
 			if(book_l!=null){
 				return SUCCESS;
 			}else{
-				return "input";
+				return INPUT;
 			}
 		}catch(Exception e){
 			e.printStackTrace();
-			return "input";
+			return INPUT;
 		}						
 	}
 	
@@ -231,13 +257,12 @@ public class OrderAction extends ActionSupport {
 	 */
 	public void deleteOrder(){
 		try{
-			String flag="input";
+			String flag=INPUT;
 			if(orderService.delete(order.getOrder_id())){
-				flag="success";
+				flag=SUCCESS;
 			}				
-			HttpServletResponse response = ServletActionContext.getResponse();
-			response.setCharacterEncoding("UTF-8");
-			PrintWriter out = response.getWriter();
+			getResponse().setCharacterEncoding("UTF-8");
+			PrintWriter out = getResponse().getWriter();
 			// 直接输入响应的内容
 			out.print(flag);
 			out.flush();
@@ -248,18 +273,15 @@ public class OrderAction extends ActionSupport {
 	}
 	public String commitOrder(){
 		try{
-			order.setOrder_id(new Order("sb").getOrder_id());
-			ShoppingCart shoppingCart =(ShoppingCart)ActionContext.getContext().getSession().get("shoppingCart");
-			bookItems = shoppingCartService.getBookFromCart(shoppingCart);
-			orderService.commitOrder(order, order.getCustomer().getEmail(), order.getPaymentMethod().getPayment_method_id(), order.getShippingAddress().getShipping_address_id(), bookItems);
-			
+			order.setOrder_id(Order.generateOrderId());
+			ShoppingCart shoppingCart =(ShoppingCart)this.getCurrentSession().get("shoppingCart");
+			orderService.commitOrder(order, getCurrentCustomer(), shoppingCart);
 			return SUCCESS;
 		}catch(Exception e){
 			e.printStackTrace();
-			return "input";
+			return INPUT;
 		}
 	}
-	
 	
 	public OrderService getOrderService() {
 		return orderService;
@@ -454,14 +476,6 @@ public class OrderAction extends ActionSupport {
 
 	public void setBook_l_l(List<List<Book>> book_l_l) {
 		this.book_l_l = book_l_l;
-	}
-
-	public String getCustomerEmai() {
-		return customerEmai;
-	}
-
-	public void setCustomerEmai(String customerEmai) {
-		this.customerEmai = customerEmai;
 	}
 
 	public List<BookItem> getBookItems() {

@@ -21,7 +21,7 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  */
 @SuppressWarnings("serial")
-public class StaffHandleRecordAction extends ActionSupport {
+public class StaffHandleRecordAction extends BaseAction {
 	@Resource
 	private StaffHandleRecordService staffHandleRecordService;
 	private StaffHandleRecord staffHandleRecord;
@@ -103,11 +103,7 @@ public class StaffHandleRecordAction extends ActionSupport {
 			clear=false;
 		}
 		try{
-		session = ActionContext.getContext().getSession();
-		if(session.get("staff_id")==null){
-			return "input";
-		}
-		String staff_id = session.get("staff_id").toString();
+		String staff_id = getCurrentStaff().getStaff_id();
 		String[] parms = new String[]{"staff.staff_id"};
 		String[] values =new String[]{staff_id};
 		boolean isLike = false;

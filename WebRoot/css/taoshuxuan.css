@@ -53,3 +53,23 @@ h1, h3, h4, h5, h6 {
 	height:20px;
 	width: 50px;
 }
+.errorIconAndMsg{ 
+    color:#ed3535;
+	font-weight: bold;
+	background:url(../images/error.gif) 0px 0px no-repeat;
+	padding-left:30px;
+	padding-right:1px;
+	padding-top:3px;
+	*padding-top:2px; 
+	padding-bottom:1px;
+	clear:both;
+}
+.requireSpan{ 
+    color:#ed3535;
+	font-weight: bold;
+	padding-left:1px;
+	padding-right:1px;
+	padding-top:3px;
+	padding-bottom:1px;
+	clear:both;
+}

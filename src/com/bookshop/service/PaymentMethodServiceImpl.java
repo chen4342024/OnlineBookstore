@@ -7,13 +7,12 @@ import javax.annotation.Resource;
 
 import com.bookshop.dao.PaymentMethodDao;
 import com.bookshop.entity.PaymentMethod;
-import com.bookshop.util.MyServiceParent;
 /**
  * 付款方式Service层实现类
  * @author Winds
  *
  */
-public class PaymentMethodServiceImpl extends MyServiceParent implements
+public class PaymentMethodServiceImpl extends MyServiceParentImpl implements
 		PaymentMethodService {
 	@Resource
 	private PaymentMethodDao paymentMethodDao;
@@ -87,7 +86,7 @@ public class PaymentMethodServiceImpl extends MyServiceParent implements
 		try{
 			session = getSession();
 			hql="from PaymentMethod";
-			return (List<PaymentMethod>)paymentMethodDao.findAll(hql, session);
+			return (List<PaymentMethod>) paymentMethodDao.findAll(hql, session);
 		}catch(Exception e){
 			e.printStackTrace();
 			return null;

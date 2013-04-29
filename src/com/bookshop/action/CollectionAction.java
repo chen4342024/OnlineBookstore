@@ -12,15 +12,12 @@ import com.bookshop.entity.Book;
 import com.bookshop.entity.Collection;
 import com.bookshop.service.CollectionService;
 import com.bookshop.util.PageUtil;
-import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
 /**
  * 收藏信息Action层
  * @author Winds
  *
  */
-@SuppressWarnings("serial")
-public class CollectionAction extends ActionSupport {
+public class CollectionAction extends BaseAction {
 	@Resource
 	private CollectionService collectionService;
 	private Collection colletion;
@@ -31,7 +28,6 @@ public class CollectionAction extends ActionSupport {
 	private int perFolioAmount;  //每页数据的条数
 	private List<Integer> page_l;//获取一个从1到hasPages的数组
 	private List <Collection> Record_l; //当前页的数据
-	private String customerEmai;
 	private String collectionIdStr; //批量删除的id串
 	private Book book;
 	
@@ -41,9 +37,9 @@ public class CollectionAction extends ActionSupport {
 	 */
 	public String show_collection_by_page(){
 		try{
-			perFolioAmount = 2; // 每页显示条数
+			perFolioAmount = 5; // 每页显示条数
 			String[] parms = new String[]{"customer.email"};
-			String[] values = new String[]{customerEmai};
+			String[] values = new String[]{getCurrentCustomer().getEmail()};
 			boolean isLike = false;
 			this.hasRecord = collectionService.hasNumbers("Collection",parms,values,isLike); // 获取数据条数
 			hasPages = PageUtil.findAllPages(perFolioAmount, hasRecord);; // 获取页数
@@ -61,8 +57,6 @@ public class CollectionAction extends ActionSupport {
 				}
 			}
 			// 获取当前页的数据
-
-
 			this.Record_l = (List<Collection>) collectionService.show_by_page(page, perFolioAmount, "Collection", parms,values,isLike);
 			this.collectionNum_l=collectionService.findColletionNum(Record_l);
 			return "success";
@@ -121,14 +115,13 @@ public class CollectionAction extends ActionSupport {
 	public void addToCollection(){
 		try{
 			String flag="input";
-			String customer_email = ActionContext.getContext().getSession().get("customer_email").toString();
-			int result = collectionService.addToCollection(book.getBook_id(), customer_email);
+			int result = collectionService.addToCollection(book.getBook_id(), getCurrentCustomer());
 			if(result==1){				
-				flag="success";
+				flag=SUCCESS;
 			}else if(result==0){
 				flag="repeat";
 			}else{
-				flag="input";
+				flag=INPUT;
 			}
 			HttpServletResponse response = ServletActionContext.getResponse();
 			response.setCharacterEncoding("UTF-8");
@@ -146,12 +139,6 @@ public class CollectionAction extends ActionSupport {
 	}
 	public void setColletion(Collection colletion) {
 		this.colletion = colletion;
-	}
-	public String getCustomerEmai() {
-		return customerEmai;
-	}
-	public void setCustomerEmai(String customerEmai) {
-		this.customerEmai = customerEmai;
 	}
 	public Long getHasRecord() {
 		return hasRecord;

@@ -6,13 +6,12 @@ import org.hibernate.Session;
 import com.bookshop.dao.RejectedApplyDao;
 import com.bookshop.entity.Order;
 import com.bookshop.entity.RejectedApply;
-import com.bookshop.util.MyServiceParent;
 /**
  * 会员退货申请信息Service层实现类
  * @author Winds
  *
  */
-public class RejectedApplyServiceImpl extends MyServiceParent implements
+public class RejectedApplyServiceImpl extends MyServiceParentImpl implements
 		RejectedApplyService {
 	@Resource
 	private RejectedApplyDao rejectedApplyDao;

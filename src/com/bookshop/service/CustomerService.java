@@ -11,7 +11,7 @@ import com.bookshop.entity.Customer;
  * @author Winds
  *
  */
-public interface CustomerService {
+public interface CustomerService extends MyServiceParent{
 	/**
 	 * 激活会员账号
 	 */
@@ -48,14 +48,5 @@ public interface CustomerService {
 	public int updateState(String email);
 	public Customer find(String email);
 	
-//	public Long hasNumbers(String entityName);
-//	public int findPages(int perFolioAmount,String entityName);
-//	public List<?> show_by_page(int page,int perFolioAmount,String entityName);
-//	
-//	public Long hasNumbers(String entityName,String parameter);
-//	public int findPages(int perFolioAmount,String entityName,String parameter);
-//	public List<?> show_by_page(int page,int perFolioAmount,String entityName,String parameter);
 	
-	public Long hasNumbers(String entityName,String[] paramName,String[]value,boolean isLike);
-	public List<?> show_by_page(int page,int perFolioAmount,String entityName,String[] paramName,String[]value,boolean isLike);
 }

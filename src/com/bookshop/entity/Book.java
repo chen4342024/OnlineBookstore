@@ -2,11 +2,12 @@
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,8 +24,8 @@ public class Book implements Serializable {
 	 * UUID
 	 */
 	@Id
-	@Column(length=40)
-	private String book_id; 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long book_id; 
 	@Column(length=60,nullable=false)
 	private String name;
 	/**
@@ -126,17 +127,15 @@ public class Book implements Serializable {
 	@Column(nullable=false)
 	private float price;
 	
-	public Book(){}
-	public Book(String isnew){
-		this.book_id=UUID.randomUUID().toString();
-	}
-	public String getBook_id() {
-		return book_id.toLowerCase();
-	}
-	public void setBook_id(String book_id) {
-		this.book_id = book_id;
-	}
-	public String getName() {
+
+	
+	public long getBook_id() {
+    return book_id;
+  }
+  public void setBook_id(long bookId) {
+    book_id = bookId;
+  }
+  public String getName() {
 		return name;
 	}
 	public void setName(String name) {

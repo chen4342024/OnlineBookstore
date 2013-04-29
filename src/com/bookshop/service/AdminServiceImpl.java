@@ -5,13 +5,10 @@ import javax.annotation.Resource;
 import com.bookshop.dao.AdminDao;
 import com.bookshop.entity.Admin;
 import com.bookshop.util.CryptoUtils;
-import com.bookshop.util.MyServiceParent;
 /**
- * ��վ����Ա��ϢService��ʵ����
- * @author Winds
- *
+ 
  */
-public class AdminServiceImpl extends MyServiceParent implements AdminService {
+public class AdminServiceImpl extends MyServiceParentImpl implements AdminService {
 	@Resource
 	private AdminDao adminDao;
 	private String hql;

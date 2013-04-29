@@ -172,7 +172,7 @@
 				<div class="showBook">
 					<div class="pc">
 						<img id="largePic"
-							src="<%=path%>/../BookImages/cover/${book.book_image}" />
+							src="<%=path%>/BookImages/cover/${book.book_image}" />
 					</div>
 				</div>
 				<div class="infoBook">
